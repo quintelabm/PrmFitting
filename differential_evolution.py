@@ -110,12 +110,12 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, POI, PAT):
 
 #--- CONSTANTS ----------------------------------------------------------------+
 
-cost_func = viralmodelfit           # Cost function
-bounds = [(0,1),(0,1),(0,5),(0,5)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
-popsize = 10                        # Population size, must be >= 4
-mutate = 0.5                        # Mutation factor [0,2]
-recombination = 0.7                 # Recombination rate [0,1]
-maxiter = 100                       # Max number of generations (maxiter)
+cost_func = viralmodelfit                   # Cost function
+bounds = [(0.01,1),(0.9,1),(0.1,5),(1,10)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+popsize = 10                                # Population size, must be >= 4
+mutate = 0.5                                # Mutation factor [0,2]
+recombination = 0.7                         # Recombination rate [0,1]
+maxiter = 100                               # Max number of generations (maxiter)
 
 # Patient data
 PAT1 = [3.241529, 2.555326, 2.547130, 2.541043]
@@ -123,7 +123,7 @@ PAT = PAT1
 
 # initial guess for parameters
 # delta epsilon p c
-POI = [0.01, 0.996, 0.18, 2]
+POI = [0.01, 0.996, 0.18, 5]
 
 #--- RUN ----------------------------------------------------------------------+
 
