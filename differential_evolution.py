@@ -26,6 +26,7 @@ import random
 import numpy as np
 from depend.cost import viralmodelfit
 from depend.bounds import ensure_bounds
+import matplotlib.pyplot as plt
 
 #--- MAIN ---------------------------------------------------------------------+
 
@@ -111,11 +112,11 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, POI, PAT):
 #--- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                   # Cost function
-bounds = [(0.01,1),(0.9,1),(0.1,5),(1,10)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+bounds = [(0.0001,0.5),(0.9,1),(0.01,0.2),(0.1,5)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
 popsize = 10                                # Population size, must be >= 4
 mutate = 0.5                                # Mutation factor [0,2]
 recombination = 0.7                         # Recombination rate [0,1]
-maxiter = 1000                               # Max number of generations (maxiter)
+maxiter = 100                               # Max number of generations (maxiter)
 
 # Patient data
 PAT1 = [3.241529, 2.555326, 2.547130, 2.541043]
@@ -131,3 +132,4 @@ if __name__ == "__main__":
     main(cost_func, bounds, popsize, mutate, recombination, maxiter, POI, PAT)
 
 #--- END ----------------------------------------------------------------------+
+
