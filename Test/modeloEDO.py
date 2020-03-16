@@ -53,11 +53,11 @@ def dinamicaIntracelular(x, y):
     ## parametros do sistema de 6 equacoes descrito acima
     #VALORES DA FIGURA 2 DO MULTISCALE MODEL ALTERADOS!!!!!!
     s       = 1.3e3
-    beta    = 5.8*10**-8
+    beta    = 5.8e-8
     d       = 0.1
     delta   = 0.14
     p       = 8.18
-    c       = 22.3
+    c       = 2.3
     
     ## inicializa com zeros
     dy = np.zeros(3)
