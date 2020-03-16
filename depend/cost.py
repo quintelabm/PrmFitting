@@ -71,16 +71,15 @@ def viralmodel(x,y,poi):
     V = y[2]
 
     myDelta = poi[0]
-    myEpsilon = poi[1]
-    myP = poi[2]
-    myC = poi[3]
+    myP = poi[1]
+    myC = poi[2]
 
     ## inicializa com zeros
     dy = np.zeros(3)    
 
     dy[0] = s - beta*U*V - d*U
     dy[1] = beta*U*V - myDelta*I
-    dy[2] = (1 - myEpsilon)*myP*I - myC*V
+    dy[2] = myP*I - myC*V
     return dy
 
 def viralmodelfit(x, poi, exp):   

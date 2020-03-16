@@ -52,21 +52,23 @@ def RK4thOrder(func, yinit, x_range, h):
 def dinamicaIntracelular(x, y):
     ## parametros do sistema de 6 equacoes descrito acima
     #VALORES DA FIGURA 2 DO MULTISCALE MODEL ALTERADOS!!!!!!
-    s       = 1.3*10**5
-    beta    = 5*10**-8
-    d       = 0.01
-    delta   = 0.27
-    epsilon = 0.96
-    p       = 0.94
-    c       = 7.85
+    s       = 1.3e3
+    beta    = 5.8*10**-8
+    d       = 0.1
+    delta   = 0.14
+    p       = 8.18
+    c       = 22.3
     
     ## inicializa com zeros
     dy = np.zeros(3)
-    
-    ## equacoes: y[0] = T, y[1] = I, y[2] = V
-    dy[0] = s - beta*y[2]*y[0] - d*y[0]
-    dy[1] = beta*y[2]*y[0] - delta*y[1]
-    dy[2] = (1 - epsilon)*p*y[1] - c*y[2]
+
+    T = y[0]
+    I = y[1]
+    V = y[2]
+
+    dy[0] = s - beta*V*T - d*T
+    dy[1] = beta*V*T - delta*I
+    dy[2] = p*I - c*V
 
     return dy
 
@@ -74,12 +76,12 @@ def dinamicaIntracelular(x, y):
 h = 0.01
 
 # Dias simulados
-x = np.array([0.0, 2.0])
+x = np.array([7.0, 120.0])
 
 # condicoes iniciais
 T0  = 2.9168*10**6
-I0 = 8.7186*10**5
-V0  = 6.9139*10**5
+I0  = 8.7186*10**5
+V0  = 3.18*10**5
 yinit = np.array([T0,I0,V0], dtype='f')
 
 # Chama o método de runge-kutta definido com a função e as condições iniciais
@@ -104,35 +106,11 @@ plt.plot(ts, ys3, 'g')
 plt.xlim(x[0], x[1])
 
 # Tempo Experimentos
-t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
-#t_exp = [0 0.083 0.167 0.25 0.333 0.5 0.667 1 1.5 2 3 6]
+t_exp = [7, 10, 20, 30, 60, 90, 120]
 
-# --- for patient 8
-PAT8 = [5.64, 5.31, 4.23, 3.36, 3.14, 2.86, 2.75, 2.50, 2.32, 1.56]
-#PAT = [5.64 5.31 4.23 3.36 3.14 2.86 2.75 2.50 2.32 1.56 1.53 1.40]
+# --- for patient 1 virus no semen
+PAT1 = [3.185943, 3.749728, 5.018263, 5.537607, 5.545724, 5.020084, 3.860592]
 
-# --- for patient 42
-#PAT42 = [5.65 5.00 3.98 3.84 2.94 2.82 2.87 2.53 2.31 2.61];
-#PAT = [5.65 5.00 3.98 3.84 2.94 2.82 2.87 2.53 2.31 2.61 2.29 2.18];
-
-# --- for patient 68
-#PAT68 =  [7.15 7.02 6.19 5.50 4.96 4.29 4.11 3.75 3.68 3.35];
-#PAT =  [7.15 7.02 6.19 5.50 4.96 4.29 4.11 3.75 3.68 3.35 3.07 2.26];
-
-# --- for patient 69
-#PAT69 = [6.14 5.87 4.73 4.17 3.55 3.14 2.87 2.60 2.55 2.58];
-#PAT = [6.14 5.87 4.73 4.17 3.55 3.14 2.87 2.60 2.55 2.58 2.49 3.57];
-
-# --- for patient 83
-#PAT83 = [5.45 5.38 4.73 4.00 3.39 2.89 2.68 2.72 2.97 1.93];
-#PAT = [5.45 5.38 4.73 4.00 3.39 2.89 2.68 2.72 2.97 1.93 2.01 1.54];
-
-#V <- c(3.241529, 2.555326, 2.547130, 2.541043) #pat1
-PAT1 = [3.241529, 2.555326, 2.547130, 2.541043]
-#V <- c(3.522593, 2.920457, 2.547203, 2.615682) #pat2
-#V <- c(3.555587, 3.316164, 2.595167, 2.543369) #pat3
-#V <- c(4.175440, 2.992317, 2.744784, 2.543393) #pat4
-
-plt.plot(t_exp, PAT8, 'ro')
+plt.plot(t_exp, PAT1, 'ro')
 
 plt.show()
