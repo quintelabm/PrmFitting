@@ -85,8 +85,8 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, POI, PAT):
                     
             #--- GREEDY SELECTION (step #3.C) -------------+
 
-            score_trial  = cost_func(v_trial, POI, PAT)
-            score_target = cost_func(x_t, POI, PAT)
+            score_trial  = cost_func(v_trial, PAT)
+            score_target = cost_func(x_t, PAT)
 
             if score_trial < score_target:
                 population[j] = v_trial
@@ -116,10 +116,10 @@ bounds = [(0.0001,0.5),(0.01,0.2),(0.1,5)]  # Bounds [(x1_min, x1_max), (x2_min,
 popsize = 10                                # Population size, must be >= 4
 mutate = 0.5                                # Mutation factor [0,2]
 recombination = 0.7                         # Recombination rate [0,1]
-maxiter = 500                               # Max number of generations (maxiter)
+maxiter = 10                               # Max number of generations (maxiter)
 
-# Patient data
-PAT1 = [3.241529, 2.555326, 2.547130, 2.541043]
+# --- for patient 1 virus no semen
+PAT1 = [3.185943, 3.749728, 5.018263, 5.537607, 5.545724, 5.020084, 3.860592]
 PAT = PAT1
 
 # initial guess for parameters

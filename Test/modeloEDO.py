@@ -55,9 +55,10 @@ def dinamicaIntracelular(x, y):
     s       = 1.3e3
     beta    = 5.8e-8
     d       = 0.1
-    delta   = 0.14
-    p       = 8.18
-    c       = 2.3
+
+    delta   = 0.1694
+    p       = 0.0216
+    c       = 4.55
     
     ## inicializa com zeros
     dy = np.zeros(3)
@@ -79,9 +80,9 @@ h = 0.01
 x = np.array([7.0, 120.0])
 
 # condicoes iniciais
-T0  = 2.9168*10**6
-I0  = 8.7186*10**5
-V0  = 3.18*10**5
+T0  = 2.9168e6
+I0  = 8.7186e5
+V0  = 10**3.185943
 yinit = np.array([T0,I0,V0], dtype='f')
 
 # Chama o método de runge-kutta definido com a função e as condições iniciais

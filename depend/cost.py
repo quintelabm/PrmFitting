@@ -2,6 +2,7 @@
 #--- EXAMPLE COST FUNCTIONS ---------------------------------------------------+
 import numpy as np
 from scipy.spatial import distance
+from scipy.interpolate import Rbf, InterpolatedUnivariateSpline
 
 def func1(x):
     # Sphere function, use any bounds, f(0,...,0)=0
@@ -82,13 +83,13 @@ def viralmodel(x,y,poi):
     dy[2] = myP*I - myC*V
     return dy
 
-def viralmodelfit(x, poi, exp):   
+def viralmodelfit(poi, exp):
             
     # passo
     h = 0.01
 
     # Dias simulados
-    x = np.linspace(0, 2.0)
+    x = np.linspace(7.0, 120.0)
 
     # condicoes iniciais
     T0  = 2.9168*10**6
@@ -105,12 +106,18 @@ def viralmodelfit(x, poi, exp):
     ys3 = ys[2::node]
     ys3 = np.log10(ys3)
 
+    time = np.arange(7,120,1)
+    ius = InterpolatedUnivariateSpline(time, exp)
+    yi = ius(ts)
+
+    dst = distance.euclidean(I, yi)
+
     # improvisadamente estou pegando diferença entre primeiro e ultimo valor da simulacao
     # seria interessante ver uma forma de pegar nos mesmos pontos 
-    V = [ys3[0], ys3[-1]]
-    exp = [exp[0], exp[-1]]
+    #V = [ys3[0], ys3[-1]]
+    #exp = [exp[0], exp[-1]]
     #print('V = ', V, ' exp = ' , exp)
     #return np.linalg.norm(V-exp)
-    dst = distance.euclidean(V, exp)
+    #dst = distance.euclidean(V, exp)
 
     return dst
