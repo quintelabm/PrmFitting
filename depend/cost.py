@@ -106,11 +106,12 @@ def viralmodelfit(poi, exp):
     ys3 = ys[2::node]
     ys3 = np.log10(ys3)
 
-    time = np.arange(7,120,1)
-    ius = InterpolatedUnivariateSpline(time, exp)
+    #time = np.arange(7,120,1)
+    t_exp = np.array([7., 10., 20., 30., 60., 90., 120.])
+    ius = InterpolatedUnivariateSpline(t_exp, exp)
     yi = ius(ts)
 
-    dst = distance.euclidean(I, yi)
+    dst = distance.euclidean(ys3, yi)
 
     # improvisadamente estou pegando diferença entre primeiro e ultimo valor da simulacao
     # seria interessante ver uma forma de pegar nos mesmos pontos 
