@@ -112,11 +112,11 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, POI, PAT):
 #--- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                   # Cost function
-bounds = [(0.0001,0.5),(0.01,0.2),(0.1,5)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+bounds = [(0.0001,0.5),(0.02,0.04),(0.0,0.06)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
 popsize = 10                                # Population size, must be >= 4
 mutate = 0.5                                # Mutation factor [0,2]
 recombination = 0.7                         # Recombination rate [0,1]
-maxiter = 10                               # Max number of generations (maxiter)
+maxiter = 100                               # Max number of generations (maxiter)
 
 # --- for patient 1 virus no semen
 PAT1 = [3.185943, 3.749728, 5.018263, 5.537607, 5.545724, 5.020084, 3.860592]
@@ -124,7 +124,7 @@ PAT = PAT1
 
 # initial guess for parameters
 # delta p c
-POI = [0.001, 0.18, 4.3]
+POI = [0.0155, 0.03, 0.05]
 
 #--- RUN ----------------------------------------------------------------------+
 

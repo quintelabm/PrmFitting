@@ -86,7 +86,7 @@ def viralmodel(x,y,poi):
 def viralmodelfit(poi, exp):
             
     # passo
-    h = 0.01
+    h = 0.5
 
     # Dias simulados
     x = np.linspace(7.0, 120.0)

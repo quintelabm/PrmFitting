@@ -56,9 +56,9 @@ def dinamicaIntracelular(x, y):
     beta    = 5.8e-8
     d       = 0.1
 
-    delta   = 0.1694
-    p       = 0.0216
-    c       = 4.55
+    delta   = 0.0155
+    p       = 0.03
+    c       = 0.05
     
     ## inicializa com zeros
     dy = np.zeros(3)
