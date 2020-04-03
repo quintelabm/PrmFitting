@@ -24,7 +24,7 @@
   <component name="ProjectId" id="1UA17B8RIggmL5ziQmmBa5oPVcT" />
   <component name="PropertiesComponent">
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Ajuste/Zika.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HCV_pmrfitting" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
@@ -39,7 +39,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Zika">
+  <component name="RunManager" selected="Python.differential_evolution">
     <configuration name="Zika (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PrmFitting" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -86,9 +86,6 @@
       <module name="PrmFitting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -147,8 +144,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Zika" />
         <item itemvalue="Python.differential_evolution" />
+        <item itemvalue="Python.Zika" />
         <item itemvalue="Python.modeloEDO" />
         <item itemvalue="Python.interp" />
         <item itemvalue="Python.differential_evolution" />
