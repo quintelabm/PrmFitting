@@ -57,9 +57,9 @@ def dinamicaIntracelular(x, y):
     d       = 0.1
     epsilon = 0.996
 
-    delta   = 0.59
-    p       = 5.0
-    c       = 23.0
+    delta   = 0.113
+    p       = 11.754
+    c       = 22.363
     
     ## inicializa com zeros
     dy = np.zeros(3)
@@ -75,15 +75,15 @@ def dinamicaIntracelular(x, y):
     return dy
 
 # passo
-h = 0.01
+h = 0.1
 
 # Dias simulados
-x = np.array([0.0, 2.0])
+x = np.array([0.0, 30.5])
 
 # condicoes iniciais
 T0  = 2.9168*10**6
 I0 = 8.7186*10**5
-V0  = 6.9139*10**5
+V0  = 10**6.2943
 yinit = np.array([T0,I0,V0], dtype='f')
 
 # Chama o método de runge-kutta definido com a função e as condições iniciais
@@ -108,11 +108,21 @@ plt.plot(ts, ys3, 'g')
 plt.xlim(x[0], x[1])
 
 # Tempo Experimentos
+
+#2 dias#
+'''
 t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2]
 
 # --- for patient 8
 PAT8 = [5.64, 5.31, 4.23, 3.36, 3.14, 2.86, 2.75, 2.50, 2.32, 1.56]
+'''
 
-plt.plot(t_exp, PAT8, 'ro')
+#30 dias#
+
+t_exp = [0.00, 0.04, 0.08, 0.17, 0.34, 0.50, 1.00, 1.50, 3.01, 6.01, 7.00, 9.99, 14.00, 20.98, 30.01]
+
+PATB16 = [6.2943, 6.3541, 6.3212, 5.5915, 4.1949, 3.8517, 3.6651, 3.4814, 3.2529, 3.0120, 3.0302, 2.7528, 2.3838, 2.1818, 1.9243]
+
+plt.plot(t_exp, PATB16, 'ro')
 
 plt.show()

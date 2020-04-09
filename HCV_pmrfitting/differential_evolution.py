@@ -116,11 +116,15 @@ bounds = [(0.1,0.6),(5.0,15.0),(15.0,23.0)]  # Bounds [(x1_min, x1_max), (x2_min
 popsize = 10                                # Population size, must be >= 4
 mutate = 0.5                                # Mutation factor [0,2]
 recombination = 0.7                         # Recombination rate [0,1]
-maxiter = 200                               # Max number of generations (maxiter)
+maxiter = 100                               # Max number of generations (maxiter)
 
-# --- for patient 1 virus no semen
-PAT8 = [5.64, 5.31, 4.23, 3.36, 3.14, 2.86, 2.75, 2.50, 2.32, 1.56]
-PAT = PAT8
+# --- for patient 8
+#PAT8 = [5.64, 5.31, 4.23, 3.36, 3.14, 2.86, 2.75, 2.50, 2.32, 1.56]
+#PAT = PAT8
+
+# --- for patient B16
+PATB16 = [6.2943, 6.3541, 6.3212, 5.5915, 4.1949, 3.8517, 3.6651, 3.4814, 3.2529, 3.0120, 3.0302, 2.7528, 2.3838, 2.1818, 1.9243]
+PAT = PATB16
 
 # initial guess for parameters
 # delta p c

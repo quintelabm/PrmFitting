@@ -87,15 +87,15 @@ def viralmodel(x,y,poi):
 def viralmodelfit(poi, exp):
             
     # passo
-    h = 0.01
+    h = 0.1
 
     # Dias simulados
-    x = np.linspace(0.0, 2.0)
+    x = np.linspace(0.0, 30.1)
 
     # condicoes iniciais
     T0  = 2.9168*10**6
     I0 = 8.7186*10**5
-    V0  = 6.9139*10**5
+    V0  = 6.2943*10**5
     yinit = np.array([T0,I0,V0], dtype='f')
 
     # Chama o método de runge-kutta definido com a função e as condições iniciais
@@ -108,7 +108,8 @@ def viralmodelfit(poi, exp):
     ys3 = np.log10(ys3)
 
     #time = np.arange(7,120,1)
-    t_exp = np.array([0.0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1.0, 1.5, 2.0])
+    #t_exp = np.array([0.0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1.0, 1.5, 2.0])
+    t_exp = np.array([0.00, 0.04, 0.08, 0.17, 0.34, 0.50, 1.00, 1.50, 3.01, 6.01, 7.00, 9.99, 14.00, 20.98, 30.01])
     ius = InterpolatedUnivariateSpline(t_exp, exp)
     yi = ius(ts)
 
