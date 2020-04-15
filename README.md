@@ -1,4 +1,4 @@
-# PrmFitting
+# Parameter Fitting - Projeto Medicina in silico - UFJF
 
 ## DE
 
