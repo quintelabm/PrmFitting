@@ -30,7 +30,7 @@ from depend.bounds import ensure_bounds
 
 #--- MAIN ---------------------------------------------------------------------+
 
-def main(cost_func, bounds, popsize, mutate, recombination, maxiter, POI, PAT):
+def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT):
 
     #--- INITIALIZE A POPULATION (step #1) ----------------+
     
@@ -112,7 +112,7 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, POI, PAT):
 #--- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-bounds = [(0.9,0.99),(0.9,0.99),(0.2,0.5),(1.0,3.0),(1.0,3.0),(0.5,1.2)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+bounds = [(0.09,0.99),(0.09,0.99),(0.09,0.99),(0.01,1.2)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
 popsize = 10                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
@@ -156,19 +156,19 @@ maxiter = 10                                               # Max number of gener
 #PAT = PATC09
 
 # --- for patient C10
-PATC10 = [5.583842, 5.455846, 4.754914, 3.447468, 2.749736, 2.311754, 2.158362, 1.944483, 1.707570, 1.322219, 1.322219, 1.000000, 1.000000, 1.000000]
+#PATC10 = [5.583842, 5.455846, 4.754914, 3.447468, 2.749736, 2.311754, 2.158362, 1.944483, 1.707570, 1.322219, 1.322219, 1.000000, 1.000000, 1.000000]
 #PAT = PATC10
 
 PAT83 = [5.45, 5.38, 4.73, 4.00, 3.39, 2.89, 2.68, 2.72, 2.97, 1.93]
 PAT = PAT83
 # initial guess for parameters
 # delta epsilon p c
-POI = [0.08, 0.998, 1.0, 20.0]
+#POI = [0.08, 0.998, 1.0, 20.0]
 
 #--- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
-    main(cost_func, bounds, popsize, mutate, recombination, maxiter, POI, PAT)
+    main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT)
 
 #--- END ----------------------------------------------------------------------+
 

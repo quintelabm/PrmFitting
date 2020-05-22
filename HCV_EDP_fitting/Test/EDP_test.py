@@ -1,4 +1,5 @@
 import numpy as np 
+import matplotlib.pyplot as plt
 from scipy.spatial import distance
 from scipy.interpolate import InterpolatedUnivariateSpline
 
@@ -29,12 +30,9 @@ def viralmodelfit(poi, exp):
     # epsilon_s     = 0.998 # efetividade da terapia em diminuir ou bloquear a exportacao de RNA positivo
     # epsilon_alpha = 0.924 # efetividade da terapia em diminuir ou bloquear a replicacao de RNA positivo
     # epsilon_r     = 0.290 # efetividade da terapia em diminuir ou bloquear a replicacao de RNA negativo
-    ## kappa_t       = 1.000 # fator para aumentar a degradacao de RNA positivo disponivel para traducao
-    ## kappa_c       = 1.000 # fator para aumentar a degradacao de RNA positivo e negativo no complexo de replicacao
+    # kappa_t       = 1.000 # fator para aumentar a degradacao de RNA positivo disponivel para traducao
+    # kappa_c       = 1.000 # fator para aumentar a degradacao de RNA positivo e negativo no complexo de replicacao
     # delta = 0.62
-    # alpha
-    # r
-    # rho 
 
     #Inicializacao
 
@@ -165,16 +163,33 @@ def viralmodelfit(poi, exp):
     V_log = np.log10(V)
     
     t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
+
+    plt.figure()    
+    plt.plot(t_exp, exp, 'ro')
+    plt.plot(tempoPt,V_log)
+    plt.legend(["Exp data PAT83", "Model"])
+    plt.show()
     
     # fazer interpolacao usando os pontos experimentais
-    ius = InterpolatedUnivariateSpline(t_exp, exp)
+    #ius = InterpolatedUnivariateSpline(t_exp, exp)
     
     # aplicar a funcao interpolada nos pontos do metodo numerico do modelo
-    yi = ius(tempoPt)
+    #yi = ius(tempoPt)
     
     # calcular a distancia euclidiana entre os resultados experimentais interpolados
     # e o resultado do modelo
     
-    dst = distance.euclidean(V_log, yi)
+    #dst = distance.euclidean(V_log, yi)
     
-    return dst
+    #return dst
+
+
+if __name__ == "__main__":
+
+    # Copy best result
+    poi = [0.19288434706486748, 0.874434619976431, 0.09, 0.01]
+
+    # experimental data PAT 83 
+    exp = [5.45, 5.38, 4.73, 4.00, 3.39, 2.89, 2.68, 2.72, 2.97, 1.93]
+
+    viralmodelfit(poi, exp)

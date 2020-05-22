@@ -1,0 +1,9 @@
+
+1. Modificar o codigo para testar vários pacientes 
+1.1 Começa com dois pacientes e 2 maxiter para ir mais rapido depois aumenta
+1.2 Salvar em arquivo
+2. Acrescentar a lista de parametros a serem ajustados o alpha, r e rho
+2.1 Lembrar de atualizar na lista de bounds e na funcao de custo
+3. Rodar mais iterações 20 - 50
+4. Salva os resultados relatório
+5. Comparar com o DE do Scipy
