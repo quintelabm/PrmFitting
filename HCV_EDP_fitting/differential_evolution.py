@@ -30,7 +30,7 @@ from depend.bounds import ensure_bounds
 
 #--- MAIN ---------------------------------------------------------------------+
 
-def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT):
+def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT, V0):
 
     #--- INITIALIZE A POPULATION (step #1) ----------------+
     
@@ -46,7 +46,7 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT):
     # cycle through each generation (step #2)
     for i in range(1,maxiter+1):
         print('GENERATION:',i)
-
+        saida.writelines('GENERATION:' + str(i) + '\n')
         gen_scores = [] # score keeping
 
         # cycle through each individual in the population
@@ -59,10 +59,11 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT):
             #candidates.remove(j)
             del candidates[j]
             random_index = random.sample(candidates, 3)
-
+            
             x_1 = population[random_index[0]]
             x_2 = population[random_index[1]]
             x_3 = population[random_index[2]]
+
             x_t = population[j]     # target individual
 
             # subtract x3 from x2, and create a new vector (x_diff)
@@ -85,8 +86,8 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT):
                     
             #--- GREEDY SELECTION (step #3.C) -------------+
 
-            score_trial  = cost_func(v_trial, PAT)
-            score_target = cost_func(x_t, PAT)
+            score_trial  = cost_func(v_trial, PAT, V0)
+            score_target = cost_func(x_t, PAT, V0)
 
             if score_trial < score_target:
                 population[j] = v_trial
@@ -107,68 +108,63 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT):
         print('      > GENERATION BEST:',gen_best)
         print('         > BEST SOLUTION:',gen_sol,'\n')
 
+
+        saida.writelines('      > GENERATION AVERAGE:' + str(gen_avg))
+        saida.writelines('\n      > GENERATION BEST:' + str(gen_best))
+        saida.writelines('\n         > BEST SOLUTION:' + str(gen_sol) + '\n\n')
     return gen_sol
 
 #--- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-bounds = [(0.09,0.99),(0.09,0.99),(0.09,0.99),(0.01,1.2)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+bounds = [(0.09,0.99),(0.09,0.99),(0.09,0.99),(0.01,1.2),(25,35),(0.9,2.0),(6,12)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
 popsize = 10                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
-maxiter = 10                                               # Max number of generations (maxiter)
+maxiter = 50                                                # Max number of generations (maxiter)
 
+#Vetor com todos os pacientes
+patients = [ ]
 
-# --- for patient B07
-#PATB07= [4.2227, 4.0733, 3.0599, 2.2122, 1.7924, 1.6435, 1.7160, 1.6435, 1.2304, 1.0792, 1.0000, 1.0000, 1.0000, 1.0000]
-#PAT = PATB07
-
-# --- for patient B09
-#PATB09 = [6.2734, 6.0103, 5.9685, 5.6755, 5.5739, 5.4454, 4.9222, 5.1703, 4.8385, 4.1949, 3.0931, 2.1790, 1.5682, 1.5051]
-#PAT = PATB09
-
-# --- for patient B08
-#PATB08 = [5.6546, 5.6486, 4.6203, 3.6876, 3.1526, 2.6355, 2.5302, 2.6294, 2.2788, 2.0719, 1.9031, 1.7924, 1.6335, 1.5682]
-#PAT = PATB08
-
-# --- for patient B16
-#PATB16 = [6.3541, 6.3212, 5.5915, 4.1949, 3.8517, 3.6651, 3.4814, 3.2529, 3.0120, 3.0302, 2.7528, 2.3838, 2.1818, 1.9243]
-#PAT = PATB16
-
-# --- for patient B17
-#PATB17 = [6.4885, 6.5486, 5.6096, 4.4266, 3.8878, 3.2076, 3.1626, 2.9128, 2.8432, 2.7474, 2.7016, 2.3541, 2.0453, 1.4914]
-#PAT = PATB17
-
-# --- for patient B06
-#PATB06 = [6.3780, 6.4109, 5.6277, 4.4948, 3.9268, 3.1973, 2.8537, 2.5340, 2.4378, 2.3404, 2.3345, 2.2355, 2.0492, 2.1173]
-#PAT = PATB06
-
-# --- for patient C05
-#PATC05 = [6.394490, 6.254302, 5.833741, 4.727484, 3.889414, 3.261501, 3.182415, 2.990339, 2.609594, 2.527630, 2.743510, 2.694605, 2.227887, 1.863323]
-#PAT = PATC05
-
-# --- for patient C06
-#PATC06 = [6.839431, 6.735814, 6.452393, 5.340039, 4.581198, 3.481012, 3.164055, 2.780317, 2.484300, 2.509203, 2.369216, 1.949390, 1.623249, 1.556303]
-#PAT = PATC06
-
-# --- for patient C09
-#PATC09 = [6.424965, 6.303063, 6.028728, 4.642148, 4.349588, 3.484015, 3.243286, 2.816904, 2.576341, 2.089905, 2.025306, 1.698970, 1.278754, 1.342423]
-#PAT = PATC09
-
-# --- for patient C10
-#PATC10 = [5.583842, 5.455846, 4.754914, 3.447468, 2.749736, 2.311754, 2.158362, 1.944483, 1.707570, 1.322219, 1.322219, 1.000000, 1.000000, 1.000000]
-#PAT = PATC10
-
+PAT8 = [5.64, 5.31, 4.23, 3.36, 3.14, 2.86, 2.75, 2.50, 2.32, 1.56]
+PAT42 = [5.65, 5.00, 3.98, 3.84, 2.94, 2.82, 2.87, 2.53, 2.31, 2.61]
+PAT68 =  [7.15, 7.02, 6.19, 5.50, 4.96, 4.29, 4.11, 3.75, 3.68, 3.35]
+PAT69 = [6.14, 5.87, 4.73, 4.17, 3.55, 3.14, 2.87, 2.60, 2.55, 2.58]
 PAT83 = [5.45, 5.38, 4.73, 4.00, 3.39, 2.89, 2.68, 2.72, 2.97, 1.93]
-PAT = PAT83
-# initial guess for parameters
-# delta epsilon p c
-#POI = [0.08, 0.998, 1.0, 20.0]
+
+
+patients.append(PAT8)
+patients.append(PAT42)
+patients.append(PAT68)
+patients.append(PAT69)
+patients.append(PAT83)
+
 
 #--- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
-    main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT)
+    saida = open("./docs/relatorio.txt", "a")
+    saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
+    saida.writelines('Population size: '+ str(popsize)+ '\nNumber of generations: '+ str(maxiter)+ '\n')
 
+    best_solves = []
+    pat_cont = 1
+    for pat in patients:
+        print(pat_cont, " Patient")
+        saida.writelines(str(pat_cont) + " Patient\n\n")
+
+        sol_pat = main(cost_func, bounds, popsize, mutate, recombination, maxiter, pat, (10**pat[0]))
+        best_solves.append(sol_pat)        
+        
+        pat_cont = pat_cont + 1
+    #Calculando as medias dos parametros para todos os pacientes
+    parameters = zip(best_solves[0],best_solves[1],best_solves[2],best_solves[3],best_solves[4])
+    parameters = list(parameters)
+    
+    average = []
+    for param in parameters:
+        average.append(sum(param)/len(patients))
+    print(average)
+    saida.writelines('\n\nNa media, os valores dos parametros sao: ' + str(average) )
 #--- END ----------------------------------------------------------------------+
 

@@ -43,9 +43,9 @@ def viralmodelfit(poi, exp):
     c     = 22.30
     #parametro que sera ajustado 
     # delta = 0.62
-    rho   = 8.180
-    alpha = 30
-    r     = 1.61
+    rho   = poi[6]
+    alpha = poi[4]
+    r     = poi[5]
 
     k     = 0.80 # coeficiente da funcao exponencial de atraso na exportacao de RNA positivo
     tau   = 0.50 # tempo de atraso para a exportacao de RNA positivo
@@ -187,7 +187,7 @@ def viralmodelfit(poi, exp):
 if __name__ == "__main__":
 
     # Copy best result
-    poi = [0.19288434706486748, 0.874434619976431, 0.09, 0.01]
+    poi = [0.99, 0.7596819499138885, 0.32256809024415833, 0.35273905089103247, 32.17768164493644, 1.0771136711193867, 8.790169954209041]
 
     # experimental data PAT 83 
     exp = [5.45, 5.38, 4.73, 4.00, 3.39, 2.89, 2.68, 2.72, 2.97, 1.93]

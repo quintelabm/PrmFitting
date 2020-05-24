@@ -23,7 +23,7 @@ def calcIntegral(I,Rp,Rt):
 
 
 #recebe como parametro os parametros estocasticos, individuos, e os valores experimentais
-def viralmodelfit(poi, exp):
+def viralmodelfit(poi, exp, V0):
     
     #paramentros que serao ajustados 
     # epsilon_s     = 0.998 # efetividade da terapia em diminuir ou bloquear a exportacao de RNA positivo
@@ -43,11 +43,9 @@ def viralmodelfit(poi, exp):
     d     = 0.01
     beta  = 5*10**-8
     c     = 22.30
-    #parametro que sera ajustado 
-    # delta = 0.62
-    rho   = 8.180
-    alpha = 30
-    r     = 1.61
+    alpha = poi[4]
+    r     = poi[5]
+    rho   = poi[6]
 
     k     = 0.80 # coeficiente da funcao exponencial de atraso na exportacao de RNA positivo
     tau   = 0.50 # tempo de atraso para a exportacao de RNA positivo
@@ -116,8 +114,7 @@ def viralmodelfit(poi, exp):
     #condicoes iniciais
     
     T0 = 1.3*10**5
-    V0 = 5.45*pow(10,5)
-    
+        
     I0_t0 = beta*T0*V0
     
     Rt0_t0 = 1
@@ -161,7 +158,10 @@ def viralmodelfit(poi, exp):
     diferencasfinitas(poi)
     
     # Passa para a base log o resultado
-    
+    for pos in V:
+        if not (pos>=0):
+            print("\nErro por causa disso:\n", pos)
+
     V_log = np.log10(V)
     
     t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
