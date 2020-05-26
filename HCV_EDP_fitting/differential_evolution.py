@@ -26,7 +26,7 @@ import random
 import numpy as np
 from depend.cost import viralmodelfit
 from depend.bounds import ensure_bounds
-
+import matplotlib.pyplot as plt
 
 #--- MAIN ---------------------------------------------------------------------+
 
@@ -40,13 +40,15 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT, V0):
         for j in range(len(bounds)):
             indv.append(random.uniform(bounds[j][0],bounds[j][1]))
         population.append(indv)
-            
+    #melhores solucoes para cada paciente 
+    best_sol = []
+
     #--- SOLVE --------------------------------------------+
 
     # cycle through each generation (step #2)
     for i in range(1,maxiter+1):
         print('GENERATION:',i)
-        saida.writelines('GENERATION:' + str(i) + '\n')
+        saida.writelines('GENERATION:'+str(i))
         gen_scores = [] # score keeping
 
         # cycle through each individual in the population
@@ -93,10 +95,16 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT, V0):
                 population[j] = v_trial
                 gen_scores.append(score_trial)
                 print('   >',score_trial, v_trial)
+                #Pegando todas as solucoes nas 10% ultimas geracoes
+                if i>(maxiter+1)*0.9:
+                    best_sol.append([score_trial, v_trial])
 
             else:
                 print('   >',score_target, x_t)
                 gen_scores.append(score_target)
+                #Pegando todas as solucoes nas 10% ultimas geracoes
+                if i>(maxiter+1)*0.9:
+                    best_sol.append([score_target, x_t])
 
         #--- SCORE KEEPING --------------------------------+
 
@@ -107,12 +115,9 @@ def main(cost_func, bounds, popsize, mutate, recombination, maxiter, PAT, V0):
         print('      > GENERATION AVERAGE:',gen_avg)
         print('      > GENERATION BEST:',gen_best)
         print('         > BEST SOLUTION:',gen_sol,'\n')
-
-
-        saida.writelines('      > GENERATION AVERAGE:' + str(gen_avg))
-        saida.writelines('\n      > GENERATION BEST:' + str(gen_best))
-        saida.writelines('\n         > BEST SOLUTION:' + str(gen_sol) + '\n\n')
-    return gen_sol
+        saida.writelines('> BEST SOLUTION:'+str(gen_sol)+'\n')
+    #retorna a melhor solucao e um vetor com todas as 10 % ultimas solucoes 
+    return gen_sol, best_sol
 
 #--- CONSTANTS ----------------------------------------------------------------+
 
@@ -121,7 +126,7 @@ bounds = [(0.09,0.99),(0.09,0.99),(0.09,0.99),(0.01,1.2),(25,35),(0.9,2.0),(6,12
 popsize = 10                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
-maxiter = 50                                                # Max number of generations (maxiter)
+maxiter = 10                                               # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
 patients = [ ]
@@ -139,7 +144,8 @@ patients.append(PAT68)
 patients.append(PAT69)
 patients.append(PAT83)
 
-
+t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
+    
 #--- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
@@ -153,10 +159,40 @@ if __name__ == "__main__":
         print(pat_cont, " Patient")
         saida.writelines(str(pat_cont) + " Patient\n\n")
 
-        sol_pat = main(cost_func, bounds, popsize, mutate, recombination, maxiter, pat, (10**pat[0]))
+        sol_pat, vet_best = main(cost_func, bounds, popsize, mutate, recombination, maxiter, pat, (10**pat[0]))
         best_solves.append(sol_pat)        
         
+        #Ordena as solucoes em ordem crecente baseada no custo
+        vet_best.sort()
+        #Seleciona os 10 melhores pares [custo, [parametros]]
+        vet_best = vet_best[:10]
+        #Transfere para outro vetor apenas os valores dos parametros
+        param_best = []
+        for p in vet_best:
+            param_best.append(p[1])
+
+        average_param = np.zeros(len(bounds))
+        for p in param_best:
+            average_param[0] = average_param[0] + p[0]
+            average_param[1] = average_param[1] + p[1]
+            average_param[2] = average_param[2] + p[2]
+            average_param[3] = average_param[3] + p[3]
+            average_param[4] = average_param[4] + p[4]
+            average_param[5] = average_param[5] + p[5]
+            average_param[6] = average_param[6] + p[6]
+
+        #Esse vetor tem a media dos 10 melhores valores dos parametros
+        average_param = average_param/10
+        plt.clf()
+        #Plot experimental        
+        plt.plot(t_exp,pat, 'ro')
+        
+        #Plot da solucao com a media dos parametros
+        cost_func(average_param, pat, (10**pat[0]))
+
+        plt.savefig("figura"+str(pat_cont)+".png")
         pat_cont = pat_cont + 1
+
     #Calculando as medias dos parametros para todos os pacientes
     parameters = zip(best_solves[0],best_solves[1],best_solves[2],best_solves[3],best_solves[4])
     parameters = list(parameters)
@@ -166,5 +202,6 @@ if __name__ == "__main__":
         average.append(sum(param)/len(patients))
     print(average)
     saida.writelines('\n\nNa media, os valores dos parametros sao: ' + str(average) )
+    saida.close()
 #--- END ----------------------------------------------------------------------+
 

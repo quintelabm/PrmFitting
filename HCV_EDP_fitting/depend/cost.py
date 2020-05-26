@@ -1,7 +1,7 @@
 import numpy as np 
 from scipy.spatial import distance
 from scipy.interpolate import InterpolatedUnivariateSpline
-
+import matplotlib.pyplot as plt
 #variaveis de inicializacao
 ageFim  = 50
 deltaA   = 0.1 #passo no age
@@ -157,15 +157,18 @@ def viralmodelfit(poi, exp, V0):
     # Precisa passar como parametro as condicoes iniciais 
     diferencasfinitas(poi)
     
-    # Passa para a base log o resultado
+    #Se algum valor de V for negativo, defina um custo alto para o conjunto de parametros
     for pos in V:
         if not (pos>=0):
-            print("\nErro por causa disso:\n", pos)
+            return 1000000
 
+    # Passa para a base log o resultado
     V_log = np.log10(V)
     
     t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
     
+    plt.plot(tempoPt, V_log, '-g')
+
     # fazer interpolacao usando os pontos experimentais
     ius = InterpolatedUnivariateSpline(t_exp, exp)
     
