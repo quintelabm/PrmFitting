@@ -189,7 +189,8 @@ if __name__ == "__main__":
         
         #Plot da solucao com a media dos parametros
         cost_func(average_param, pat, (10**pat[0]))
-        saida.writelines('\nA media dos 10 melhores individuos e: '+str(average_param)+'\n\n')
+        saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(vet_best[0][0]) +'\n\n')
+        saida.writelines('\nA media dos 10 melhores individuos e: '+str(average_param) +'\n\n')
         plt.savefig("figura"+str(pat_cont)+".png")
         pat_cont = pat_cont + 1
 
