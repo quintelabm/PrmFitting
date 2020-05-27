@@ -126,7 +126,7 @@ bounds = [(0.09,0.99),(0.09,0.99),(0.09,0.99),(0.01,1.2),(25,35),(0.9,2.0),(6,12
 popsize = 10                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
-maxiter = 30                                               # Max number of generations (maxiter)
+maxiter = 100                                              # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
 patients = [ ]
