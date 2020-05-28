@@ -166,7 +166,7 @@ def viralmodelfit(poi, exp, V0):
     V_log = np.log10(V)
     
     t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
-    
+    #Plot do resultado aritmetico
     plt.plot(tempoPt, V_log, '-g')
 
     # fazer interpolacao usando os pontos experimentais

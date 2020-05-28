@@ -185,7 +185,7 @@ if __name__ == "__main__":
         average_param = average_param/10
         plt.clf()
         #Plot experimental        
-        plt.plot(t_exp,pat, 'ro')
+        plt.plot(t_exp, pat, 'ro')
         
         #Plot da solucao com a media dos parametros
         cost_func(average_param, pat, (10**pat[0]))

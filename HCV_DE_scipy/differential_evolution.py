@@ -72,8 +72,18 @@ if __name__ == "__main__":
         print(pat_cont, " Patient")
         saida.writelines(str(pat_cont) + " Patient\n\n")
         
-        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0]), maxiter=30, popsize=10, mutation=0.5, recombination=0.7)
+        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0]), maxiter=10, popsize=10, mutation=0.5, recombination=0.7)
+        #sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
         print(sol_pat.x, "\n", sol_pat.fun)
+        saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
+        saida.writelines('\nO melhor conjunto de parametros: '+str(sol_pat.x) +'\n\n')
+        plt.clf()
+        #Plot experimental        
+        plt.plot(t_exp, pat, 'ro')
+        #Plot da solucao com a media dos parametros
+        cost_func(sol_pat.x, pat, (10**pat[0]))
+        plt.savefig("figura"+str(pat_cont)+".png")
+        
         pat_cont += 1
 
     

@@ -169,8 +169,6 @@ def viralmodelfit(poi, exp, V0):
     t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
     
     plt.plot(tempoPt, V_log, '-g')
-    plt.plot(t_exp, exp, 'ro')
-    plt.show()
     # fazer interpolacao usando os pontos experimentais
     ius = InterpolatedUnivariateSpline(t_exp, exp)
     
@@ -184,6 +182,3 @@ def viralmodelfit(poi, exp, V0):
     
     return dst
 
-poi = [0.9900000, 0.890262054, 0.0900000000, 0.0100000000, 26.6429746, 1.01774554, 6.00000000]
-exp = [5.64, 5.31, 4.23, 3.36, 3.14, 2.86, 2.75, 2.50, 2.32, 1.56]
-viralmodelfit(poi, exp, 10**exp[0])
