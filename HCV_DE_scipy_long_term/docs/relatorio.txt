@@ -1,0 +1,51 @@
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 2
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 2.1898411745982176
+
+
+O melhor conjunto de parametros: [9.00000000e-02 3.78321432e-01 9.00000000e-02 1.00000000e-02
+ 2.93272106e+01 9.86273334e-01 8.24330250e+00]
+
+2 Patient
+
+
+Custo do melhor conjunto de parametros: 2.661966822007445
+
+
+O melhor conjunto de parametros: [9.00000000e-02 1.93735629e-01 9.00000000e-02 1.00000000e-02
+ 2.78979911e+01 1.01735121e+00 8.20089246e+00]
+
+3 Patient
+
+
+Custo do melhor conjunto de parametros: 4.620066573273777
+
+
+O melhor conjunto de parametros: [9.90000000e-01 8.99092898e-01 9.00000000e-02 1.00000000e-02
+ 2.50000000e+01 1.09238192e+00 6.00000000e+00]
+
+4 Patient
+
+
+Custo do melhor conjunto de parametros: 3.4404232188112505
+
+
+O melhor conjunto de parametros: [9.00000000e-02 2.36222489e-01 9.00000000e-02 1.00000000e-02
+ 3.25504890e+01 9.00000000e-01 8.69391396e+00]
+
+5 Patient
+
+
+Custo do melhor conjunto de parametros: 5.183961609112317
+
+
+O melhor conjunto de parametros: [1.33219140e-01 2.62743950e-01 9.00000000e-02 1.00000000e-02
+ 3.10067625e+01 1.19730618e+00 1.13979554e+01]
+
