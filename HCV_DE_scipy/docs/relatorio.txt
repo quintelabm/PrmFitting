@@ -1,51 +1,50 @@
 
-
 -------NOVA TENTATIVA-------
 
 Population size: 10
-Number of generations: 2
+Number of generations: 10
 1 Patient
 
 
-Custo do melhor conjunto de parametros: 2.1896827575403743
+Custo do melhor conjunto de parametros: 2.1948787449507727
 
 
-O melhor conjunto de parametros: [9.00000000e-02 3.79062964e-01 9.00000000e-02 1.00000000e-02
- 2.74190087e+01 1.05526387e+00 8.22544056e+00]
+O melhor conjunto de parametros: [ 0.09003821  0.36557468  0.09        0.05332922 26.23419147  1.4704877
+ 12.        ]
 
 2 Patient
 
 
-Custo do melhor conjunto de parametros: 2.662782866396332
+Custo do melhor conjunto de parametros: 2.6707401427410145
 
 
-O melhor conjunto de parametros: [9.00000000e-02 1.92591837e-01 9.00000000e-02 1.00000000e-02
- 3.14339333e+01 9.00000000e-01 8.18695479e+00]
+O melhor conjunto de parametros: [ 0.09        0.16546274  0.09        0.1446699  33.37328684  1.02009425
+ 10.57326604]
 
 3 Patient
 
 
-Custo do melhor conjunto de parametros: 4.41667692858655
+Custo do melhor conjunto de parametros: 4.397604810180197
 
 
-O melhor conjunto de parametros: [9.00000000e-02 3.98423245e-01 9.00000000e-02 1.60754375e-02
- 2.58053786e+01 1.29767959e+00 9.99246492e+00]
+O melhor conjunto de parametros: [9.00000000e-02 4.13773368e-01 9.00000000e-02 1.00000000e-02
+ 2.71110274e+01 9.00000000e-01 6.42368727e+00]
 
 4 Patient
 
 
-Custo do melhor conjunto de parametros: 3.4572326574944294
+Custo do melhor conjunto de parametros: 3.443835667745845
 
 
-O melhor conjunto de parametros: [ 0.09736772  0.18473423  0.09        0.29060986 28.03683594  1.10385304
-  9.36210362]
+O melhor conjunto de parametros: [9.00000000e-02 2.33024724e-01 9.00000000e-02 1.00000000e-02
+ 3.21754139e+01 1.02853340e+00 1.02844810e+01]
 
 5 Patient
 
 
-Custo do melhor conjunto de parametros: 5.175926272542884
+Custo do melhor conjunto de parametros: 5.203458715844432
 
 
-O melhor conjunto de parametros: [9.00000000e-02 2.31753237e-01 9.00000000e-02 1.00000000e-02
- 2.55949481e+01 1.17761871e+00 8.59212432e+00]
+O melhor conjunto de parametros: [ 0.09        0.14875413  0.09        0.20060271 31.00961379  1.1619773
+ 11.08830328]
 

@@ -39,7 +39,7 @@ bounds = [(0.09,0.99),(0.09,0.99),(0.09,0.99),(0.01,1.2),(25,35),(0.9,2.0),(6,12
 popsize = 10                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
-maxiter = 10                                               # Max number of generations (maxiter)
+maxiter = 1                                                # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
 patients = [ ]
@@ -52,17 +52,17 @@ PAT83 = [5.45, 5.38, 4.73, 4.00, 3.39, 2.89, 2.68, 2.72, 2.97, 1.93]
 
 
 patients.append(PAT8)
-patients.append(PAT42)
-patients.append(PAT68)
-patients.append(PAT69)
-patients.append(PAT83)
+patients.append(PAT8)
+patients.append(PAT8)
+patients.append(PAT8)
+patients.append(PAT8)
 
 t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
     
 #--- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
-    saida = open("/home/matheus/Documents/PrmFitting/HCV_DE_scipy/docs/relatorio.txt", "a")
+    saida = open("/home/matheus/Documents/PrmFitting/HCV_DE_scipy/Test-convergencia/DE.py-relatorio-figuras/relatorio.txt", "a")
     saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
     saida.writelines('Population size: '+ str(popsize)+ '\nNumber of generations: '+ str(maxiter)+ '\n')
 
@@ -85,6 +85,7 @@ if __name__ == "__main__":
         plt.savefig("pat_"+str(pat_cont)+"NGem_"+str(maxiter)+"NPop_"+str(popsize)+".png")
         
         pat_cont += 1
+        maxiter  += 1
 
     
     saida.close()
