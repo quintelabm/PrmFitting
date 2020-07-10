@@ -11,7 +11,7 @@ ageNpts = int(ageFim/deltaA ) + 1
 agePt = np.linspace(0, ageFim, ageNpts)
 ageCont = 0
 
-tempoFim = 2
+tempoFim = 21
 deltaT   = 0.01 #passo no tempo
 tempoNpts = int(tempoFim/deltaT) + 1 
 tempoPt = np.linspace(0, tempoFim, tempoNpts)
@@ -165,8 +165,9 @@ def viralmodelfit(poi, exp, V0):
 
     # Passa para a base log o resultado
     V_log = np.log10(V)
-    
-    t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
+
+    t_exp = np.array([0.04, 0.09, 0.17, 0.34, 0.50, 1.00, 1.50, 2.98, 4.91, 6.92, 10.94, 13.96, 20.91])  # PATB07
+    #t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
     
     plt.plot(tempoPt, V_log, '-g')
     # fazer interpolacao usando os pontos experimentais

@@ -20,3 +20,15 @@ Contém:
 
 Obs: Levou 12 horas no total ~ 2,4h para cada paciente no MacBook dualCore i5 
 
+---
+
+
+Folder: 20d_B07
+
+Contém:
+
+- código para testar execução de 1 paciente em 20 dias 
+- Figura gerada para o paciente
+- relatório gerado
+
+Obs: Levou cerca de 18 horas no total no Acer dualCore i5 

@@ -45,11 +45,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/HCV_pmrfitting" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Python.modeloEDO">
-    <configuration name="cost (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.differential_evolution (3)">
+    <configuration name="bounds" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PrmFitting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -57,32 +57,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HCV_pmrfitting/depend" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HCV_DE_scipy_long_term/depend" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HCV_pmrfitting/depend/cost.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="cost" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="PrmFitting" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/depend" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/depend/cost.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HCV_DE_scipy_long_term/depend/bounds.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -112,7 +91,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="differential_evolution" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="differential_evolution (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PrmFitting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -120,32 +99,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HCV_EDP_fitting" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/differential_evolution.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HCV_EDP_fitting/differential_evolution.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="differential_evolution" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="differential_evolution (3)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="PrmFitting" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="D:\Faculdade\IC\GitHub\PrmFitting\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HCV_pmrfitting" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HCV_DE_scipy_long_term" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HCV_pmrfitting/differential_evolution.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HCV_DE_scipy_long_term/differential_evolution.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -198,11 +177,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.differential_evolution (3)" />
+        <item itemvalue="Python.bounds" />
+        <item itemvalue="Python.differential_evolution (2)" />
         <item itemvalue="Python.modeloEDO" />
         <item itemvalue="Python.differential_evolution (1)" />
-        <item itemvalue="Python.cost (1)" />
-        <item itemvalue="Python.differential_evolution" />
-        <item itemvalue="Python.cost" />
       </list>
     </recent_temporary>
   </component>
@@ -231,6 +210,11 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/HCV_pmrfitting" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
     <state x="568" y="121" width="612" height="380" key="#Notifications" timestamp="1587416219552">
       <screen x="0" y="0" width="1366" height="728" />
@@ -244,46 +228,46 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="392" y="0" key="#modeloEDO_(1)/0.0.1366.728@0.0.1366.728" timestamp="1587416177378" />
-    <state x="462" y="119" key="FileChooserDialogImpl" timestamp="1587415343148">
+    <state x="462" y="119" key="FileChooserDialogImpl" timestamp="1594265610716">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587415343148" />
-    <state width="1345" height="178" key="GridCell.Tab.0.bottom" timestamp="1587675263293">
+    <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1594265610716" />
+    <state width="1345" height="178" key="GridCell.Tab.0.bottom" timestamp="1594316312603">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587675263293" />
-    <state width="1345" height="178" key="GridCell.Tab.0.center" timestamp="1587675263293">
+    <state width="1345" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594316312603" />
+    <state width="1345" height="178" key="GridCell.Tab.0.center" timestamp="1594316312602">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587675263293" />
-    <state width="1345" height="178" key="GridCell.Tab.0.left" timestamp="1587675263293">
+    <state width="1345" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1594316312602" />
+    <state width="1345" height="178" key="GridCell.Tab.0.left" timestamp="1594316312602">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587675263293" />
-    <state width="1345" height="178" key="GridCell.Tab.0.right" timestamp="1587675263293">
+    <state width="1345" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1594316312602" />
+    <state width="1345" height="178" key="GridCell.Tab.0.right" timestamp="1594316312602">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587675263293" />
-    <state width="1345" height="223" key="GridCell.Tab.1.bottom" timestamp="1587598545829">
+    <state width="1345" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1594316312602" />
+    <state width="1345" height="223" key="GridCell.Tab.1.bottom" timestamp="1594266007558">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587598545829" />
-    <state width="1345" height="223" key="GridCell.Tab.1.center" timestamp="1587598545829">
+    <state width="1345" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1594266007558" />
+    <state width="1345" height="223" key="GridCell.Tab.1.center" timestamp="1594266007557">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1587598545829" />
-    <state width="1345" height="223" key="GridCell.Tab.1.left" timestamp="1587598545829">
+    <state width="1345" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1594266007557" />
+    <state width="1345" height="223" key="GridCell.Tab.1.left" timestamp="1594266007557">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1587598545829" />
-    <state width="1345" height="223" key="GridCell.Tab.1.right" timestamp="1587598545829">
+    <state width="1345" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1594266007557" />
+    <state width="1345" height="223" key="GridCell.Tab.1.right" timestamp="1594266007557">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1587598545829" />
-    <state x="276" y="18" key="SettingsEditor" timestamp="1587416238030">
+    <state width="1345" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1594266007557" />
+    <state x="276" y="18" key="SettingsEditor" timestamp="1594265780908">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="276" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587416238030" />
+    <state x="276" y="18" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1594265780908" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1587582452611">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
