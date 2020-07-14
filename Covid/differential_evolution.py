@@ -35,32 +35,27 @@ from scipy.optimize import differential_evolution
 #--- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-bounds = [(0.09,0.99),(0.09,0.99),(0.09,0.99),(0.01,1.2),(25,35),(0.9,2.0),(6,12)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+bounds = [(10.0, 30.0), (0.4, 1.80), (4.0, 25.0)]          # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
 popsize = 10                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
 maxiter = 1                                                # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
-patients = [ ]
+patients = []
 
-PAT8 = [5.64, 5.31, 4.23, 3.36, 3.14, 2.86, 2.75, 2.50, 2.32, 1.56]
+PATCOV2 = [4.923722693632887, 7.575302146580392, 6.801792298849835, 0.5711651663789257]
 
-patients.append(PAT8)
-patients.append(PAT8)
-patients.append(PAT8)
-patients.append(PAT8)
-patients.append(PAT8)
+patients.append(PATCOV2)
 
-t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
+t_exp = [4.0, 5.0, 6.0, 8.0]
     
 #--- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
-    saida = open("/home/matheus/Documents/PrmFitting/HCV_DE_scipy/Test-convergencia/DE.py-relatorio-figuras/relatorio.txt", "a")
+    saida = open("/home/matheus/Documents/PrmFitting/HCV_DE_scipy/docs/relatorio.txt", "a")
     saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
     saida.writelines('Population size: '+ str(popsize)+ '\nNumber of generations: '+ str(maxiter)+ '\n')
-
     best_solves = []
     pat_cont = 1
     for pat in patients:
@@ -76,11 +71,10 @@ if __name__ == "__main__":
         #Plot experimental        
         plt.plot(t_exp, pat, 'ro')
         #Plot da solucao com os melhores parametros
-        cost_func(sol_pat.x, pat, (10**pat[0]))
+        cost_func(sol_pat.x, pat, 10**pat[0])
         plt.savefig("pat_"+str(pat_cont)+"NGem_"+str(maxiter)+"NPop_"+str(popsize)+".png")
         
         pat_cont += 1
-        maxiter  += 1
 
     
     saida.close()

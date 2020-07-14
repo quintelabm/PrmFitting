@@ -72,7 +72,7 @@ if __name__ == "__main__":
         print(pat_cont, " Patient")
         saida.writelines(str(pat_cont) + " Patient\n\n")
         
-        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0]), maxiter=10, popsize=10, mutation=0.5, recombination=0.7)
+        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0]), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)
         #sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
         print(sol_pat.x, "\n", sol_pat.fun)
         saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
