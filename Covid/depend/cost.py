@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 
 
 #variaveis de inicializacao
-tempoFim = 2
+tempoFim = 10
 deltaT   = 0.01 #passo no tempo
 tempoNpts = int(tempoFim/deltaT) + 1 
-tempoPt = np.linspace(0, tempoFim, tempoNpts)
+tempoPt = np.linspace(4, tempoFim, tempoNpts)
 tempoCont = 0
 
 
@@ -72,15 +72,21 @@ def viralmodelfit(poi, exp, V0):
             y[j] = y[j] + (deltaT/6)*(k1[j] + 2*k2[j] + 2*k3[j] + k4[j])
 
         x = x + deltaT
-        
+  
 
     #Se algum valor de V for negativo, defina um custo alto para o conjunto de parametros
     for pos in V:
-        if not (pos>=0):
+        if not (pos>0):
             return 1000000
 
     # Passa para a base log o resultado
-    V_log = np.log10(V)
+    try:
+        V_log = np.log10(V)
+    except():
+        print("\nvalor menor ou igual a 0\n\n")
+        return 100000
+    
+    
     
     t_exp = [4.0, 5.0, 6.0, 8.0]
     
