@@ -43,4 +43,15 @@ Contém:
 * obs: apenas aumentar a população não foi suficiente. 
 
 
+--- 
+
+Pasta: Cluster
+
+Contém: 
+
+- Pastas com os arquivos prontos para executar o ajuste de parâmetros para cada paciente separadamente.
+
+(O objetivo da separação é a possibilidade de enviar todos ao mesmo tempo como jobs para o cluster e diminuir
+ o tempo de execução entre um paciente e o outro)
+
 
