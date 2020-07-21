@@ -2,7 +2,7 @@ import numpy as np
 from scipy.spatial import distance
 from scipy.interpolate import InterpolatedUnivariateSpline
 import matplotlib.pyplot as plt
-
+import sys
 
 #variaveis de inicializacao
 tempoFim = 10
@@ -101,8 +101,12 @@ def viralmodelfit(poi, exp, V0):
     print(exp)
     return dst
 
-PATCOV2 = [4.923722693632887, 7.575302146580392, 6.801792298849835, 0.5711651663789257]
+PATCOV2 = []
 
+if(sys.argv[1] == "PATCOV2"):
+
+    PATCOV2 = [4.923722693632887, 7.575302146580392, 6.801792298849835, 0.5711651663789257]
+print(PATCOV2)
 
 dist = viralmodelfit([20, 0.5, 60],PATCOV2,10**PATCOV2[0])
 print(dist)
