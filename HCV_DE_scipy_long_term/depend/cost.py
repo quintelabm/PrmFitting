@@ -40,13 +40,12 @@ def viralmodelfit(poi, exp, V0):
     #Inicializacao
 
     #parametros
-    s     = 1.3*10**5
-    d     = 0.01
-    beta  = 5*10**-8
-    c     = 22.30
-    alpha = poi[4]
-    r     = poi[5]
-    rho   = poi[6]
+    s       = 1.3*10**5
+    d       = 0.01
+    beta    = 5*10**-8
+    c       = 22.30
+    kappa_t = 1.0  # poi[3]
+    kappa_c = 1.0  # poi[4]
 
     k     = 0.80 # coeficiente da funcao exponencial de atraso na exportacao de RNA positivo
     tau   = 0.50 # tempo de atraso para a exportacao de RNA positivo
@@ -72,9 +71,10 @@ def viralmodelfit(poi, exp, V0):
         epsilon_s     = poi[0]
         epsilon_alpha = poi[1]
         epsilon_r     = poi[2]
-        kappa_t       = 1.0 #poi[3]
-        kappa_c       = 1.0 #poi[4]
         delta         = poi[3]
+        alpha         = poi[4]
+        r             = poi[5]
+        rho           = poi[6]
 
         for t in range(1, tempoNpts):
         

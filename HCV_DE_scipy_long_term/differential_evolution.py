@@ -37,11 +37,11 @@ import os
 # --- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit  # Cost function
-bounds = [(0.09, 0.99), (0.09, 0.99), (0.09, 0.99), (0.01, 1.2), (20, 60), (0.1, 10.0), (0.1, 20)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
-popsize = 4
+bounds = [(0.100, 0.999), (0.600, 0.999), (0.200, 0.999), (0.1, 0.7), (10, 70), (0.1, 10.0), (0.1, 34.1)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+popsize = 50
 mutate = 0.5  # Mutation factor [0,2]
 recombination = 0.7  # Recombination rate [0,1]
-maxiter = 1  # Max number of generations (maxiter)
+maxiter = 10  # Max number of generations (maxiter)
 
 # Vetor com todos os pacientes
 patients = []
