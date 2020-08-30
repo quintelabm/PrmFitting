@@ -11,7 +11,7 @@ ageNpts = int(ageFim/deltaA ) + 1
 agePt = np.linspace(0, ageFim, ageNpts)
 ageCont = 0
 
-tempoFim = 21
+tempoFim = 5
 deltaT   = 0.01 #passo no tempo
 tempoNpts = int(tempoFim/deltaT) + 1 
 tempoPt = np.linspace(0, tempoFim, tempoNpts)
@@ -40,13 +40,12 @@ def viralmodelfit(poi, exp, V0):
     #Inicializacao
 
     #parametros
-    s     = 1.3*10**5
-    d     = 0.01
-    beta  = 5*10**-8
-    c     = 22.30
-    alpha = poi[4]
-    r     = poi[5]
-    rho   = poi[6]
+    s       = 1.3*10**5
+    d       = 0.01
+    beta    = 5*10**-8
+    c       = 22.30
+    kappa_t = 1.0  # poi[3]
+    kappa_c = 1.0  # poi[4]
 
     k     = 0.80 # coeficiente da funcao exponencial de atraso na exportacao de RNA positivo
     tau   = 0.50 # tempo de atraso para a exportacao de RNA positivo
@@ -72,9 +71,10 @@ def viralmodelfit(poi, exp, V0):
         epsilon_s     = poi[0]
         epsilon_alpha = poi[1]
         epsilon_r     = poi[2]
-        kappa_t       = 1.0 #poi[3]
-        kappa_c       = 1.0 #poi[4]
         delta         = poi[3]
+        alpha         = poi[4]
+        r             = poi[5]
+        rho           = poi[6]
 
         for t in range(1, tempoNpts):
         
@@ -166,7 +166,7 @@ def viralmodelfit(poi, exp, V0):
     # Passa para a base log o resultado
     V_log = np.log10(V)
 
-    t_exp = np.array([0.04, 0.09, 0.17, 0.34, 0.50, 1.00, 1.50, 2.98, 4.91, 6.92, 10.94, 13.96, 20.91])  # PATB07
+    t_exp = np.array([0.04, 0.09, 0.17, 0.34, 0.50, 1.00, 1.50, 2.98, 4.91]) #, 6.92, 10.94, 13.96, 20.91, 27.98])  # PATB07
     #t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
     
     plt.plot(tempoPt, V_log, '-g')

@@ -1,0 +1,39 @@
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 4
+Number of generations: 1
+
+Custo do melhor conjunto de parametros: 8.078449677781562
+
+
+O melhor conjunto de parametros: [9.00000000e-02 9.68790486e-02 1.09379118e-01 2.17380216e-02
+ 2.26542278e+01 1.50661251e+00 1.07104898e+01]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 4
+Number of generations: 1
+
+Custo do melhor conjunto de parametros: 11.147049494196633
+
+
+O melhor conjunto de parametros: [9.90000000e-01 9.21707950e-01 9.00000000e-02 1.86087694e-02
+ 2.23906244e+01 2.90318425e+00 1.40714197e+01]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 10
+
+Custo do melhor conjunto de parametros: 6.720196426733944
+
+
+O melhor conjunto de parametros: [ 0.999       0.93753882  0.2         0.1        19.93715449  9.29497553
+  9.71686742]
+
