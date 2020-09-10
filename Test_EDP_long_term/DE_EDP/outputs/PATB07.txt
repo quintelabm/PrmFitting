@@ -1,0 +1,67 @@
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 1
+Number of generations: 1
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 1
+Number of generations: 1
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 1
+Number of generations: 1
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 2
+Number of generations: 1
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 2
+Number of generations: 1
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 4
+Number of generations: 1
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 4
+Number of generations: 1
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 4
+Number of generations: 1
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 4
+Number of generations: 1
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 4
+Number of generations: 1
+
+Custo do melhor conjunto de parametros: 61.26563367460752
+
+
+O melhor conjunto de parametros: [ 0.32033598  0.54530999  0.09        1.12137907 49.54501721  4.047301
+  7.23286998]
+
