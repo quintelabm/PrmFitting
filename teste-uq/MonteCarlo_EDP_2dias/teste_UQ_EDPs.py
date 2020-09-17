@@ -11,7 +11,7 @@ ageNpts = int(ageFim/deltaA ) + 1
 agePt = np.linspace(0, ageFim, ageNpts)
 ageCont = 0
 
-tempoFim = 2
+tempoFim = 30
 deltaT   = 0.01 #passo no tempo
 tempoNpts = int(tempoFim/deltaT) + 1 
 tempoPt = np.linspace(0, tempoFim, tempoNpts)
@@ -25,7 +25,9 @@ def calcIntegral(I,Rp,Rt):
 
 
 #recebe como parametro os parametros estocasticos, individuos, e os valores experimentais
-def viralmodelfit(alpha, r, rho, epsilon_s, epsilon_alpha, epsilon_r, delta):
+def viralmodelfit(s, d, beta, c, k, tau, Rmax, sigma,
+                  mu_t, theta, mu_c, kappa_t, kappa_c,
+                  alpha, r, rho, epsilon_s, epsilon_alpha, epsilon_r, delta):
     
     
     #Inicializacao
@@ -158,7 +160,19 @@ model = un.Model(
     labels=["Tempo (dias)",
         "Carga viral (log10)"]
 )
-        
+s = 1.3*10**5
+d     = 0.01
+beta  = 5*10**-8
+c     = 22.30
+k     = 0.80 
+tau   = 0.50 
+Rmax  = 50.0 
+sigma = 1.30 
+mu_t  = 0.89 
+theta = 1.20 
+mu_c  = 2.39
+kappa_t       = 1.0
+kappa_c       = 1.0   
 alpha         = 35.16358968
 r             = 5.3728664
 rho           = 10.53375802
@@ -168,6 +182,19 @@ epsilon_r     = 0.48591103
 delta         = 0.79693716
 
 # create distributions
+s_d=cp.Uniform(s*0.9, s*1.1)
+d_d=cp.Uniform(d*0.9, d*1.1)
+beta_d=cp.Uniform(beta*0.9, beta*1.1)
+c_d=cp.Uniform(c*0.9, c*1.1)
+k_d=cp.Uniform(k*0.9, k*1.1)
+tau_d=cp.Uniform(tau*0.9, tau*1.1)
+Rmax_d=cp.Uniform(Rmax*0.9, Rmax*1.1)
+sigma_d=cp.Uniform(sigma*0.9, sigma*1.1)
+mu_t_d=cp.Uniform(mu_t*0.9, mu_t*1.1)
+theta_d=cp.Uniform(theta*0.9, theta*1.1)
+mu_c_d=cp.Uniform(mu_c*0.9, mu_c*1.1)
+kappa_t_d=cp.Uniform(kappa_t*0.9, kappa_t*1.1)
+kappa_c_d=cp.Uniform(kappa_c*0.9, kappa_c*1.1)
 alpha_dist=cp.Uniform(alpha*0.9, alpha*1.1)
 r_dist=cp.Uniform(r*0.9, r*1.1)
 rho_dist=cp.Uniform(rho*0.9, rho*1.1)
@@ -177,7 +204,20 @@ epsilon_r_dist=cp.Uniform(epsilon_r*0.9, epsilon_r*1.1)
 delta_dist=cp.Uniform(delta*0.9, delta*1.1)
 
 # define parameter dictionary
-parameters = {"alpha": alpha_dist,
+parameters = {"s": s_d,
+              "d": d_d,
+        "beta": beta_d,
+        "c": c_d,
+        "k": k_d,
+        "tau": tau_d,
+        "Rmax": Rmax_d,
+        "sigma": sigma_d,
+        "mu_t": mu_t_d,
+        "theta": theta_d,
+        "mu_c": mu_c_d,
+        "kappa_t": kappa_t_d,
+        "kappa_c": kappa_c_d,              
+        "alpha": alpha_dist,
         "r": r_dist,
         "rho": rho_dist,
         "epsilon_s": epsilon_s_dist,
