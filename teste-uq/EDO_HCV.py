@@ -131,4 +131,4 @@ UQ = un.UncertaintyQuantification(
     parameters=parameters
 )
 
-data = UQ.monte_carlo(nr_samples=100,seed=10)
+data = UQ.polynomial_chaos()
