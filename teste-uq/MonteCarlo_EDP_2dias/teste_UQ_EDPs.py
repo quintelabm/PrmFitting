@@ -173,13 +173,13 @@ theta = 1.20
 mu_c  = 2.39
 kappa_t       = 1.0
 kappa_c       = 1.0   
-alpha         = 35.16358968
-r             = 5.3728664
-rho           = 10.53375802
-epsilon_s     = 0.54458218 
-epsilon_alpha = 0.80392478 
-epsilon_r     = 0.48591103
-delta         = 0.79693716
+alpha         = 36.37376924
+r             = 0.6261027
+rho           = 5.99597491
+epsilon_s     = 0.42968295
+epsilon_alpha = 0.22250873     
+epsilon_r     = 0.14094105
+delta         = 0.62118565
 
 # create distributions
 s_d=cp.Uniform(s*0.9, s*1.1)
@@ -232,4 +232,4 @@ UQ = un.UncertaintyQuantification(
     parameters=parameters
 )
 
-data = UQ.monte_carlo(nr_samples=100)
+data = UQ.monte_carlo(nr_samples=2)
