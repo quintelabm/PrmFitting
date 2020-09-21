@@ -99,11 +99,10 @@ def viralmodelfit(poi, V0):
                 Rn[t][a] = ((1 - epsilon_r)*r*Rp[t-1][a]*(1 - (Rn[t-1][a]/Rmax)) - kappa_c*mu_c*Rn[t-1][a]
                             - (Rn[t-1][a] - Rn[t-1][a-1])/(deltaA ))*deltaT + Rn[t-1][a]
                 
-                Rp[t][a] = ((1 - epsilon_alpha)*alpha*Rn[t-1][a] + sigma*Rt[t-1][a] - theta*Rp[t-1][a]
-                            - (1- epsilon_s)*rho1*Rp[t-1][a] - kappa_c*mu_c*Rp[t-1][a]
+                Rp[t][a] = ((1 - epsilon_alpha)*alpha*Rn[t-1][a] + sigma*Rt[t-1][a] - theta*Rp[t-1][a] - (1-epsilon_s)*rho1*Rp[t-1][a] - kappa_c*mu_c*Rp[t-1][a]
                             - (Rp[t-1][a] - Rp[t-1][a-1])/(deltaA))*deltaT + Rp[t-1][a]
                 
-                Rt[t][a] = (theta*Rp[t-1][a] - sigma*Rt[t-1][a] - (1 - epsilon_s)*rho1*Rt[t-1][a] - kappa_t*mu_t*Rt[t-1][a]
+                Rt[t][a] = (theta*Rp[t-1][a] - sigma*Rt[t-1][a] - (1-epsilon_s)*rho1*Rt[t-1][a] - kappa_t*mu_t*Rt[t-1][a]
                             - (Rt[t-1][a] - Rt[t-1][a-1])/(deltaA))*deltaT + Rt[t-1][a]
         return V
 
@@ -300,19 +299,18 @@ def plot_epsilons(poi, V0):
     [tempo,V] = viralmodelfit(poi, V0)
     plt.plot(tempo,V)  
 
-    poi = [0.99, 0.5, 0.5, 0.07, 22.0, 11.1, 12]
+    poi = [0.999, 0.5, 0.3, 0.07, 22.0, 11.1, 12]
     [tempo,V] = viralmodelfit(poi, V0)
-    plt.plot(tempo,V)   
+    plt.plot(tempo,V, '--')   
 
-    poi = [0.5, 0.99, 0.5, 0.07, 22.0, 1.1, 12]
+    poi = [0.99, 0.99, 0.99, 0.07, 22.0, 11.1, 12]
     [tempo,V] = viralmodelfit(poi, V0)
-    plt.plot(tempo,V) 
+    plt.plot(tempo,V, '-.') 
     
 
-    plt.legend(["estimated","half efficacy - repl.", "half efficacy - export"])
+    plt.legend(["estimated", "lower efficacy - repl.", "higher efficacy - repl."])
     plt.xlabel("Time after begining of combination therapy (days)")
     plt.ylabel("HCV RNA ($log_{10}$ UI/mL)")
-    plt.yscale("log")
     plt.savefig("epsilon_30days.png",dpi=300)
 
     plt.show()
