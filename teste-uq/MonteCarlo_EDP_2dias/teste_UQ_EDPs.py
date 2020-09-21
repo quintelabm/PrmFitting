@@ -149,7 +149,7 @@ def viralmodelfit(s, d, beta, c, k, tau, Rmax, sigma,
 
     # Passa para a base log o resultado
     V_log = np.log10(V)
-        
+    
     return tempoPt, V_log
 
 ##############FIM MODELO################
@@ -232,4 +232,4 @@ UQ = un.UncertaintyQuantification(
     parameters=parameters
 )
 
-data = UQ.monte_carlo(nr_samples=2)
+data = UQ.monte_carlo(nr_samples=100)
