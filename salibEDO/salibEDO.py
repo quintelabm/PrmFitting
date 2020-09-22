@@ -2,16 +2,18 @@ from SALib.sample import saltelli
 
 from SALib.analyze import sobol
 
+import matplotlib.pyplot as plt
+
 import numpy as np
 
 #************* MODELO INICIO ************
 
 # passo
-h = 0.1
+h = 0.01
 
 # Dias simulados
 x_range = np.array([0.0, 2.0])
-
+x_pt = np.linspace(0, 2, 201)
 num_pontos = 2.0/0.1
 
 # define uma funcao feval que recebe o nome da equacao a ser avaliada como 
@@ -22,11 +24,11 @@ def feval(funcName, *args):
 
 # define a resolucao numerica por runge-kutta de quarta ordem
 def RK4thOrder(p):
-    print(p)
-    delta = p[0]
+    delta, epsilon, c, p = p
+    '''delta = p[0]
     epsilon = p[1]
     c = p[3]
-    p = p[2]
+    p = p[2]'''
     # define a funcao que contem as equacoes do sistema a ser avaliado
     def dinamicaIntracelular(x, y):
         ## parametros do sistema de 3 equacoes descrito abaixo
@@ -107,22 +109,34 @@ c_m       = 16.0
 parameters = { 'num_vars': 4,
               'names': ['delta', 'epsilon', 'p', 'c'],
               'bounds': [[0, 1],
-                         [epsilon_m*0.9, epsilon_m*1.1],
+                         [epsilon_m*0.9, epsilon_m*1.09],
                          [p_m*0.9, p_m*1.1],
                          [c_m*0.9, c_m*1.1]
                          ]
             }
+
+#Gera parametros aleatorios
 param_values = saltelli.sample(parameters, 1000, calc_second_order=False )
-Y = np.zeros([param_values.shape[0]])
-print(Y.size)
-solucoes = np.zeros([6000,4,21])
+
+#Y = np.zeros([param_values.shape[0]])
+#As solucoes sao 
+#201 -> numero de pontos
+solucoes = np.zeros([6000,201])
+
 
 for i, X in enumerate(param_values):
     solucoes[i] = RK4thOrder(X)
 
-Si = sobol.analyze(parameters, solucoes)
+solucoes = solucoes.T
+Si = np.zeros(201)
+Sres = np.zeros([201,4])
+for i in range(1, 201):
+    Si = sobol.analyze(parameters, solucoes[i], calc_second_order=False)
+    Sres[i] = Si['S1']
 
-print(Si['S1'])
+plt.plot(x_pt, Sres[:,0])
+plt.plot(x_pt, Sres[:,1])
+plt.plot(x_pt, Sres[:,2])
+plt.plot(x_pt, Sres[:,3])
 
-
-
+plt.show()

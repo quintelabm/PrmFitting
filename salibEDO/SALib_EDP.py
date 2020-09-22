@@ -1,8 +1,13 @@
-import uncertainpy as un
+from SALib.sample import saltelli
 
-import chaospy as cp
+from SALib.analyze import sobol
+
+import matplotlib.pyplot as plt
 
 import numpy as np
+import seaborn as sns
+
+sns.set()
 
 #variaveis de inicializacao
 ageFim  = 50
@@ -25,11 +30,9 @@ def calcIntegral(I,Rp,Rt):
 
 
 #recebe como parametro os parametros estocasticos, individuos, e os valores experimentais
-def viralmodelfit(s, d, beta, c, k, tau, Rmax, sigma,
-                  mu_t, theta, mu_c, kappa_t, kappa_c,
-                  alpha, r, rho, epsilon_s, epsilon_alpha, epsilon_r, delta):
+def viralmodelfit(param):
     
-    
+    s, d, beta, c, k, tau, Rmax, sigma, mu_t, theta, mu_c, kappa_t, kappa_c, alpha, r, rho, epsilon_s, epsilon_alpha, epsilon_r, delta = param
     #variaveis 
 
     I = np.zeros((tempoNpts, ageNpts))
@@ -133,18 +136,12 @@ def viralmodelfit(s, d, beta, c, k, tau, Rmax, sigma,
 
     for v in V_log:
         if v < 0:
-            return tempoPt, np.zeros(tempoNpts)
+            return np.zeros(tempoNpts)
 
-    return tempoPt, V_log
+    return V_log
 
 ##############FIM MODELO################
     
-
-model = un.Model(
-    run = viralmodelfit,
-    labels=["Tempo (dias)",
-        "Carga viral (log10)"]
-)
 s = 1.3*10**5
 d     = 0.01
 beta  = 5*10**-8
@@ -166,55 +163,97 @@ epsilon_alpha = 0.920
 epsilon_r     = 0.300
 delta         = 0.07
 
-# create distributions
-s_d=cp.Uniform(s*0.9, s*1.1)
-d_d=cp.Uniform(d*0.9, d*1.1)
-beta_d=cp.Uniform(beta*0.9, beta*1.1)
-c_d=cp.Uniform(c*0.9, c*1.1)
-k_d=cp.Uniform(k*0.9, k*1.1)
-tau_d=cp.Uniform(tau*0.9, tau*1.1)
-Rmax_d=cp.Uniform(Rmax*0.9, Rmax*1.1)
-sigma_d=cp.Uniform(sigma*0.9, sigma*1.1)
-mu_t_d=cp.Uniform(mu_t*0.9, mu_t*1.1)
-theta_d=cp.Uniform(theta*0.9, theta*1.1)
-mu_c_d=cp.Uniform(mu_c*0.9, mu_c*1.1)
-kappa_t_d=cp.Uniform(kappa_t*0.9, kappa_t*1.1)
-kappa_c_d=cp.Uniform(kappa_c*0.9, kappa_c*1.1)
-alpha_dist=cp.Uniform(alpha*0.9, alpha*1.1)
-r_dist=cp.Uniform(r*0.9, r*1.1)
-rho_dist=cp.Uniform(rho*0.9, rho*1.1)
-epsilon_s_dist=cp.Uniform(epsilon_s*0.9, epsilon_s)
-epsilon_alpha_dist=cp.Uniform(epsilon_alpha*0.9, epsilon_alpha*1.08)
-epsilon_r_dist=cp.Uniform(epsilon_r*0.9, epsilon_r*1.1)
-delta_dist=cp.Uniform(delta*0.9, delta*1.1)
-
-# define parameter dictionary
-parameters = {"s": s_d,
-              "d": d_d,
-        "beta": beta_d,
-        "c": c_d,
-        "k": k_d,
-        "tau": tau_d,
-        "Rmax": Rmax_d,
-        "sigma": sigma_d,
-        "mu_t": mu_t_d,
-        "theta": theta_d,
-        "mu_c": mu_c_d,
-        "kappa_t": kappa_t_d,
-        "kappa_c": kappa_c_d,              
-        "alpha": alpha_dist,
-        "r": r_dist,
-        "rho": rho_dist,
-        "epsilon_s": epsilon_s_dist,
-        "epsilon_alpha": epsilon_alpha_dist,
-        "epsilon_r": epsilon_r_dist,
-        "delta": delta_dist            
+parameters = { 'num_vars': 20,
+              'names': ['s', 'd', 'beta', 'c', 'k', 'tau', 'Rmax', 'sigma', 'mu_t', 'theta', 'mu_c', 'kappa_t', 'kappa_c', 'alpha', 'r', 'rho', 'epsilon_s', 'epsilon_alpha', 'epsilon_r', 'delta'],
+              'bounds': [[s*0.9, s*1.1],
+                         [d*0.9, d*1.1],
+                         [beta*0.9, beta*1.1],
+                         [c*0.9, c*1.1],
+                         [k*0.9, k*1.1],
+                         [tau*0.9, tau*1.1],
+                         [Rmax*0.9, Rmax*1.1],
+                         [sigma*0.9, sigma*1.1],
+                         [mu_t*0.9, mu_t*1.1],
+                         [theta*0.9, theta*1.1],
+                         [mu_c*0.9, mu_c*1.1],
+                         [kappa_t*0.9, kappa_t*1.1],
+                         [kappa_c*0.9, kappa_c*1.1],
+                         [alpha*0.9, alpha*1.1],
+                         [r*0.9, r*1.1],
+                         [rho*0.9, rho*1.1],
+                         [epsilon_s*0.9, epsilon_s],
+                         [epsilon_alpha*0.9, epsilon_alpha*1.08],
+                         [epsilon_r*0.9, epsilon_r*1.1],
+                         [delta*0.9, delta*1.1],
+                         ]
             }
 
-# set up UQ
-UQ = un.UncertaintyQuantification(
-    model=model,
-    parameters=parameters
-)
 
-data = UQ.monte_carlo(nr_samples=100)
+#Gera parametros aleatorios
+n = 50
+param_values = saltelli.sample(parameters, n, calc_second_order=False )
+
+#Y = np.zeros([param_values.shape[0]])
+ww = n*(22)
+solucoes = np.zeros([ww,tempoNpts])
+
+
+for i, X in enumerate(param_values):
+    solucoes[i] = viralmodelfit(X)
+
+solucoes = solucoes.T
+Si = np.zeros(tempoNpts)
+
+Sres = np.zeros([tempoNpts,20])
+#f = open("arqsaida.txt","w")
+
+for i in range(1, tempoNpts):
+    Si = sobol.analyze(parameters, solucoes[i], calc_second_order=False)
+    Sres[i] = Si['S1']
+    #f.write(tempoPt[i]+ " "+ Sres[i])
+
+plt.xlabel("tempo(dias)")
+plt.ylabel("indice")
+plt.figure(0)
+plt.plot(tempoPt, Sres[:,0])
+plt.figure(1)
+plt.plot(tempoPt, Sres[:,1])
+plt.figure(2)
+plt.plot(tempoPt, Sres[:,2])
+plt.figure(3)
+plt.plot(tempoPt, Sres[:,3])
+plt.figure(4)
+plt.plot(tempoPt, Sres[:,4])
+plt.figure(5)
+plt.plot(tempoPt, Sres[:,5])
+plt.figure(6)
+plt.plot(tempoPt, Sres[:,6])
+plt.figure(7)
+plt.plot(tempoPt, Sres[:,7])
+plt.figure(8)
+plt.plot(tempoPt, Sres[:,8])
+plt.figure(9)
+plt.plot(tempoPt, Sres[:,9])
+plt.figure(10)
+plt.plot(tempoPt, Sres[:,10])
+plt.figure(11)
+plt.plot(tempoPt, Sres[:,11])
+plt.figure(12)
+plt.plot(tempoPt, Sres[:,12])
+plt.figure(13)
+plt.plot(tempoPt, Sres[:,13])
+plt.figure(14)
+plt.plot(tempoPt, Sres[:,14])
+plt.figure(15)
+plt.plot(tempoPt, Sres[:,15])
+plt.figure(16)
+plt.plot(tempoPt, Sres[:,16])
+plt.figure(17)
+plt.plot(tempoPt, Sres[:,17])
+plt.figure(18)
+plt.plot(tempoPt, Sres[:,18])
+plt.figure(19)
+plt.plot(tempoPt, Sres[:,19])
+
+#f.close()
+plt.show()
