@@ -1,2 +1,0 @@
-WARNING - viralmodelfit: only yields results for 324/1100 parameter combinations.numpy.nan results are set to the mean when calculating the Sobol indices. This might affect the Sobol indices.
-Saving data as: data/viralmodelfit.h5
