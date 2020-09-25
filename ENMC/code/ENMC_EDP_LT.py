@@ -165,7 +165,7 @@ def viralmodelfit(poi, V0):
 
     print(V_log)
 
-    return tempoPt,V_log
+    return tempoPt,V_log,Rt,Rp,Rn
 
     #t_exp = [0.04, 0.08, 0.17, 0.33, 0.50, 0.92, 1.50, 2.95, 4.89, 6.88, 8.85, 13.85, 20.86, 27.96] #PATB06
     #t_exp = [0.04, 0.09, 0.17, 0.34, 0.50, 1.00, 1.50, 2.98, 4.91, 6.92, 10.94, 13.96, 20.91, 27.98] #PATB07
@@ -315,6 +315,17 @@ def plot_epsilons(poi, V0):
 
     plt.show()
 
+def plot_intracelular(poi,V0):
+    plt.figure()  
+
+    [tempo,V,Rt,Rp,Rn] = viralmodelfit(poi, V0)
+
+    # plt.plot(tempo,Rt)
+    plt.plot(tempo,Rp[30], '--')
+    #plt.plot(tempo,Rn, '-.')
+    plt.savefig("intracellular.png",dpi=300)
+    plt.show()
+
 
 if __name__ == "__main__":
 
@@ -346,8 +357,10 @@ if __name__ == "__main__":
 
     V0 = 10**exp[0]
 
-    #plot_model_data(poi, V0)
+    #p lot_model_data(poi, V0)
 
-    plot_epsilons(poi,V0)
+    # plot_epsilons(poi,V0)
+
+    plot_intracelular(poi,V0)
 
 
