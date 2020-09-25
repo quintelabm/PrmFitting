@@ -4,17 +4,21 @@ from SALib.analyze import sobol
 
 import matplotlib.pyplot as plt
 
+import seaborn as sns
+
 import numpy as np
 
+sns.set()
 #************* MODELO INICIO ************
 
 # passo
 h = 0.01
+dias = 2
+num_pontos = int(dias/h)+1
 
 # Dias simulados
-x_range = np.array([0.0, 2.0])
-x_pt = np.linspace(0, 2, 201)
-num_pontos = 2.0/0.1
+x_range = np.array([0.0, dias])
+x_pt = np.linspace(0, dias, num_pontos)
 
 # define uma funcao feval que recebe o nome da equacao a ser avaliada como 
 # string e retorna a funcao a ser avaliada
@@ -93,22 +97,23 @@ def RK4thOrder(p):
             ysol = np.append(ysol, y[r])  
         
         yV = ysol[2::3]
-        yV = np.log10(yV)
+        #yV = np.log10(yV)
         
     return yV
 
 #************* MODELO FIM ************
 
 
-delta_m   = 0.6
-epsilon_m = 0.9
-p_m       = 6
-c_m       = 16.0    
+delta_m   = 0.14
+epsilon_m = 0.99
+p_m       = 8.18
+c_m       = 22.3    
+num_par = 4
 
 # define parameter dictionary
-parameters = { 'num_vars': 4,
-              'names': ['delta', 'epsilon', 'p', 'c'],
-              'bounds': [[0, 1],
+parameters = {"num_vars": num_par,
+              "names": ['delta', 'epsilon', 'p', 'c'],
+              "bounds": [[0, 1],
                          [epsilon_m*0.9, epsilon_m*1.09],
                          [p_m*0.9, p_m*1.1],
                          [c_m*0.9, c_m*1.1]
@@ -116,27 +121,35 @@ parameters = { 'num_vars': 4,
             }
 
 #Gera parametros aleatorios
-param_values = saltelli.sample(parameters, 1000, calc_second_order=False )
+samples = 100
+param_values = saltelli.sample(parameters, samples, calc_second_order=False )
 
 #Y = np.zeros([param_values.shape[0]])
 #As solucoes sao 
 #201 -> numero de pontos
-solucoes = np.zeros([6000,201])
+dimension = samples*(2+num_par)
+solucoes = np.zeros([dimension,num_pontos])
 
 
 for i, X in enumerate(param_values):
     solucoes[i] = RK4thOrder(X)
 
 solucoes = solucoes.T
-Si = np.zeros(201)
-Sres = np.zeros([201,4])
-for i in range(1, 201):
+Si = np.zeros(num_pontos)
+Sres = np.zeros([num_pontos,num_par])
+for i in range(1, num_pontos):
     Si = sobol.analyze(parameters, solucoes[i], calc_second_order=False)
     Sres[i] = Si['S1']
 
 plt.plot(x_pt, Sres[:,0])
-plt.plot(x_pt, Sres[:,1])
-plt.plot(x_pt, Sres[:,2])
+plt.plot(x_pt, Sres[:,1], '--')
+plt.plot(x_pt, Sres[:,2], '-.')
 plt.plot(x_pt, Sres[:,3])
+
+plt.legend(parameters["names"])
+
+plt.xlabel("Time (days)")
+plt.ylabel("First-order Sobol index")
+plt.savefig("sobol_index.png", dpi=300)
 
 plt.show()

@@ -8,9 +8,10 @@ import numpy as np
 
 # passo
 h = 0.1
+days = 2
 
 # Dias simulados
-x = np.array([0.0, 2.0])
+x = np.array([0.0, days])
 
 # define uma funcao feval que recebe o nome da equacao a ser avaliada como 
 # string e retorna a funcao a ser avaliada
@@ -105,16 +106,16 @@ model = un.Model(
         "Carga viral (log10)"]
 )
 
-delta_m   = 0.6
-epsilon_m = 0.9
-p_m       = 6
-c_m       = 16.0    
+delta_m   = 0.14
+epsilon_m = 0.99
+p_m       = 8.18
+c_m       = 22.3
 
 # create distributions
-delta_dist=cp.Uniform(0, 5)
-epsilon_dist=cp.Uniform(epsilon_m*0.9, epsilon_m*1.1)
-p_dist=cp.Uniform(p_m*0.9, p_m*1.1)
-c_dist=cp.Uniform(c_m*0.9, c_m*1.1)
+delta_dist=cp.Uniform(0.01, 1.0)
+epsilon_dist=cp.Uniform(0.8, 0.999)
+p_dist=cp.Uniform(5, 10)
+c_dist=cp.Uniform(15, 25)
 
 # define parameter dictionary
 parameters = {"delta": delta_dist,
@@ -125,10 +126,12 @@ parameters = {"delta": delta_dist,
             "h": h
             }
 
+           
 # set up UQ
 UQ = un.UncertaintyQuantification(
     model=model,
     parameters=parameters
 )
 
-data = UQ.polynomial_chaos()
+#data = UQ.polynomial_chaos()
+data = UQ.quantify()
