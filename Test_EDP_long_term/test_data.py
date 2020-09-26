@@ -1,6 +1,12 @@
 import matplotlib.pyplot as plt
+<<<<<<< Updated upstream
 import numpy as np
 import statistics
+=======
+import seaborn as sns
+
+sns.set()
+>>>>>>> Stashed changes
 
 # --- for patient B06
 PATB06 = [6.3780, 6.4109, 5.6277, 4.4948, 3.9268, 3.1973, 2.8537, 2.5340, 2.4378, 2.3404, 2.3345, 2.2355, 2.0492, 2.1173]
@@ -68,6 +74,7 @@ t_exp9 = [0.04, 0.08, 0.17, 0.34, 0.50, 1.00, 1.50, 2.96, 3.94, 7.94, 9.95, 14.9
 # --- for patient C10
 PATC10 = [5.583842, 5.455846, 4.754914, 3.447468, 2.749736, 2.311754, 2.158362, 1.944483, 1.707570, 1.322219, 1.322219, 1.000000, 1.000000, 1.000000]
 
+<<<<<<< Updated upstream
 t_exp10 = [0.04, 0.09, 0.18, 0.33, 0.50, 1.00, 1.50, 2.96, 3.98, 7.00, 9.98, 13.97, 21.96, 30.02]
 
 plt.plot(t_exp1, PATB06, 'o')
@@ -77,6 +84,17 @@ plt.plot(t_exp6, PATB17, 'o')
 plt.plot(t_exp7, PATC05, 'o')
 plt.plot(t_exp8, PATC06, 'o')
 plt.plot(t_exp9, PATC09, 'o')
+=======
+t_exp10 = [0.04, 0.09, 0.18, 0.33, 0.50, 1.00, 1.50, 2.96, 3.98, 7.00, 9.98, 13.97, 2196, 30.02]
+
+plt.plot(t_exp1, PATB06, '.')
+plt.plot(t_exp5, PATB16, '.')
+plt.plot(t_exp6, PATB17, '.')
+
+plt.plot(t_exp7, PATC05, '.')
+plt.plot(t_exp8, PATC06, '.')
+plt.plot(t_exp9, PATC09, '.')
+>>>>>>> Stashed changes
 
 #plt.plot(t_exp2, PATB07)
 #plt.plot(t_exp3, PATB08)
@@ -84,6 +102,7 @@ plt.plot(t_exp9, PATC09, 'o')
 
 #plt.plot(t_exp4, PATB09)
 
+<<<<<<< Updated upstream
 arr = ([6.3780, 6.4109, 5.6277, 4.4948, 3.9268, 3.1973, 2.8537, 2.5340, 2.4378, 2.3404, 2.3345, 2.2355, 2.0492, 2.1173],
        [6.3541, 6.3212, 5.5915, 4.1949, 3.8517, 3.6651, 3.4814, 3.2529, 3.0120, 3.0302, 2.7528, 2.3838, 2.1818, 1.9243],
        [6.4885, 6.5486, 5.6096, 4.4266, 3.8878, 3.2076, 3.1626, 2.9128, 2.8432, 2.7474, 2.7016, 2.3541, 2.0453, 1.4914],
@@ -106,3 +125,13 @@ print("Standard Deviation of sample is % s "
 plt.xlim(0.0, 5.0)
 plt.legend(["PATB06", "PATB16", "PATB17", "PATC05", "PATC06", "PATC09"])
 plt.show()
+=======
+plt.xlim(-1.0, 32.0)
+plt.legend(["PAT 1", "PAT 2", "PAT 3", "PAT 4", "PAT 5", "PAT 6"])
+plt.xlabel("Time after begining of combination therapy (days)")
+plt.ylabel("HCV RNA ($log_{10}$ UI/mL)")
+
+
+plt.show()
+
+>>>>>>> Stashed changes
