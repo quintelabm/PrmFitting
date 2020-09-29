@@ -278,11 +278,11 @@ def post_processing(tempo,V):
     #plt.plot(t_exp4, PATB09)
 
     plt.xlim(-1.0, 32.0)
-    plt.legend(["Model","PAT 1", "PAT 2", "PAT 3", "PAT 4", "PAT 5", "PAT 6"])
-    plt.xlabel("Time after begining of combination therapy (days)")
+    plt.legend(["Model", "PAT 1", "PAT 2", "PAT 3", "PAT 4", "PAT 5", "PAT 6"])
+    plt.xlabel("Time after beginning of combination therapy (days)")
     plt.ylabel("HCV RNA ($log_{10}$ UI/mL)")
 
-    plt.savefig("/ENMC/model_30days.png",dpi=300)
+    plt.savefig("/ENMC/model_err_30days.png",dpi=300)
 
     plt.show()
 

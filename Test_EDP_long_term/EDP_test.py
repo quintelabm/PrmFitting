@@ -2,6 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial import distance
 from scipy.interpolate import InterpolatedUnivariateSpline
+import seaborn as sns
+
+sns.set()
 
 #variaveis de inicializacao
 ageFim  = 50
@@ -160,11 +163,11 @@ def viralmodelfit(poi, exp, V0):
     V_log = np.log10(V)
 
     #t_exp = [0.04, 0.08, 0.17, 0.33, 0.50, 0.92, 1.50, 2.95, 4.89, 6.88, 8.85, 13.85, 20.86, 27.96] #PATB06
-    #t_exp = [0.04, 0.09, 0.17, 0.34, 0.50, 1.00, 1.50, 2.98, 4.91, 6.92, 10.94, 13.96, 20.91, 27.98] #PATB07
+    t_exp = [0.04, 0.09, 0.17, 0.34, 0.50, 1.00, 1.50, 2.98, 4.91, 6.92, 10.94, 13.96, 20.91, 27.98] #PATB07
     #t_exp = [0.04, 0.08, 0.17, 0.34, 0.51, 1.00, 1.50, 2.91, 4.92, 6.91, 10.87, 13.86, 20.87, 25.92] #PATB08
     #t_exp = [0.04, 0.09, 0.17, 0.34, 0.50, 1.00, 1.50, 2.98, 4.90, 6.94, 10.96, 14.95, 20.96, 28.03] #PATB09
     #t_exp = [0.04, 0.08, 0.17, 0.34, 0.50, 1.00, 1.50, 3.01, 6.01, 7.00, 9.99, 14.00, 20.98, 30.01] #PATB16
-    t_exp = [0.04, 0.08, 0.17, 0.33, 0.50, 1.01, 1.50, 2.99, 6.03, 7.02, 9.98, 14.04, 21.03, 30.03] #PATB17
+    #t_exp = [0.04, 0.08, 0.17, 0.33, 0.50, 1.01, 1.50, 2.99, 6.03, 7.02, 9.98, 14.04, 21.03, 30.03] #PATB17
 
 
     #t_exp = [0.04, 0.08, 0.17, 0.33, 0.50, 1.00, 1.50, 2.86, 6.91, 8.86, 9.88, 13.90, 21.87, 30.87] #PATC05
@@ -172,9 +175,9 @@ def viralmodelfit(poi, exp, V0):
     #t_exp = [0.04, 0.08, 0.17, 0.34, 0.50, 1.00, 1.50, 2.96, 3.94, 7.94, 9.95, 14.94, 24.03, 30.94] #PATC09
     #t_exp = [0.04, 0.09, 0.18, 0.33, 0.50, 1.00, 1.50, 2.96, 3.98, 7.00, 9.98, 13.97, 2196, 30.02] #PATC10
 
-    plt.figure()    
+    plt.figure()
     #plt.plot(t_exp, exp, 'r--')
-    plt.plot(tempoPt,V_log, 'r-')   #
+    plt.plot(tempoPt,V_log, 'b-')   #
     #plt.legend(["Modelo EDP"]) #"Exp data PATB17",
     #plt.savefig("PATB17.png")
 
@@ -261,13 +264,19 @@ def viralmodelfit(poi, exp, V0):
 
     t_exp10 = [0.04, 0.09, 0.18, 0.33, 0.50, 1.00, 1.50, 2.96, 3.98, 7.00, 9.98, 13.97, 21.96, 30.02]
 
-    plt.plot(t_exp1, PATB06, 'o')
-    plt.plot(t_exp5, PATB16, 'o')
-    plt.plot(t_exp6, PATB17, 'o')
+    # --------------------------------------------------------------------------------------------------------
 
-    plt.plot(t_exp7, PATC05, 'o')
-    plt.plot(t_exp8, PATC06, 'o')
-    plt.plot(t_exp9, PATC09, 'o')
+    # --- average of pats
+    MEAN_PATS = [6.47991433, 6.42897983, 5.857277, 4.63766183, 4.08108333, 3.38275467, 3.18124267, 2.88121, 2.66053917,
+           2.54078967, 2.487822, 2.21939417, 1.90103167, 1.7158415]
+
+    #plt.plot(t_exp1, PATB06, 'o')
+    #plt.plot(t_exp5, PATB16, 'o')
+    #plt.plot(t_exp6, PATB17, 'o')
+
+    #plt.plot(t_exp7, PATC05, 'o')
+    #plt.plot(t_exp8, PATC06, 'o')
+    #plt.plot(t_exp9, PATC09, 'o')
 
     # plt.plot(t_exp2, PATB07)
     # plt.plot(t_exp3, PATB08)
@@ -275,18 +284,40 @@ def viralmodelfit(poi, exp, V0):
 
     # plt.plot(t_exp4, PATB09)
 
-    plt.xlim(0.0, 31.0)
-    plt.legend(["PDE Model", "PATB06", "PATB16", "PATB17", "PATC05", "PATC06", "PATC09"])
-    plt.xlabel('Days post treatment initiation')
-    plt.ylabel('HCV RNA ($log_{10}$ UI/mL)')
-    #plt.show()
+    plt.plot(t_exp2, MEAN_PATS, 'ro')
+    plt.legend(["Model", "Average data"])
+
+    plt.xlim(-1.0, 32.0)
+    #plt.legend(["Model", "PAT 1", "PAT 2", "PAT 3", "PAT 4", "PAT 5", "PAT 6"])
+    plt.xlabel("Time after beginning of combination therapy (days)")
+    plt.ylabel("HCV RNA ($log_{10}$ UI/mL)")
+
 
     ##########################################
     ##########################################
-    
+
+    # Tempo das medicoes e da discretizacao do modelo
+    x = [0.04, 0.09, 0.17, 0.34, 0.50, 1.00, 1.50, 2.98, 4.91, 6.92, 10.94, 13.96, 20.91, 27.98]
+
+    # Media do resultado experimental
+    y = [6.47991433, 6.42897983, 5.857277, 4.63766183, 4.08108333, 3.38275467,
+         3.18124267, 2.88121, 2.66053917, 2.54078967, 2.487822, 2.21939417,
+         1.90103167, 1.7158415]
+
+    # Desvio padrao dos dados
+    yerr = [0.182129952, 0.182630388, 0.337284052, 0.390495914, 0.307469046, 0.18942229,
+            0.200947972, 0.239112485, 0.222385492, 0.324597051, 0.294209462, 0.350716883,
+            0.372253077, 0.297196377]
+
+    # plt.ylim(0,120)
+    # plt.errorbar(x, y, yerr = yerr, marker='s', fmt='.k', uplims=True, lolims=True)
+    # plt.errorbar(x, y, yerr = yerr, marker='s', fmt='.k')
+    plt.errorbar(x, y, yerr=yerr, fmt='.k')
+
+    plt.savefig("D:\Faculdade\IC\GitHub\PrmFitting\ENMC/model_err_30days.png", dpi=300)
 
     plt.show()
-    
+
     # fazer interpolacao usando os pontos experimentais
     ius = InterpolatedUnivariateSpline(t_exp, exp)
     
@@ -318,7 +349,7 @@ poi = [0.999, 0.920, 0.300, 0.07, 22.0, 11.1, 12] #[0.999, 0.93753882, 0.2, 0.1,
 # PATB16
 #exp = [6.3541, 6.3212, 5.5915, 4.1949, 3.8517, 3.6651, 3.4814, 3.2529, 3.0120, 3.0302, 2.7528, 2.3838, 2.1818, 1.9243]
 # PATB17
-exp = [6.4885, 6.5486, 5.6096, 4.4266, 3.8878, 3.2076, 3.1626, 2.9128, 2.8432, 2.7474, 2.7016, 2.3541, 2.0453, 1.4914]
+#exp = [6.4885, 6.5486, 5.6096, 4.4266, 3.8878, 3.2076, 3.1626, 2.9128, 2.8432, 2.7474, 2.7016, 2.3541, 2.0453, 1.4914]
 
 
 # PATC05
@@ -329,6 +360,10 @@ exp = [6.4885, 6.5486, 5.6096, 4.4266, 3.8878, 3.2076, 3.1626, 2.9128, 2.8432, 2
 #exp = [6.424965, 6.303063, 6.028728, 4.642148, 4.349588, 3.484015, 3.243286, 2.816904, 2.576341, 2.089905, 2.025306, 1.698970, 1.278754, 1.342423]
 # PATC10
 #exp = [5.583842, 5.455846, 4.754914, 3.447468, 2.749736, 2.311754, 2.158362, 1.944483, 1.707570, 1.322219, 1.322219, 1.000000, 1.000000, 1.000000]
+
+
+# MEAN_PATS
+exp = [6.47991433, 6.42897983, 5.857277, 4.63766183, 4.08108333, 3.38275467, 3.18124267, 2.88121, 2.66053917, 2.54078967, 2.487822, 2.21939417, 1.90103167, 1.7158415]
 
 viralmodelfit(poi, exp, 10**exp[0])
 

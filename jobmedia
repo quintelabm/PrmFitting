@@ -1,0 +1,10 @@
+#!/bin/bash
+#$ -N jobmedia
+#$ -cwd
+#$ -j y
+#$ -pe threaded 8
+#$ -S /bin/bash
+
+export LD_LIBRARY_PATH=/share/apps/Python-3.7.0/lib/:$LD_LIBRARY_PATH
+
+/share/apps/Python-3.7.0/bin/python3 /home/jessica/teste-uq/MonteCarlo_EDP_2dias/teste_UQ_EDPs.py
