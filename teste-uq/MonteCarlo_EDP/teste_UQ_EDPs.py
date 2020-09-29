@@ -131,10 +131,6 @@ def viralmodelfit(s, d, beta, c, k, tau, Rmax, sigma,
     # Passa para a base log o resultado
     V_log = np.log10(V)
 
-    for v in V_log:
-        if v < 0:
-            return tempoPt, np.zeros(tempoNpts)
-
     return tempoPt, V_log
 
 ##############FIM MODELO################

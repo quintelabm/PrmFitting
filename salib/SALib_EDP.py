@@ -5,6 +5,7 @@ from SALib.analyze import sobol
 import matplotlib.pyplot as plt
 
 import numpy as np
+
 import seaborn as sns
 
 sns.set()
@@ -130,10 +131,6 @@ def viralmodelfit(param):
     # Passa para a base log o resultado
     V_log = np.log10(V)
 
-    for v in V_log:
-        if v < 0:
-            return np.zeros(tempoNpts)
-
     return V_log
 
 ##############FIM MODELO################
@@ -159,7 +156,9 @@ epsilon_alpha = 0.920
 epsilon_r     = 0.300
 delta         = 0.07
 
-parameters = { 'num_vars': 20,
+num_param = 20
+
+parameters = { 'num_vars': num_param,
               'names': ['s', 'd', 'beta', 'c', 'k', 'tau', 'Rmax', 'sigma', 'mu_t', 'theta', 'mu_c', 'kappa_t', 'kappa_c', 'alpha', 'r', 'rho', 'epsilon_s', 'epsilon_alpha', 'epsilon_r', 'delta'],
               'bounds': [[s*0.9, s*1.1],
                          [d*0.9, d*1.1],
@@ -186,12 +185,13 @@ parameters = { 'num_vars': 20,
 
 
 #Gera parametros aleatorios
-n = 1
-param_values = saltelli.sample(parameters, n, calc_second_order=False )
+
+samples = 2
+param_values = saltelli.sample(parameters, samples, calc_second_order=False )
 
 #Y = np.zeros([param_values.shape[0]])
-ww = n*(22)
-solucoes = np.zeros([ww,tempoNpts])
+num_sol = samples*(num_param+2)
+solucoes = np.zeros([num_sol,tempoNpts])
 
 
 for i, X in enumerate(param_values):
@@ -200,76 +200,76 @@ for i, X in enumerate(param_values):
 solucoes = solucoes.T
 Si = np.zeros(tempoNpts)
 
-Sres = np.zeros([tempoNpts,20])
-f = open("arqsaida.txt","w")
+Sres = np.zeros([tempoNpts, num_param])
+#f = open("arqsaida.txt","w")
 
 for i in range(1, tempoNpts):
     Si = sobol.analyze(parameters, solucoes[i], calc_second_order=False)
     Sres[i] = Si['S1']
-    f.write(tempoPt[i]+ " "+ str(list(Sres[i])))
+    #f.write(tempoPt[i]+ " "+ str(list(Sres[i])))
 
 plt.xlabel("tempo(dias)")
 plt.ylabel("indice")
 plt.figure(0)
 plt.plot(tempoPt, Sres[:,0])
-plt.savefig("/salibEDO/s.png")
+plt.savefig("salib_EDP_resultados/s.png")
 plt.figure(1)
 plt.plot(tempoPt, Sres[:,1])
-plt.savefig("/salibEDO/d.png")
+plt.savefig("salib_EDP_resultados/d.png")
 plt.figure(2)
 plt.plot(tempoPt, Sres[:,2])
-plt.savefig("/salibEDO/beta.png")
+plt.savefig("salib_EDP_resultados/beta.png")
 plt.figure(3)
 plt.plot(tempoPt, Sres[:,3])
-plt.savefig("/salibEDO/c.png")
+plt.savefig("salib_EDP_resultados/c.png")
 plt.figure(4)
 plt.plot(tempoPt, Sres[:,4])
-plt.savefig("/salibEDO/k.png")
+plt.savefig("salib_EDP_resultados/k.png")
 plt.figure(5)
 plt.plot(tempoPt, Sres[:,5])
-plt.savefig("/salibEDO/tau.png")
+plt.savefig("salib_EDP_resultados/tau.png")
 plt.figure(6)
 plt.plot(tempoPt, Sres[:,6])
-plt.savefig("/salibEDO/Rmax.png")
+plt.savefig("salib_EDP_resultados/Rmax.png")
 plt.figure(7)
 plt.plot(tempoPt, Sres[:,7])
-plt.savefig("/salibEDO/sigma.png")
+plt.savefig("salib_EDP_resultados/sigma.png")
 plt.figure(8)
 plt.plot(tempoPt, Sres[:,8])
-plt.savefig("/salibEDO/mu_t.png")
+plt.savefig("salib_EDP_resultados/mu_t.png")
 plt.figure(9)
 plt.plot(tempoPt, Sres[:,9])
-plt.savefig("/salibEDO/theta.png")
+plt.savefig("salib_EDP_resultados/theta.png")
 plt.figure(10)
 plt.plot(tempoPt, Sres[:,10])
-plt.savefig("/salibEDO/mu_c.png")
+plt.savefig("salib_EDP_resultados/mu_c.png")
 plt.figure(11)
 plt.plot(tempoPt, Sres[:,11])
-plt.savefig("/salibEDO/kappa_t.png")
+plt.savefig("salib_EDP_resultados/kappa_t.png")
 plt.figure(12)
 plt.plot(tempoPt, Sres[:,12])
-plt.savefig("/salibEDO/kappa_c.png")
+plt.savefig("salib_EDP_resultados/kappa_c.png")
 plt.figure(13)
 plt.plot(tempoPt, Sres[:,13])
-plt.savefig("/salibEDO/alpha.png")
+plt.savefig("salib_EDP_resultados/alpha.png")
 plt.figure(14)
 plt.plot(tempoPt, Sres[:,14])
-plt.savefig("/salibEDO/r.png")
+plt.savefig("salib_EDP_resultados/r.png")
 plt.figure(15)
 plt.plot(tempoPt, Sres[:,15])
-plt.savefig("/salibEDO/rho.png")
+plt.savefig("salib_EDP_resultados/rho.png")
 plt.figure(16)
 plt.plot(tempoPt, Sres[:,16])
-plt.savefig("/salibEDO/epsilon_s.png")
+plt.savefig("salib_EDP_resultados/epsilon_s.png")
 plt.figure(17)
 plt.plot(tempoPt, Sres[:,17])
-plt.savefig("/salibEDO/epsilon_alpha.png")
+plt.savefig("salib_EDP_resultados/epsilon_alpha.png")
 plt.figure(18)
 plt.plot(tempoPt, Sres[:,18])
-plt.savefig("/salibEDO/epsilon_r.png")
+plt.savefig("salib_EDP_resultados/epsilon_r.png")
 plt.figure(19)
 plt.plot(tempoPt, Sres[:,19])
-plt.savefig("/salibEDO/delta.png")
+plt.savefig("salib_EDP_resultados/delta.png")
 
-f.close()
+#f.close()
 plt.show()

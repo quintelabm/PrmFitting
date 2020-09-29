@@ -4,14 +4,16 @@ import chaospy as cp
 
 import numpy as np
 
+from scipy.integrate import odeint
+
 #************* MODELO INICIO ************
 
 # passo
 h = 0.1
-days = 2
+days = 30
 
 # Dias simulados
-x = np.array([0.0, days])
+x_range = np.array([0.0, days])
 
 # define uma funcao feval que recebe o nome da equacao a ser avaliada como 
 # string e retorna a funcao a ser avaliada
@@ -20,7 +22,7 @@ def feval(funcName, *args):
 
 
 # define a resolucao numerica por runge-kutta de quarta ordem
-def RK4thOrder(delta, epsilon, p, c, x_range, h):
+def RK4thOrder(delta, epsilon, p, c):
     
     # define a funcao que contem as equacoes do sistema a ser avaliado
     def dinamicaIntracelular(x, y):
@@ -44,8 +46,8 @@ def RK4thOrder(delta, epsilon, p, c, x_range, h):
     T0  = 2.9168*10**6
     I0 = 8.7186*10**5
     
-    #PAT83:
-    V0  = 4.9139*10**5
+    #AVERAGE_PAT
+    V0 = 2.563292*10**6
     
     yinit = np.array([T0,I0,V0], dtype='f')
     m = len(yinit)
@@ -91,13 +93,6 @@ def RK4thOrder(delta, epsilon, p, c, x_range, h):
     return [xsol, yV]
 
 
-
-#Para pacientes com HCV
-#[ts, ys] = RK4thOrder('dinamicaIntracelular', yinit, x, h)
-
-# Separa cada variável em um vetor
-
-
 #************* MODELO FIM ************
 
 model = un.Model(
@@ -106,24 +101,22 @@ model = un.Model(
         "Carga viral (log10)"]
 )
 
-delta_m   = 0.14
-epsilon_m = 0.99
-p_m       = 8.18
-c_m       = 22.3
+delta_m   = 0.07
+epsilon_m = 0.999
+p_m       = 12.0
+c_m       = 19.0
 
 # create distributions
-delta_dist=cp.Uniform(0.01, 1.0)
-epsilon_dist=cp.Uniform(0.8, 0.999)
-p_dist=cp.Uniform(5, 10)
-c_dist=cp.Uniform(15, 25)
+delta_dist=cp.Uniform(delta_m*0.9, delta_m*1.1)
+epsilon_dist=cp.Uniform(epsilon_m*0.9, epsilon_m)
+p_dist=cp.Uniform(p_m*0.9, p_m*1.1)
+c_dist=cp.Uniform(c_m*0.9, c_m*1.1)
 
 # define parameter dictionary
 parameters = {"delta": delta_dist,
             "epsilon": epsilon_dist,
             "p": p_dist,
-            "c": c_dist,
-            "x_range": x,
-            "h": h
+            "c": c_dist
             }
 
            
@@ -134,4 +127,4 @@ UQ = un.UncertaintyQuantification(
 )
 
 #data = UQ.polynomial_chaos()
-data = UQ.quantify()
+data = UQ.monte_carlo(nr_samples=100)
