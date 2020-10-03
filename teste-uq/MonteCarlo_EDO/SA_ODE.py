@@ -32,8 +32,8 @@ def dinamica_Extracelular(y, t, delta, epsilon, p, c):
 def solver(delta, epsilon, p, c):
     
     # passo
-    h = 0.01
-    days = 5
+    h = 0.1
+    days = 30
     # Dias simulados
     t_range = np.linspace(0, days, int(days/h))
     
@@ -41,7 +41,7 @@ def solver(delta, epsilon, p, c):
     T0  = 2.9168*10**6
     I0 = 8.7186*10**5
     #AVERAGE_PAT
-    V0 = 2.563292*10**6
+    V0 = 10**6.47991433
     yinit = np.array([T0,I0,V0], dtype='f')
     
     sol = odeint(dinamica_Extracelular, yinit, t_range, args=(delta, epsilon, p, c))
