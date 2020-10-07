@@ -43,7 +43,7 @@ def plot(t_pts, solve):
     
     return 0;
     
-def solver(delta, epsilon, p, c):
+def solver():
     
     # passo
     h = 0.1
@@ -58,16 +58,15 @@ def solver(delta, epsilon, p, c):
     V0 = 10**6.47991433
     yinit = np.array([T0,I0,V0], dtype='f')
     
-    
-    return t_range, odeint(dinamica_Extracelular, yinit, t_range, args=(delta, epsilon, p, c))
-
-if __name__ == "__main__":
-    
     delta = 0.07
     epsilon = 0.999
     p = 12.0
     c = 19.0
     
-    t_range, sol = solver(delta, epsilon, p, c)
+    return t_range, odeint(dinamica_Extracelular, yinit, t_range, args=(delta, epsilon, p, c))
+
+if __name__ == "__main__":
+    
+    t_range, sol = solver()
     
     plot(t_range, sol)
