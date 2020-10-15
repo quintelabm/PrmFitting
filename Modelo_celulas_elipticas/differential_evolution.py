@@ -21,8 +21,8 @@ recombination = 0.7                                        # Recombination rate 
 maxiter = 5                                                # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
-patients = [ ]
-
+patients = []
+t_exp_total = []
 # --- for patient B06
 PATB06 = [6.3780, 6.4109, 5.6277, 4.4948, 3.9268, 3.1973, 2.8537, 2.5340, 2.4378,
             2.3404, 2.3345, 2.2355, 2.0492, 2.1173]
@@ -68,13 +68,21 @@ PATC09 = [6.424965, 6.303063, 6.028728, 4.642148, 4.349588, 3.484015, 3.243286, 
             2.089905, 2.025306, 1.698970, 1.278754, 1.342423]
 
 t_exp6 = [0.04, 0.08, 0.17, 0.34, 0.50, 1.00, 1.50, 2.96, 3.94, 7.94, 9.95, 14.94, 24.03, 30.94]
-'''
-patients.append(PAT8)
-patients.append(PAT42)
-patients.append(PAT68)
-patients.append(PAT69)
-patients.append(PAT83)
-'''
+
+patients.append(PATB06)
+patients.append(PATB16)
+patients.append(PATB17)
+patients.append(PATC05)
+patients.append(PATC06)
+patients.append(PATC09)
+
+t_exp_total.append(t_exp1)
+t_exp_total.append(t_exp2)
+t_exp_total.append(t_exp3)
+t_exp_total.append(t_exp4)
+t_exp_total.append(t_exp5)
+t_exp_total.append(t_exp6)
+
 def plot_graficos(t_range, solve, t_exp, data_exp):
     
     v = solve[:,3]
@@ -88,24 +96,26 @@ def plot_graficos(t_range, solve, t_exp, data_exp):
 #--- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
+    
     days = 30
     pwd = os.getcwd()
-    #saida = open("/home/matheus/Documents/PrmFitting/HCV_DE_scipy/docs/relatorio.txt", "a")
-    #saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
-    #saida.writelines('Population size: '+ str(popsize)+ '\nNumber of generations: '+ str(maxiter)+ '\n')
-    #    saida.writelines(str(pat_cont) + " Patient\n\n")
-        
-    sol_pat = differential_evolution(cost_func, bounds, args=(t_exp1, PATB06, days), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)
-    #sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
-    
-    #   saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
-    #   saida.writelines('\nO melhor conjunto de parametros: '+str(sol_pat.x) +'\n\n')
-    #Plot da solucao com os melhores parametros
-    #solver(sol_pat.x, pat, (10**pat[0]))
-    #plt.savefig(pwd+"pat_"+str(pat_cont)+"NGem_"+str(maxiter)+"NPop_"+str(popsize)+".png")
-    t_range, sol =solver(sol_pat.x[0], sol_pat.x[1], sol_pat.x[2], sol_pat.x[3], sol_pat.x[4], 10**PATB06[0], days)
-    plot_graficos(t_range, sol, t_exp1, PATB06)
+    saida = open(pwd+"/Modelo_celulas_elipticas/Results/relatorio.txt", "a+")
+    """ Fazer loop para todos os pacientes"""
+    for i in range(0, len(patients)):
 
+        saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
+        saida.writelines('Population size: '+ str(popsize)+ '\nNumber of generations: '+ str(maxiter)+ '\n')
+        saida.writelines(str(i +1) + ' patiente')
+        sol_pat = differential_evolution(cost_func, bounds, args=(t_exp_total[i], patients[i], days), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)
+        #sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
+        
+        saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
+        saida.writelines('\nO melhor conjunto de parametros: '+str(sol_pat.x) +'\n\n')
+        #Plot da solucao com os melhores parametros
+        t_range, sol =solver(sol_pat.x[0], sol_pat.x[1], sol_pat.x[2], sol_pat.x[3], sol_pat.x[4], 10**PATB06[0], days)
+        plot_graficos(t_range, sol, t_exp1, PATB06)
+        plt.savefig(pwd + '/Modelo_celulas_elipticas/Results/'+ str(i +1) + 'patiente' + ".png")
+        plt.clf()
 
     #saida.close()
 
