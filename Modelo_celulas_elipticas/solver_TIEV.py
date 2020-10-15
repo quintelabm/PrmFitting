@@ -6,6 +6,8 @@ import numpy as np
 
 import seaborn as sns
 
+import os
+
 sns.set()
 
 
@@ -36,11 +38,10 @@ def plot(t_pts, solve):
     
     return 0
     
-def solver(beta, delta, epsilon, p, c, k):
+def solver(beta, delta, epsilon, p, c, k, days):
     
     # passo
     h = 0.1
-    days = 30
     # Dias simulados
     t_range = np.linspace(0, days, int(days/h))
     
@@ -71,8 +72,9 @@ if __name__ == "__main__":
     c = 19.0
     beta = 5*10**-8
     k = 4
+    days = 30
     
-    t_range, sol = solver(beta, delta, epsilon, p, c, k)
+    t_range, sol = solver(beta, delta, epsilon, p, c, k, days)
 
     # --- for patient B06
     PATB06 = [6.3780, 6.4109, 5.6277, 4.4948, 3.9268, 3.1973, 2.8537, 2.5340, 2.4378,
@@ -153,6 +155,7 @@ if __name__ == "__main__":
 
     plt.errorbar(x, y, yerr=yerr, fmt='.k')
 
-    plt.savefig("D:\Faculdade\IC\GitHub\PrmFitting\Modelo_celulas_elipticas\Results/Average.png", dpi=300)
-
+    cwd = os.getcwd()
+    #plt.savefig("D:\Faculdade\IC\GitHub\PrmFitting\Modelo_celulas_elipticas\Results/Average.png", dpi=300)
+    plt.savefig(cwd+"/Modelo_celulas_elipticas/Results/Average.png")
     plt.show()
