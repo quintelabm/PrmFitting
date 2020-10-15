@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 
 from scipy.integrate import odeint
+from scipy.spatial import distance
+from scipy.interpolate import InterpolatedUnivariateSpline
 
 import numpy as np
 
@@ -17,11 +19,11 @@ def dinamica_Extracelular(y, t, beta, delta, epsilon, p, c, k):
     dy = np.zeros(4)
     
     # equacoes: y[0] = T, y[1] = I, y[2] = E, y[3] = V
-     
+
     dy[0] = - beta*y[3]*y[0] 
     dy[1] = k*y[2] - delta*y[1]
     dy[2] = beta*y[3]*y[0] - k*y[2]
-    dy[3] = (1 - epsilon)*p*y[1] - c*y[3]  #estava c*y[2]
+    dy[3] = (1 - epsilon)*p*y[1] - c*y[3]  
 
     return dy
 
@@ -36,9 +38,7 @@ def plot(t_pts, solve):
     plt.legend(["Average Data", "Model"])
 
     
-    return 0
-    
-def solver(beta, delta, epsilon, p, c, k, days):
+def solver(delta, epsilon, p, c, k, V0, days):
     
     # passo
     h = 0.1
@@ -54,15 +54,32 @@ def solver(beta, delta, epsilon, p, c, k, days):
     #V0  = 10**6.394490 # PATC05  4
     #V0  = 10**6.839431 # PATC06  5
     #V0  = 10**6.424965 # PATC09  6
-    V0 = 10 ** 6.47991433  # AVERAGE_PAT
+    #V0  = 10 ** 6.47991433  # AVERAGE_PAT
 
+    beta = 5*10**-8
     E0 = beta*T0*V0
     I0 = k*E0
-    
-    
-    yinit = np.array([T0,I0,E0,V0], dtype='f')
         
+    yinit = np.array([T0,I0,E0,V0], dtype='f')
     return t_range, odeint(dinamica_Extracelular, yinit, t_range, args=(beta, delta, epsilon, p, c, k))
+
+def custo(param_adj, t_exp, data_exp, days):
+    
+    t_range, sol = solver(param_adj[0], param_adj[1], param_adj[2], param_adj[3], param_adj[4], 10**data_exp[0], days)
+
+    solV = sol[:,3]
+    for v in solV:
+        if v < 0:
+            return 100000
+    logsolV = np.log10(solV)
+    
+    ius = InterpolatedUnivariateSpline(t_exp, data_exp)
+    
+    yi = ius(t_range)
+    
+    dst = distance.euclidean(logsolV, yi)
+    return dst
+
 
 if __name__ == "__main__":
     
@@ -74,7 +91,7 @@ if __name__ == "__main__":
     k = 4
     days = 30
     
-    t_range, sol = solver(beta, delta, epsilon, p, c, k, days)
+    t_range, sol = solver(beta, delta, epsilon, p, c, k, 10**6.47991433, days)
 
     # --- for patient B06
     PATB06 = [6.3780, 6.4109, 5.6277, 4.4948, 3.9268, 3.1973, 2.8537, 2.5340, 2.4378,
