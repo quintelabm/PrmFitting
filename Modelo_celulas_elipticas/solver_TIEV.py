@@ -90,6 +90,8 @@ if __name__ == "__main__":
     beta = 5*10**-8
     k = 4
     days = 30
+
+    
     
     t_range, sol = solver(beta, delta, epsilon, p, c, k, 10**6.47991433, days)
 
