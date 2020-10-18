@@ -83,18 +83,6 @@ def custo(param_adj, t_exp, data_exp, days):
 
 if __name__ == "__main__":
     
-    delta = 0.07
-    epsilon = 0.999
-    p = 12.0
-    c = 19.0
-    beta = 5*10**-8
-    k = 4
-    days = 30
-
-    
-    
-    t_range, sol = solver(beta, delta, epsilon, p, c, k, 10**6.47991433, days)
-
     # --- for patient B06
     PATB06 = [6.3780, 6.4109, 5.6277, 4.4948, 3.9268, 3.1973, 2.8537, 2.5340, 2.4378,
               2.3404, 2.3345, 2.2355, 2.0492, 2.1173]
@@ -147,17 +135,14 @@ if __name__ == "__main__":
     AVERAGE_PATS = [6.47991433, 6.42897983, 5.857277, 4.63766183, 4.08108333, 3.38275467, 3.18124267, 2.88121, 2.66053917,
                  2.54078967, 2.487822, 2.21939417, 1.90103167, 1.7158415]
 
-    #plt.plot(t_exp1, PATB06, 'o')
-    #plt.plot(t_exp2, PATB16, 'o')
-    #plt.plot(t_exp3, PATB17, 'o')
-    #plt.plot(t_exp4, PATC05, 'o')
-    #plt.plot(t_exp5, PATC06, 'o')
-    #plt.plot(t_exp6, PATC09, 'o')
+    delta, epsilon, p, c, k = [0.3743495, 0.99633435, 1.86952617, 11.08537164, 4.49592068]
+    days = 30
+
     plt.plot(t_exp6, AVERAGE_PATS, 'o')
 
+    t_range, sol = solver(delta, epsilon, p, c, k, 10**PATB06[0], days)
 
     plot(t_range, sol)
-
 
     # Tempo das medicoes e da discretizacao do modelo
     x = [0.04, 0.08, 0.17, 0.34, 0.50, 1.00, 1.50, 2.96, 3.94, 7.94, 9.95, 14.94, 24.03, 30.94]
@@ -172,9 +157,9 @@ if __name__ == "__main__":
             0.200947972, 0.239112485, 0.222385492, 0.324597051, 0.294209462, 0.350716883,
             0.372253077, 0.297196377]
 
-    plt.errorbar(x, y, yerr=yerr, fmt='.k')
+    #plt.errorbar(x, y, yerr=yerr, fmt='.k')
 
     cwd = os.getcwd()
     #plt.savefig("D:\Faculdade\IC\GitHub\PrmFitting\Modelo_celulas_elipticas\Results/Average.png", dpi=300)
-    plt.savefig(cwd+"/Modelo_celulas_elipticas/Results/Average.png")
+    #plt.savefig(cwd+"/Modelo_celulas_elipticas/Results/Average.png")
     plt.show()

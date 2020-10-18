@@ -104,11 +104,10 @@ if __name__ == "__main__":
     days = 5
     pwd = os.getcwd()
     saida = open(f'{pwd}/Modelo_celulas_elipticas/Results/relatorio.txt', "a+")
-    """ Fazer loop para todos os pacientes"""
+    saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
+    saida.writelines('Population size: '+ str(popsize)+ '\nNumber of generations: '+ str(maxiter)+ '\n')
     for i in range(0, len(patients)):
-
-        saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
-        saida.writelines('Population size: '+ str(popsize)+ '\nNumber of generations: '+ str(maxiter)+ '\n')
+        
         saida.writelines(str(i +1) + ' patiente')
         sol_pat = differential_evolution(cost_func, bounds, args=(t_exp_total[i], patients[i], days), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)
         saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
