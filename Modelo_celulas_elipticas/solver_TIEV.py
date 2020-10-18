@@ -35,7 +35,7 @@ def plot(t_pts, solve):
     plt.title("Carga viral no tempo")
     plt.ylabel("Carga viral ($log_{10}$ UI/mL)")
     plt.xlabel("Tempo (dias)")
-    plt.legend(["Average Data", "Model"])
+    plt.legend(["Data", "Model"])
 
     
 def solver(delta, epsilon, p, c, k, V0, days):
@@ -135,12 +135,12 @@ if __name__ == "__main__":
     AVERAGE_PATS = [6.47991433, 6.42897983, 5.857277, 4.63766183, 4.08108333, 3.38275467, 3.18124267, 2.88121, 2.66053917,
                  2.54078967, 2.487822, 2.21939417, 1.90103167, 1.7158415]
 
-    delta, epsilon, p, c, k = [0.3743495, 0.99633435, 1.86952617, 11.08537164, 4.49592068]
+    delta, epsilon, p, c, k = [0.36266328, 0.99809382, 4.58157349, 10, 4.99935203]
     days = 30
 
-    plt.plot(t_exp6, AVERAGE_PATS, 'o')
+    plt.plot(t_exp6, PATC09, 'o')
 
-    t_range, sol = solver(delta, epsilon, p, c, k, 10**PATB06[0], days)
+    t_range, sol = solver(delta, epsilon, p, c, k, 10**PATC09[0], days)
 
     plot(t_range, sol)
 
@@ -161,5 +161,5 @@ if __name__ == "__main__":
 
     cwd = os.getcwd()
     #plt.savefig("D:\Faculdade\IC\GitHub\PrmFitting\Modelo_celulas_elipticas\Results/Average.png", dpi=300)
-    #plt.savefig(cwd+"/Modelo_celulas_elipticas/Results/Average.png")
+    plt.savefig(cwd+"/Modelo_celulas_elipticas/Results/pat6_30dias.png", dpi=300)
     plt.show()
