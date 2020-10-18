@@ -156,3 +156,45 @@ Custo do melhor conjunto de parametros: 1.6063853725388177
 
 O melhor conjunto de parametros: [ 0.36266328  0.99809382  4.58157349 10.          4.99935203]
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 5
+1 patiente
+Custo do melhor conjunto de parametros: 3.219384026485129
+
+
+O melhor conjunto de parametros: [ 0.05309262  0.99981336 14.00676106 18.75577053  7.34890332]
+
+2 patiente
+Custo do melhor conjunto de parametros: 3.2724377977105785
+
+
+O melhor conjunto de parametros: [ 0.14282002  0.98815414  3.82285729 19.25449559  3.17079403]
+
+3 patiente
+Custo do melhor conjunto de parametros: 2.3579198155286925
+
+
+O melhor conjunto de parametros: [ 0.12083678  0.99654643  3.43899668 21.60566581  4.74041759]
+
+4 patiente
+Custo do melhor conjunto de parametros: 2.9689570283380866
+
+
+O melhor conjunto de parametros: [ 0.09083952  0.98559175  1.97209787 18.805166    1.25480441]
+
+5 patiente
+Custo do melhor conjunto de parametros: 5.948040631595768
+
+
+O melhor conjunto de parametros: [ 0.18028481  0.99929135  9.2981241  21.98658568  7.72462833]
+
+6 patiente
+Custo do melhor conjunto de parametros: 5.369465921626171
+
+
+O melhor conjunto de parametros: [ 0.14217822  0.9981712   4.34726725 24.46147274  3.77061639]
+
