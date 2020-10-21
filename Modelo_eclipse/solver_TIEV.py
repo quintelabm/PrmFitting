@@ -13,14 +13,14 @@ import os
 sns.set()
 
 
-def dinamica_Extracelular(y, t, beta, delta, epsilon, p, c, k):
+def dinamica_Extracelular(y, t, beta, s, d, delta, epsilon, p, c, k):
     
     # inicializa com zeros
     dy = np.zeros(4)
     
     # equacoes: y[0] = T, y[1] = I, y[2] = E, y[3] = V
 
-    dy[0] = - beta*y[3]*y[0] 
+    dy[0] = s - beta*y[3]*y[0] - d 
     dy[1] = k*y[2] - delta*y[1]
     dy[2] = beta*y[3]*y[0] - k*y[2]
     dy[3] = (1 - epsilon)*p*y[1] - c*y[3]  
@@ -46,22 +46,15 @@ def solver(delta, epsilon, p, c, k, V0, days):
     t_range = np.linspace(0, days, int(days/h))
     
     # condicoes iniciais
-    T0 = 2.9168*10**6
-
-    #V0  = 10**6.3780 # PATB06  1
-    #V0  = 10**6.3541 # PATB16  2
-    #V0  = 10**6.4885 # PATB17  3
-    #V0  = 10**6.394490 # PATC05  4
-    #V0  = 10**6.839431 # PATC06  5
-    #V0  = 10**6.424965 # PATC09  6
-    #V0  = 10 ** 6.47991433  # AVERAGE_PAT
-
+    T0 = 1.85*10**7
+    s = 1.3*10**5
+    d = 0.01
     beta = 5*10**-8
     E0 = beta*T0*V0
     I0 = k*E0
         
     yinit = np.array([T0,I0,E0,V0], dtype='f')
-    return t_range, odeint(dinamica_Extracelular, yinit, t_range, args=(beta, delta, epsilon, p, c, k))
+    return t_range, odeint(dinamica_Extracelular, yinit, t_range, args=(beta, s, d, delta, epsilon, p, c, k))
 
 def custo(param_adj, t_exp, data_exp, days):
     
@@ -161,5 +154,5 @@ if __name__ == "__main__":
 
     cwd = os.getcwd()
     #plt.savefig("D:\Faculdade\IC\GitHub\PrmFitting\Modelo_celulas_elipticas\Results/Average.png", dpi=300)
-    plt.savefig(cwd+"/Modelo_celulas_elipticas/Results/pat6_30dias.png", dpi=300)
+    plt.savefig(cwd+"/Modelo_eclipse/Results/pat6_30dias.png", dpi=300)
     plt.show()
