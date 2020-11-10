@@ -1,0 +1,131 @@
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 1
+Custo do melhor conjunto de parametros: 3.2683954879453054
+
+
+O melhor conjunto de parametros: [ 0.14727938  0.999       1.00009585 11.86668992  1.00416854]
+
+
+Tempo de execucao: 426.9725818634033
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 2
+Custo do melhor conjunto de parametros: 3.2722402627671334
+
+
+O melhor conjunto de parametros: [ 0.14837399  0.999       1.00287328 11.73202846  1.00016632]
+
+
+Tempo de execucao: 797.1952929496765
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 3
+Custo do melhor conjunto de parametros: 3.268578174180738
+
+
+O melhor conjunto de parametros: [ 0.14718285  0.999       1.00100346 11.92071513  1.00085722]
+
+
+Tempo de execucao: 1183.599284172058
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 4
+Custo do melhor conjunto de parametros: 3.269101152064916
+
+
+O melhor conjunto de parametros: [ 0.14694255  0.99899975  1.00104552 11.96676465  1.0000294 ]
+
+
+Tempo de execucao: 1588.5249989032745
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 5
+Custo do melhor conjunto de parametros: 3.2683809439336104
+
+
+O melhor conjunto de parametros: [ 0.14674328  0.9989997   1.00037678 11.95538398  1.0004623 ]
+
+
+Tempo de execucao: 2004.9120035171509
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 6
+Custo do melhor conjunto de parametros: 3.269214411114289
+
+
+O melhor conjunto de parametros: [ 0.14861854  0.999       1.         11.62255097  1.00100117]
+
+
+Tempo de execucao: 2403.1731815338135
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 7
+Custo do melhor conjunto de parametros: 3.266942870833148
+
+
+O melhor conjunto de parametros: [ 0.14797805  0.999       1.         11.74944266  1.00037797]
+
+
+Tempo de execucao: 2848.9994654655457
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 8
+Custo do melhor conjunto de parametros: 3.266784260580303
+
+
+O melhor conjunto de parametros: [ 0.14709221  0.999       1.         11.9488088   1.00024755]
+
+
+Tempo de execucao: 3263.9291343688965
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 9
+Custo do melhor conjunto de parametros: 3.2674146401256476
+
+
+O melhor conjunto de parametros: [ 0.14729405  0.99899993  1.00016408 11.81579045  1.00053347]
+
+
+Tempo de execucao: 3692.198333501816
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+Execution 10
+Custo do melhor conjunto de parametros: 3.268494606357805
+
+
+O melhor conjunto de parametros: [ 0.14762135  0.999       1.00046707 11.86817273  1.00323782]
+
+
+Tempo de execucao: 4123.675435066223
