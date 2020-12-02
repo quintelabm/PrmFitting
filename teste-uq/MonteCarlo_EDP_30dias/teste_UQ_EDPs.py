@@ -25,24 +25,17 @@ def calcIntegral(I,Rp,Rt):
 
 
 #recebe como parametro os parametros estocasticos, individuos, e os valores experimentais
-def viralmodelfit(alpha, r, rho, epsilon_s, epsilon_alpha, epsilon_r, delta):
-
-
-    #Inicializacao
+def viralmodelfit(c, sigma, mu_t, mu_c, epsilon_s, epsilon_alpha, epsilon_r, delta, alpha, r, rho):
 
     #parametros
     s     = 1.3*10**5
     d     = 0.01
     beta  = 5*10**-8
-    c     = 22.30
 
     k     = 0.80 # coeficiente da funcao exponencial de atraso na exportacao de RNA positivo
     tau   = 0.50 # tempo de atraso para a exportacao de RNA positivo
     Rmax  = 50.0 # numero maximo de RNA negativo / complexo de replicacao (Rn)
-    sigma = 4.0  # taxa de formacao de complexos de replicacao
-    mu_t  = 0.8  # 0.8 no artigo # decaimento natural de Rt
     theta = 1.20 # taxa de disponibilidade para traducao
-    mu_c  = 2.8  # 0.89 no artigo # decaimento natural de Rc e Rn
 
     #variaveis
 
@@ -159,31 +152,33 @@ model = un.Model(
         "Carga viral (log10)"]
 )
 
-alpha         = 22.0
-r             = 11.1
-rho           = 12.0
-epsilon_s     = 0.999
-epsilon_alpha = 0.920
-epsilon_r     = 0.300
-delta         = 0.07
 
+c = cp.Normal(19,1)
+sigma = cp.Normal(4,1)
+mu_t = cp.Normal(0.8,0.1)
+mu_c = cp.Normal(2.8,0.5)
+epsilon_s = cp.GeneralizedHalfLogistic(shape=1, scale=0.009, shift=0.990)
+epsilon_alpha = cp.Bradford(2, 0.9, 0.96)
+epsilon_r = cp.Normal(0.3,0.03)
+delta = cp.Bradford(2, 0.01, 0.3)
+alpha = cp.GeneralizedHalfLogistic(shape=1, scale=9, shift=15)
+r = cp.GeneralizedHalfLogistic(shape=1.3, scale=6, shift=5)
+rho = cp.GeneralizedHalfLogistic(shape=1, scale=3, shift=9.7)
 # create distributions
-alpha_dist=cp.Uniform(alpha*0.9, alpha*1.1)
-r_dist=cp.Uniform(r*0.9, r*1.1)
-rho_dist=cp.Uniform(rho*0.9, rho*1.1)
-epsilon_s_dist=cp.Uniform(epsilon_s*0.9, epsilon_s*1.1)
-epsilon_alpha_dist=cp.Uniform(epsilon_alpha*0.9, epsilon_alpha*1.1)
-epsilon_r_dist=cp.Uniform(epsilon_r*0.9, epsilon_r*1.1)
-delta_dist=cp.Uniform(delta*0.9, delta*1.1)
+
 
 # define parameter dictionary
-parameters = {"alpha": alpha_dist,
-        "r": r_dist,
-        "rho": rho_dist,
-        "epsilon_s": epsilon_s_dist,
-        "epsilon_alpha": epsilon_alpha_dist,
-        "epsilon_r": epsilon_r_dist,
-        "delta": delta_dist
+parameters = { "c": c,
+        "sigma": sigma,
+        "mu_t": mu_t,
+        "mu_c": mu_c,
+        "epsilon_s": epsilon_s,
+        "epsilon_alpha": epsilon_alpha,
+        "epsilon_r": epsilon_r,
+        "delta": delta,
+        "alpha": alpha,
+        "r": r,
+        "rho": rho
             }
 
 # set up UQ
@@ -192,4 +187,4 @@ UQ = un.UncertaintyQuantification(
     parameters=parameters
 )
 
-data = UQ.monte_carlo(nr_samples=100)
+data = UQ.monte_carlo(nr_samples=60)
