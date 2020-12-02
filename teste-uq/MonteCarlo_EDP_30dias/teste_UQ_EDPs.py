@@ -25,17 +25,24 @@ def calcIntegral(I,Rp,Rt):
 
 
 #recebe como parametro os parametros estocasticos, individuos, e os valores experimentais
-def viralmodelfit(c, sigma, mu_t, mu_c, epsilon_s, epsilon_alpha, epsilon_r, delta, alpha, r, rho):
+def viralmodelfit(alpha, r, rho, epsilon_s, epsilon_alpha, epsilon_r, delta):
+
+
+    #Inicializacao
 
     #parametros
     s     = 1.3*10**5
     d     = 0.01
     beta  = 5*10**-8
+    c     = 22.30
 
     k     = 0.80 # coeficiente da funcao exponencial de atraso na exportacao de RNA positivo
     tau   = 0.50 # tempo de atraso para a exportacao de RNA positivo
     Rmax  = 50.0 # numero maximo de RNA negativo / complexo de replicacao (Rn)
+    sigma = 4.0  # taxa de formacao de complexos de replicacao
+    mu_t  = 0.8  # 0.8 no artigo # decaimento natural de Rt
     theta = 1.20 # taxa de disponibilidade para traducao
+    mu_c  = 2.8  # 0.89 no artigo # decaimento natural de Rc e Rn
 
     #variaveis
 
@@ -152,11 +159,7 @@ model = un.Model(
         "Carga viral (log10)"]
 )
 
-
-c = cp.Normal(19,1)
-sigma = cp.Normal(4,1)
-mu_t = cp.Normal(0.8,0.1)
-mu_c = cp.Normal(2.8,0.5)
+# create distributions
 epsilon_s = cp.GeneralizedHalfLogistic(shape=1, scale=0.009, shift=0.990)
 epsilon_alpha = cp.Bradford(2, 0.9, 0.96)
 epsilon_r = cp.Normal(0.3,0.03)
@@ -164,21 +167,15 @@ delta = cp.Bradford(2, 0.01, 0.3)
 alpha = cp.GeneralizedHalfLogistic(shape=1, scale=9, shift=15)
 r = cp.GeneralizedHalfLogistic(shape=1.3, scale=6, shift=5)
 rho = cp.GeneralizedHalfLogistic(shape=1, scale=3, shift=9.7)
-# create distributions
-
 
 # define parameter dictionary
-parameters = { "c": c,
-        "sigma": sigma,
-        "mu_t": mu_t,
-        "mu_c": mu_c,
+parameters = {"alpha": alpha,
+        "r": r,
+        "rho": rho,
         "epsilon_s": epsilon_s,
         "epsilon_alpha": epsilon_alpha,
         "epsilon_r": epsilon_r,
-        "delta": delta,
-        "alpha": alpha,
-        "r": r,
-        "rho": rho
+        "delta": delta
             }
 
 # set up UQ
@@ -187,4 +184,4 @@ UQ = un.UncertaintyQuantification(
     parameters=parameters
 )
 
-data = UQ.monte_carlo(nr_samples=60)
+data = UQ.monte_carlo(nr_samples=40)
