@@ -1,7 +1,5 @@
 import uncertainpy as un
-
 import chaospy as cp
-
 import numpy as np
 
 #variaveis de inicializacao
@@ -26,15 +24,12 @@ def calcIntegral(I,Rp,Rt):
 
 #recebe como parametro os parametros estocasticos, individuos, e os valores experimentais
 def viralmodelfit(alpha, r, rho, epsilon_s, epsilon_alpha, epsilon_r, delta):
-
-
     #Inicializacao
-
     #parametros
     s     = 1.3*10**5
     d     = 0.01
     beta  = 5*10**-8
-    c     = 22.30
+    c     = 19.0
 
     k     = 0.80 # coeficiente da funcao exponencial de atraso na exportacao de RNA positivo
     tau   = 0.50 # tempo de atraso para a exportacao de RNA positivo
@@ -108,7 +103,6 @@ def viralmodelfit(alpha, r, rho, epsilon_s, epsilon_alpha, epsilon_r, delta):
     Rp0_t0 = 0
     Rn0_t0 = 0
 
-
     T[0] = T0
     V[0] = V0
 
@@ -160,13 +154,29 @@ model = un.Model(
 )
 
 # create distributions
-epsilon_s = cp.GeneralizedHalfLogistic(shape=1, scale=0.009, shift=0.990)
-epsilon_alpha = cp.Bradford(2, 0.9, 0.96)
-epsilon_r = cp.Normal(0.3,0.03)
-delta = cp.Bradford(2, 0.01, 0.3)
-alpha = cp.GeneralizedHalfLogistic(shape=1, scale=9, shift=15)
-r = cp.GeneralizedHalfLogistic(shape=1.3, scale=6, shift=5)
-rho = cp.GeneralizedHalfLogistic(shape=1, scale=3, shift=9.7)
+normal = True
+epsilon_r = cp.Normal(0.3,0.1)
+if(normal==True):
+    print('Criando distribuicoes normais')
+    epsilon_s = cp.Normal(0.998,0.001)
+    epsilon_alpha = cp.Normal(0.92,0.002)
+    delta = cp.Normal(0.07,0.01)
+    alpha = cp.Normal(22,2)
+    r = cp.Normal(11.1,0.1)
+    rho = cp.Normal(12.0,1.0)
+else:
+    print('Criando distribuicoes baseadas no intervalo da DE')
+    epsilon_s = cp.GeneralizedHalfLogistic(shape=1, scale=0.004, shift=0.996)
+    epsilon_alpha = cp.Bradford(2, 0.94, 0.96)
+    delta = cp.Bradford(2, 0.06, 0.8)
+    alpha = cp.GeneralizedHalfLogistic(shape=1, scale=9, shift=15)
+    r = cp.GeneralizedHalfLogistic(shape=1.3, scale=6, shift=5)
+    rho = cp.GeneralizedHalfLogistic(shape=1, scale=3, shift=9.7)
+
+
+print('Distribuicoes criadas')
+
+
 
 # define parameter dictionary
 parameters = {"alpha": alpha,
@@ -184,4 +194,6 @@ UQ = un.UncertaintyQuantification(
     parameters=parameters
 )
 
+print('Inicio UQ --- ')
 data = UQ.monte_carlo(nr_samples=40)
+print(' --- Fim UQ')
