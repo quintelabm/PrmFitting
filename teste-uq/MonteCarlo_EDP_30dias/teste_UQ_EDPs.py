@@ -195,5 +195,5 @@ UQ = un.UncertaintyQuantification(
 )
 
 print('Inicio UQ --- ')
-data = UQ.monte_carlo(nr_samples=40)
+data = UQ.monte_carlo(nr_samples=1000)
 print(' --- Fim UQ')
