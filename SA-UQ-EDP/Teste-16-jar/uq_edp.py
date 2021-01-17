@@ -1,6 +1,7 @@
 import uncertainpy as un
 import chaospy as cp
 import numpy as np
+import time
 
 #variaveis de inicializacao
 ageFim  = 50
@@ -154,25 +155,17 @@ model = un.Model(
 )
 
 # create distributions
-normal = True
-epsilon_r = cp.Normal(0.3,0.1)
-if(normal==True):
-    print('Criando distribuicoes normais')
-    epsilon_s = cp.Normal(0.998,0.001)
-    epsilon_alpha = cp.Normal(0.92,0.002)
-    delta = cp.Normal(0.07,0.01)
-    alpha = cp.Normal(22,2)
-    r = cp.Normal(11.1,0.1)
-    rho = cp.Normal(12.0,1.0)
-else:
-    print('Criando distribuicoes baseadas no intervalo da DE')
-    epsilon_s = cp.GeneralizedHalfLogistic(shape=1, scale=0.004, shift=0.996)
-    epsilon_alpha = cp.Bradford(2, 0.94, 0.96)
-    delta = cp.Bradford(2, 0.06, 0.8)
-    alpha = cp.GeneralizedHalfLogistic(shape=1, scale=9, shift=15)
-    r = cp.GeneralizedHalfLogistic(shape=1.3, scale=6, shift=5)
-    rho = cp.GeneralizedHalfLogistic(shape=1, scale=3, shift=9.7)
 
+print('Criando distribuicoes normais')
+#epsilon_r = cp.Normal(0.3,0.1)
+epsilon_r = cp.Normal(0.3,0.001)
+epsilon_s = cp.Normal(0.998,0.001)
+#epsilon_alpha = cp.Normal(0.92,0.002)
+epsilon_alpha = cp.Normal(0.92,0.001)
+delta = cp.Normal(0.07,0.01)
+alpha = cp.Normal(22,0.001)
+r = cp.Normal(11.1,0.1)
+rho = cp.Normal(12.0,1.0)
 
 print('Distribuicoes criadas')
 
@@ -195,5 +188,10 @@ UQ = un.UncertaintyQuantification(
 )
 
 print('Inicio UQ --- ')
+begin = time.perf_counter()
 data = UQ.monte_carlo(nr_samples=1000)
+end = time.perf_counter()
 print(' --- Fim UQ')
+tempo = end-begin
+with open('tempo.txt', 'w') as file:
+    file.write("Tempo de execução: "+str(tempo)+" segundos")
