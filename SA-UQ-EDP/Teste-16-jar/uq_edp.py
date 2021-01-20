@@ -123,15 +123,13 @@ def viralmodelfit(alpha, r, rho, epsilon_s, epsilon_alpha, epsilon_r, delta):
         else:
             rho1 = (1 - np.exp(-k*((ageCont*deltaA) - tau)))*rho
 
-        Rn[0][ageCont] = (r*Rp[0][ageCont-1] - r*Rp[0][ageCont-1]*(Rn[0][ageCont-1]/Rmax)
+        Rn[0][ageCont] = (r*Rp[0][ageCont-1]*(1-Rn[0][ageCont-1]/Rmax) \
         - mu_c*Rn[0][ageCont-1])*deltaA + Rn[0][ageCont-1]
 
-        Rp[0][ageCont] = (alpha*Rn[0][ageCont-1] + sigma*Rt[0][ageCont-1]
-        - theta*Rp[0][ageCont-1]- rho1*Rp[0][ageCont-1]
-        - mu_c*Rp[0][ageCont-1])*deltaA + Rp[0][ageCont-1]
+        Rp[0][ageCont] = (alpha*Rn[0][ageCont-1] + sigma*Rt[0][ageCont-1] \
+        - (theta+rho1+mu_c)*Rp[0][ageCont-1])*deltaA + Rp[0][ageCont-1]
 
-        Rt[0][ageCont] = (theta*Rp[0][ageCont-1] - sigma*Rt[0][ageCont-1]
-        - rho1*Rt[0][ageCont-1] - mu_t*Rt[0][ageCont-1])*deltaA + Rt[0][ageCont-1]
+        Rt[0][ageCont] = (theta*Rp[0][ageCont-1] - (sigma+rho1+mu_t)*Rt[0][ageCont-1])*deltaA + Rt[0][ageCont-1]
 
     #Fim das condicoess iniciais----------------------------------------------+
 
