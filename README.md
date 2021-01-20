@@ -1,5 +1,7 @@
 # Parameter Fitting - Projeto Medicina in silico - UFJF
 
+## Use Git Flow
+
  ## DE
 
  Differential Evolution for Parameter Fitting baseline code using Python
@@ -24,3 +26,8 @@
 
  Fitting for ZKV experimental data
 
+## SA-UQ-EDP
+
+## method_of_lines
+
+- solver under development
