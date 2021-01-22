@@ -1,6 +1,6 @@
 # Parameter Fitting - Projeto Medicina in silico - UFJF
 
-## Use Git Flow
+## Use Git Flowgit
 
  ## DE
 
