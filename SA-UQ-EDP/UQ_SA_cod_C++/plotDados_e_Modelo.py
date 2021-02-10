@@ -22,11 +22,12 @@ with open("data2day_pats.csv", 'r') as f:
     lista = [line.split(',')  for line in f]
     for linha in lista:
         tempo_exp = np.append(tempo_exp, float(linha[0]))
-        viral_load_exp = np.append(viral_load_exp, float(linha[1]))
-
-plt.plot(tempo_exp, viral_load_exp, 'or', label="dados experimentais do pat8")
+        viral_load_exp = np.append(viral_load_exp, float(linha[3]))
+plt.title("PAT68")
+plt.plot(tempo_exp, viral_load_exp, 'or', label="dados experimentais")
 plt.plot(tempo, viral_load, '-b', label="resultado do modelo em C++")
 plt.ylabel("Viral load $log_{10}$")
 plt.xlabel("Days")
 plt.legend()
 plt.show()
+plt.savefig("PAT68.png", dpi=300)

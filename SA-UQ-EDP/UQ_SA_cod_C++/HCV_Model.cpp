@@ -56,24 +56,24 @@ void HCV_Model::initialize(){
     */
     d     = 0.010;
     s     = 130000;
-    delta = 0.47; //PAT8 = 0.58; PAT42 = 0.64; PAT68 = 0.1; PAT69 = 0.47; PAT83 = 0.62; //0.01 ~1.8 // valor estimado 0.14
+    delta = 0.1; //0.47; //PAT8 = 0.58; PAT42 = 0.64; PAT68 = 0.1; PAT69 = 0.47; PAT83 = 0.62; //0.01 ~1.8 // valor estimado 0.14
     beta  = 5*pow(10,-8);
     c     = 22.30;
     rho   = 8.180;
     alpha = 30.0;
     Rmax  = 50.0;
-    r     = 2.24; //PAT8 = 1.49; PAT42 = 1.1; PAT68 = 5.08; PAT69 = 2.24; PAT83 = 1.61;
+    r     = 5.08; //PAT8 = 1.49; PAT42 = 1.1; PAT68 = 5.08; PAT69 = 2.24; PAT83 = 1.61;
     tau   = 0.50;
     n     = 1.00;
     k     = 0.80;
     mu_t  = 0.89; //PAT68 = 0.88; //PAT8 = PAT42 = PAT69 = PAT83 = 0.89;
-    mu_c  = 3.15; //PAT8 = 2.55; PAT42 = 1.72; PAT68 = 3.38; PAT69 = 3.15; PAT83 = 2.39;
+    mu_c  = 3.38; //PAT8 = 2.55; PAT42 = 1.72; PAT68 = 3.38; PAT69 = 3.15; PAT83 = 2.39;
     sigma = 1.30;
     theta = 1.20; //ou 1.2;
     /**
     * therapy parameters
     */
-    epsilon_alpha = 0.936;  //PAT8 = 0.928; PAT42 = 0.909; PAT68 = 0.992; PAT69 = 0.936; PAT83 = 0.924;
+    epsilon_alpha = 0.992;  //PAT8 = 0.928; PAT42 = 0.909; PAT68 = 0.992; PAT69 = 0.936; PAT83 = 0.924;
     epsilon_r     = 0.61; //PAT8 = 0.47; PAT42 = 0.12; PAT68 = 0.61; PAT69 = 0.36; PAT83 = 0.29;
     epsilon_s     = 0.998;
     kappa_t       = 1.00;
