@@ -1,6 +1,6 @@
 #include "HCV_Model.h"
 #include "GaussLegendreQuadrature.h"
-#include "fstream"
+#include <fstream>
 using namespace std;
 
 /**
@@ -180,54 +180,9 @@ int HCV_Model::solve(){
 
     //set initial conditions
     initialize();
-    
-    fstream param;
-    param.open("parametros.txt", std::ios::in)
-    getline(param, s, ',');
-    double alpha = atof(s.c_str());
-
-    getline(param, s, ',');
-    double r = atof(s.c_str());
-    
-    getline(param, s, ',');
-    double rho = atof(s.c_str());
-
-    getline(param, s, ',');
-    double epsilon_s = atof(s.c_str());
-    
-    getline(param, s, ',');
-    double epsilon_alpha = atof(s.c_str());
-    
-    getline(param, s, ',');
-    double epsilon_r = atof(s.c_str());
-    
-    getline(param, s, ',');
-    double delta = atof(s.c_str());
 
     fstream saida;
-    saida.open("saida.txt", std::ios::out)
-
-
-    //alloc memory for filename
-    char *fileName = (char *)malloc(20*sizeof(char));
-
-    sprintf(fileName, "%s%s", dir, "Virus.dat");
-    FILE* dataVirus = fopen(fileName, "w");
-
-    sprintf(fileName, "%s%s", dir, "Target.dat");
-    FILE* dataTarget = fopen(fileName, "w");
-
-    sprintf(fileName, "%s%s", dir, "Infected.dat");
-    FILE* dataInfected = fopen(fileName, "w");
-
-    sprintf(fileName, "%s%s", dir, "RNA_Positivo.dat");
-    FILE* dataRNA_Positivo = fopen(fileName, "w");
-
-    sprintf(fileName, "%s%s", dir, "RNA_Negativo.dat");
-    FILE* dataRNA_Negativo = fopen(fileName, "w");
-
-    sprintf(fileName, "%s%s", dir, "RNA_Traduzido.dat");
-    FILE* dataRNA_Traduzido = fopen(fileName, "w");
+    saida.open("saida.txt", std::ios::out);
 
     /**
     * begin time loop
@@ -237,18 +192,12 @@ int HCV_Model::solve(){
         if (t == 0) cout << "Calculating...\n";
 
         int value = ((int)iterPerDay*days)/points;
+        float time_save = (float) t/(float)iterPerDay;
+        if(true) {
+            cout << "Saving files : iteration ..."<< time_save << "\n";
 
-        if(t%value == 0) {
-            cout << "Saving files : iteration ..."<< t << "\n";
+            saida << time_save << "," << V << endl;
 
-            fprintf(dataVirus, "%ld %.2E \n", t, V);
-            fprintf(dataTarget, "%ld %.2E \n", t, T);
-      	    for(a = 0; a < AGE; a++){
-                fprintf(dataInfected, "%ld %.2E \n", t, I[0][a]);
-                fprintf(dataRNA_Positivo, "%ld %.2E \n", t, Rp[0][a]);
-                fprintf(dataRNA_Negativo, "%ld %.2E \n", t, Rn[0][a]);
-                fprintf(dataRNA_Traduzido, "%ld %.2E \n", t, Rt[0][a]);
-            }
         }
         /**
         * ODEs
@@ -314,12 +263,7 @@ int HCV_Model::solve(){
 
     }while (t < (iterPerDay*days)) ;
 
-    fclose(dataVirus);
-    fclose(dataTarget);
-    fclose(dataInfected);
-    fclose(dataRNA_Positivo);
-    fclose(dataRNA_Negativo);
-    fclose(dataRNA_Traduzido);
+    saida.close();
 
     return 0;
  }
