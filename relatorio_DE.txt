@@ -1,0 +1,8 @@
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 2
+1 Patient
+
