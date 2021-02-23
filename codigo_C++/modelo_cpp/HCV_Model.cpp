@@ -41,8 +41,9 @@ void HCV_Model::initialize(){
     
     getline(param, aux_string, ',');
     epsilon_r = atof(aux_string.c_str());
-    
     param.close();
+
+    cout << "V0: " << V0 << "delta: " << delta << " mu_t: " << mu_t << " r: " << r << " mu_c: " << mu_c << " ep_alpha: " << epsilon_alpha << " epsilon_r: " << epsilon_r << endl;
     /**
     * number of days simulated
     */
