@@ -1,5 +1,4 @@
 #include "HCV_Model.h"
-#include "GaussLegendreQuadrature.h"
 #include <fstream>
 using namespace std;
 
@@ -17,6 +16,13 @@ void HCV_Model::initialize(){
     ifstream param;
     param.open("parameters.txt");
     std::string aux_string;
+
+    getline(param, aux_string, ',');
+    string pat_number = aux_string.c_str();
+
+    getline(param, aux_string, ',');
+    double V0 = atof(aux_string.c_str());
+    V0 = pow(10, V0);
 
     getline(param, aux_string, ',');
     epsilon_s = atof(aux_string.c_str());
@@ -50,7 +56,7 @@ void HCV_Model::initialize(){
     /**
     * output directory
     */
-    dir       = (char *) "saida/";
+    //dir       = (char *) "saida/";
     /**
     * simulation
     */
@@ -147,14 +153,9 @@ void HCV_Model::initialize(){
         //printf("a = %d Rt = %.4lf Rp = %.4lf Rn = %.4lf \n", a, Rt[0][a], Rp[0][a], Rn[0][a]);
     }
 
-    //cout << "soma: "<< soma << "\n";
-
-    N        = calcIntegral2(0.0,20.0,Rp,Rt,delta,rho,deltaA);//218.52;//calcIntegral2(Rt,Rp)
-    T        = c/(beta*N);//2.04*pow(10,6);//1.3*pow(10,5);
-    V        = (s-(d*T))/(beta*T);//1.07*pow(10,6)//7.15*pow(10,6);///5.64*pow(10,5); //PAT8 = 5.64*pow(10,5), PAT42 = 5.65, PAT68 = 7.5*pow(10,6), PAT69 = 6.14, PAT83 = 5.45
+    T        = 1.3*pow(10,5);
+    V        = V0;//1.07*pow(10,6)//7.15*pow(10,6);///5.64*pow(10,5); //PAT8 = 5.64*pow(10,5), PAT42 = 5.65, PAT68 = 7.5*pow(10,6), PAT69 = 6.14, PAT83 = 5.45
     I[0][0]  = beta*T*V;
-
-    printf("N = %.4lf T = %.4lf V = %.4lf \n", N, T, V);
 
     double delta1;
     if (vardelta) delta1 = 0.01;
@@ -186,14 +187,6 @@ double  HCV_Model::calcIntegral(double vec1[][AGE], double vec2[][AGE],double ve
     return sum/(2.0*AGE);
 }
 
-double  HCV_Model::calcIntegral2(double a, double b, double vec1[][AGE], double vec2[][AGE], double delta, double rho, double deltaA){
-    Rosetta::GaussLegendreQuadrature<5> gl5;
-    //std::cout << std::setprecision(6);
-    std::setprecision(6);
-    //gl5.print_roots_and_weights(std::cout);
-    return gl5.integrate(a, b, vec1, vec2, Rosetta::RosettaExp, delta, rho, deltaA);
-}
-
 /******************************************************************************
 * Solve model equations
 *******************************************************************************/
@@ -219,7 +212,7 @@ int HCV_Model::solve(){
         float time_save = (float) t/(float)iterPerDay;
         if(true) {
             // cout << "Saving files : iteration ..."<< time_save << "\n";
-
+            
             saida << time_save << "," << V << endl;
 
         }

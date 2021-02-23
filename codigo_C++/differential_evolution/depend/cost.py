@@ -12,6 +12,8 @@ def viralmodelfit(poi, exp, V0):
     alpha = poi[4]
     r     = poi[5]
     rho   = poi[6]
+    print(delta)
+    print(rho)
     with open('parametros.txt', 'w') as filep:
         filep.write(str(epsilon_s)+","+str(epsilon_alpha)+","+str(epsilon_r)+","+str(delta)+","+str(alpha)+","+str(r)+","+str(rho))
     os.system("make run")#Executa o modelo C++
