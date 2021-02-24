@@ -43,7 +43,7 @@ void HCV_Model::initialize(){
     epsilon_r = atof(aux_string.c_str());
     param.close();
 
-    cout << "V0: " << V0 << "delta: " << delta << " mu_t: " << mu_t << " r: " << r << " mu_c: " << mu_c << " ep_alpha: " << epsilon_alpha << " epsilon_r: " << epsilon_r << endl;
+    cout << "V0: " << V0 << " delta: " << delta << " mu_t: " << mu_t << " r: " << r << " mu_c: " << mu_c << " ep_alpha: " << epsilon_alpha << " epsilon_r: " << epsilon_r << endl;
     /**
     * number of days simulated
     */
@@ -87,7 +87,7 @@ void HCV_Model::initialize(){
     s     = 130000;
     // delta = 0.58; //0.47; //PAT8 = 0.58; PAT42 = 0.64; PAT68 = 0.1; PAT69 = 0.47; PAT83 = 0.62; //0.01 ~1.8 // valor estimado 0.14
     beta  = 5*pow(10,-8);
-    c     = 22.30;
+    c     = 22.30;//19
     rho   = 8.180;
     alpha = 30.0;
     Rmax  = 50.0;
@@ -97,7 +97,7 @@ void HCV_Model::initialize(){
     k     = 0.80;
     // mu_t  = 0.88; //PAT68 = 0.88; //PAT8 = PAT42 = PAT69 = PAT83 = 0.89;
     // mu_c  = 2.55; //PAT8 = 2.55; PAT42 = 1.72; PAT68 = 3.38; PAT69 = 3.15; PAT83 = 2.39;
-    sigma = 1.30;
+    sigma = 1.30;//4
     theta = 1.20; //ou 1.2;
     /**
     * therapy parameters
