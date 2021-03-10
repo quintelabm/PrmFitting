@@ -1,4 +1,5 @@
 #include "HCV_Model.h"
+#include "GaussLegendreQuadrature.h"
 #include <fstream>
 using namespace std;
 
@@ -13,37 +14,7 @@ HCV_Model::HCV_Model(){
 * Set conditions and parameter values
 */
 void HCV_Model::initialize(){
-    ifstream param;
-    param.open("parametros.txt");
-    std::string aux_string;
 
-    getline(param, aux_string, ',');
-    string pat_number = aux_string.c_str();
-
-    getline(param, aux_string, ',');
-    double V0 = atof(aux_string.c_str());
-    V0 = pow(10, V0);
-    
-    getline(param, aux_string, ',');
-    delta = atof(aux_string.c_str());
-    
-    getline(param, aux_string, ',');
-    mu_t = atof(aux_string.c_str());
-    
-    getline(param, aux_string, ',');
-    r = atof(aux_string.c_str());
-    
-    getline(param, aux_string, ',');
-    mu_c = atof(aux_string.c_str());
-    
-    getline(param, aux_string, ',');
-    epsilon_alpha = atof(aux_string.c_str());
-    
-    getline(param, aux_string, ',');
-    epsilon_r = atof(aux_string.c_str());
-    param.close();
-
-    cout << "V0: " << V0 << " delta: " << delta << " mu_t: " << mu_t << " r: " << r << " mu_c: " << mu_c << " ep_alpha: " << epsilon_alpha << " epsilon_r: " << epsilon_r << endl;
     /**
     * number of days simulated
     */
@@ -55,7 +26,7 @@ void HCV_Model::initialize(){
     /**
     * output directory
     */
-    //dir       = (char *) "saida/";
+    dir       = (char *) "saida/";
     /**
     * simulation
     */
@@ -85,25 +56,25 @@ void HCV_Model::initialize(){
     */
     d     = 0.010;
     s     = 130000;
-    // delta = 0.58; //0.47; //PAT8 = 0.58; PAT42 = 0.64; PAT68 = 0.1; PAT69 = 0.47; PAT83 = 0.62; //0.01 ~1.8 // valor estimado 0.14
+    delta = 0.62; //PAT8 = 0.58; PAT42 = 0.64; PAT68 = 0.1; PAT69 = 0.47; PAT83 = 0.62; //0.01 ~1.8 // valor estimado 0.14
     beta  = 5*pow(10,-8);
-    c     = 22.30;//19
+    c     = 22.30;
     rho   = 8.180;
     alpha = 30.0;
     Rmax  = 50.0;
-    // r     = 1.49; //PAT8 = 1.49; PAT42 = 1.1; PAT68 = 5.08; PAT69 = 2.24; PAT83 = 1.61;
+    r     = 1.61; //PAT8 = 1.49; PAT42 = 1.1; PAT68 = 5.08; PAT69 = 2.24; PAT83 = 1.61;
     tau   = 0.50;
     n     = 1.00;
     k     = 0.80;
-    // mu_t  = 0.88; //PAT68 = 0.88; //PAT8 = PAT42 = PAT69 = PAT83 = 0.89;
-    // mu_c  = 2.55; //PAT8 = 2.55; PAT42 = 1.72; PAT68 = 3.38; PAT69 = 3.15; PAT83 = 2.39;
-    sigma = 1.30;//4
+    mu_t  = 0.89; //PAT68 = 0.88; //PAT8 = PAT42 = PAT69 = PAT83 = 0.89;
+    mu_c  = 2.39; //PAT8 = 2.55; PAT42 = 1.72; PAT68 = 3.38; PAT69 = 3.15; PAT83 = 2.39;
+    sigma = 1.30;
     theta = 1.20; //ou 1.2;
     /**
     * therapy parameters
     */
-    // epsilon_alpha = 0.928;  //PAT8 = 0.928; PAT42 = 0.909; PAT68 = 0.992; PAT69 = 0.936; PAT83 = 0.924;
-    // epsilon_r     = 0.47; //PAT8 = 0.47; PAT42 = 0.12; PAT68 = 0.61; PAT69 = 0.36; PAT83 = 0.29;
+    epsilon_alpha = 0.924;  //PAT8 = 0.928; PAT42 = 0.909; PAT68 = 0.992; PAT69 = 0.936; PAT83 = 0.924;
+    epsilon_r     = 0.29; //PAT8 = 0.47; PAT42 = 0.12; PAT68 = 0.61; PAT69 = 0.36; PAT83 = 0.29;
     epsilon_s     = 0.998;
     kappa_t       = 1.00;
     kappa_c       = 1.00;
@@ -152,9 +123,14 @@ void HCV_Model::initialize(){
         //printf("a = %d Rt = %.4lf Rp = %.4lf Rn = %.4lf \n", a, Rt[0][a], Rp[0][a], Rn[0][a]);
     }
 
-    T        = 1.3*pow(10,5);
-    V        = V0;//1.07*pow(10,6)//7.15*pow(10,6);///5.64*pow(10,5); //PAT8 = 5.64*pow(10,5), PAT42 = 5.65, PAT68 = 7.5*pow(10,6), PAT69 = 6.14, PAT83 = 5.45
+    //cout << "soma: "<< soma << "\n";
+
+    N        = calcIntegral2(0.0,20.0,Rp,Rt,delta,rho,deltaA);//218.52;//calcIntegral2(Rt,Rp)
+    T        = c/(beta*N);//2.04*pow(10,6);//1.3*pow(10,5);
+    V        = (s-(d*T))/(beta*T);//1.07*pow(10,6)//7.15*pow(10,6);///5.64*pow(10,5); //PAT8 = 5.64*pow(10,5), PAT42 = 5.65, PAT68 = 7.5*pow(10,6), PAT69 = 6.14, PAT83 = 5.45
     I[0][0]  = beta*T*V;
+
+    printf("N = %.4lf T = %.4lf V = %.4lf \n", N, T, V);
 
     double delta1;
     if (vardelta) delta1 = 0.01;
@@ -184,6 +160,14 @@ double  HCV_Model::calcIntegral(double vec1[][AGE], double vec2[][AGE],double ve
         sum += (vec1[0][a]+vec2[0][a])*vec3[0][a];
     }
     return sum/(2.0*AGE);
+}
+
+double  HCV_Model::calcIntegral2(double a, double b, double vec1[][AGE], double vec2[][AGE], double delta, double rho, double deltaA){
+    Rosetta::GaussLegendreQuadrature<5> gl5;
+    //std::cout << std::setprecision(6);
+    std::setprecision(6);
+    //gl5.print_roots_and_weights(std::cout);
+    return gl5.integrate(a, b, vec1, vec2, Rosetta::RosettaExp, delta, rho, deltaA);
 }
 
 /******************************************************************************
@@ -279,7 +263,6 @@ int HCV_Model::solve(){
 
     }while (t < (iterPerDay*days)) ;
 
-    saida.close();
 
     return 0;
  }

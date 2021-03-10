@@ -4,7 +4,8 @@ using namespace std;
 
 int main(){
   HCV_Model* model = new HCV_Model();
+  
   model->solve();//solve
-  system("/bin/python3 /home/matheus/PrmFitting/codigo_C++/plotDados_e_Modelo.py");
+  system("/bin/python3 $(pwd)/../plotDados_e_Modelo.py");
   return 0;
 }
