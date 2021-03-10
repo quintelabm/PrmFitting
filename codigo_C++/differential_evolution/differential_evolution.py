@@ -15,11 +15,11 @@ import os
 #--- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-bounds = [(0.09,0.99),(0.09,0.99),(0.09,0.99),(0.01,1.2),(25,35),(0.9,2.0),(6,12)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+bounds = [(0.1,0.8),(0.8,0.99),(1,6),(1,4),(0.9,0.999),(0.01,0.8)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
 popsize = 10                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
-maxiter = 2                                                # Max number of generations (maxiter)
+maxiter = 5                                                # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
 patients = [ ]
@@ -41,7 +41,7 @@ t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
 #--- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
-    
+    os.system("make")
     cwd = os.getcwd()
     print(cwd)
     saida = open(cwd+"/relatorio_DE.txt", "a")
@@ -53,8 +53,7 @@ if __name__ == "__main__":
     for pat in patients:
         print(pat_cont, " Patient")
         saida.writelines(str(pat_cont) + " Patient\n\n")
-        
-        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0]), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)
+        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0], pat_cont), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)
         #sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
         print(sol_pat.x, "\n", sol_pat.fun)
         saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
@@ -62,36 +61,26 @@ if __name__ == "__main__":
         plt.clf()
         #Plot experimental        
         plt.plot(t_exp, pat, 'ro')
+        if pat_cont==1:
+            plt.title("PAT8")
+        elif pat_cont==2:
+            plt.title("PAT42")
+        elif pat_cont==3:
+            plt.plot("PAT68")
+        elif pat_cont==4:
+            plt.plot("PAT69")
+        else:
+            plt.plot("PAT83")
+
+        plt.xlabel("dias")
+        plt.ylabel("Carga viral $log_{10}$")
         #Plot da solucao com os melhores parametros
-        cost_func(sol_pat.x, pat, (10**pat[0]))
+        cost_func(sol_pat.x, pat, (10**pat[0]), pat_cont)
         plt.savefig("pat_"+str(pat_cont)+"NGem_"+str(maxiter)+"NPop_"+str(popsize)+".png")
         
         pat_cont += 1
 
     
     saida.close()
-    '''
-    cwd = os.getcwd()
-    print(cwd)
-    saida = open(cwd+"/HCV_DE_scipy/docs/" + str(PAT) + ".txt", "a+")
-    saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
-    saida.writelines('Population size: '+ str(popsize)+ '\nNumber of generations: '+ str(maxiter)+ '\n')
-
-    best_solves = []
-    
-    sol_pat = differential_evolution(cost_func, bounds, args=(patients,10**patients[0]), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)
-    #sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
-    print(sol_pat.x, "\n", sol_pat.fun)
-    saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
-    saida.writelines('\nO melhor conjunto de parametros: '+str(sol_pat.x) +'\n\n')
-    plt.clf()
-    #Plot experimental        
-    plt.plot(t_exp, patients, 'ro')
-    #Plot da solucao com os melhores parametros
-    cost_func(sol_pat.x, patients, (10**patients[0]))
-    plt.savefig(PAT + ".png")
-    
-    saida.close()
-    '''
 #--- END ----------------------------------------------------------------------+
 
