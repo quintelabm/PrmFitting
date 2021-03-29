@@ -3,7 +3,6 @@
 import random
 import numpy as np
 from depend.cost import viralmodelfit
-from depend.bounds import ensure_bounds
 import matplotlib.pyplot as plt
 from scipy.optimize import differential_evolution
 import sys
@@ -15,11 +14,11 @@ import os
 #--- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-bounds = [(0.1,0.8),(0.8,0.99),(1,6),(1,4),(0.9,0.999),(0.01,0.8)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
-popsize = 10                                               # Population size, must be >= 4
+bounds = [(0.1,0.8),(0.2,0.99),(3,4.5),(1,4),(0.9,0.999),(0.01,0.8)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+popsize = 50                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
-maxiter = 5                                                # Max number of generations (maxiter)
+maxiter = 50                                                # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
 patients = [ ]
@@ -41,7 +40,6 @@ t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
 #--- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
-    os.system("make")
     cwd = os.getcwd()
     print(cwd)
     saida = open(cwd+"/relatorio_DE.txt", "a")
@@ -51,6 +49,8 @@ if __name__ == "__main__":
     best_solves = []
     pat_cont = 1
     for pat in patients:
+        os.system("make clean")
+        os.system("make")
         print(pat_cont, " Patient")
         saida.writelines(str(pat_cont) + " Patient\n\n")
         sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0], pat_cont), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)
@@ -76,6 +76,8 @@ if __name__ == "__main__":
         plt.ylabel("Carga viral $log_{10}$")
         #Plot da solucao com os melhores parametros
         cost_func(sol_pat.x, pat, (10**pat[0]), pat_cont)
+        print('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
+        print('\nO melhor conjunto de parametros: '+str(sol_pat.x) +'\n\n')
         plt.savefig("pat_"+str(pat_cont)+"NGem_"+str(maxiter)+"NPop_"+str(popsize)+".png")
         
         pat_cont += 1

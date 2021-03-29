@@ -1,10 +1,10 @@
 obj = $(wildcard %.o)
 %.o:	%.cpp 
 	g++ -c $< 
-output:	main.o HCV_Model.o
-	g++ *.o -o output	
-run: output
-	./output
+main:	main.o 
+	g++ *.o -o main	
+run: main
+	./main
 clean:
 	rm *.o
-	rm output
+	rm main
