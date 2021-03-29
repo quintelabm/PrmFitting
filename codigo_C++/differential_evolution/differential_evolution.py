@@ -14,7 +14,7 @@ import os
 #--- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-bounds = [(0.1,0.8),(0.2,0.99),(3,4.5),(1,4),(0.9,0.999),(0.01,0.8)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+bounds = [(0.1,0.8),(0.2,0.99),(1,4.5),(1,4),(0.1,0.999),(0.01,0.8)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
 popsize = 50                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
