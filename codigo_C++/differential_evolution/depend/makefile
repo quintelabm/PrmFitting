@@ -4,7 +4,7 @@ obj = $(wildcard %.o)
 main:	main.o 
 	g++ *.o -o main	
 run: main
-	./main
+	@./main
 clean:
 	rm *.o
 	rm main

@@ -4,7 +4,7 @@ import random
 import numpy as np
 from depend.cost import viralmodelfit
 import matplotlib.pyplot as plt
-from scipy.optimize import differential_evolution
+from scipy.optimize import differential_evolution, NonlinearConstraint
 import sys
 import os
 
@@ -14,7 +14,8 @@ import os
 #--- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-bounds = [(0.1,0.8),(0.2,0.99),(1,4.5),(1,4),(0.1,0.999),(0.01,0.8)]  # Bounds [(x1_min, x1_max), (x2_min, x2_max),...]
+# Bounds   delta,    mu_t,       r,    mu_c,  epsilon_alpha, epsilon_r,   sigma,      theta,     rho,         alpha
+bounds = [(0.1,2),(0.3,0.99),(1.8,6.5),(3,6),(0.1,0.999),(0.3,0.99),(1.29,1.31),(1.19,1.21),(8.179,8.181),(29.99,30.01)]  
 popsize = 50                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
@@ -40,8 +41,21 @@ t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
 #--- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
+
+    def restricoes(param):
+        
+        mu_t = param[1]
+        r     = param[2]
+        mu_c = param[3]
+        sigma = param[6]
+        theta = param[7]
+        rho   = param[8]
+        alpha = param[9]
+        restricao1 = sigma + rho + mu_c - sigma*theta/(theta + rho + mu_t)
+        restricao2 = alpha*r - (sigma + rho + mu_c - sigma*theta/(theta + rho + mu_t))*mu_c
+        return [restricao1, restricao2]
+    func_restricoes = NonlinearConstraint(restricoes, [0,0], [np.inf,np.inf])
     cwd = os.getcwd()
-    print(cwd)
     saida = open(cwd+"/relatorio_DE.txt", "a")
     saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
     saida.writelines('Population size: '+ str(popsize)+ '\nNumber of generations: '+ str(maxiter)+ '\n')
@@ -53,7 +67,7 @@ if __name__ == "__main__":
         os.system("make")
         print(pat_cont, " Patient")
         saida.writelines(str(pat_cont) + " Patient\n\n")
-        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0], pat_cont), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)
+        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0], pat_cont), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination, constraints=(func_restricoes))
         #sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
         print(sol_pat.x, "\n", sol_pat.fun)
         saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
@@ -66,11 +80,11 @@ if __name__ == "__main__":
         elif pat_cont==2:
             plt.title("PAT42")
         elif pat_cont==3:
-            plt.plot("PAT68")
+            plt.title("PAT68")
         elif pat_cont==4:
-            plt.plot("PAT69")
+            plt.title("PAT69")
         else:
-            plt.plot("PAT83")
+            plt.title("PAT83")
 
         plt.xlabel("dias")
         plt.ylabel("Carga viral $log_{10}$")

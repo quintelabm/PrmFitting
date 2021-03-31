@@ -128,6 +128,19 @@ void HCV_Model::initialize(){
     
     getline(param, aux_string, ',');
     epsilon_r = atof(aux_string.c_str());
+    
+    getline(param, aux_string, ',');
+    sigma = atof(aux_string.c_str());
+    
+    getline(param, aux_string, ',');
+    theta = atof(aux_string.c_str());
+    
+    getline(param, aux_string, ',');
+    rho = atof(aux_string.c_str());
+
+    getline(param, aux_string, ',');
+    alpha = atof(aux_string.c_str());
+
     param.close();
 
     // cout << "V0: " << V0 << " delta: " << delta << " mu_t: " << mu_t << " r: " << r << " mu_c: " << mu_c << " ep_alpha: " << epsilon_alpha << " epsilon_r: " << epsilon_r << endl;
@@ -175,8 +188,8 @@ void HCV_Model::initialize(){
     // delta = 0.58; //0.47; //PAT8 = 0.58; PAT42 = 0.64; PAT68 = 0.1; PAT69 = 0.47; PAT83 = 0.62; //0.01 ~1.8 // valor estimado 0.14
     beta  = 5*pow(10,-8);
     c     = 22.30;//19
-    rho   = 8.180;//12
-    alpha = 30.0;
+    // rho   = 8.180;//12
+    // alpha = 30.0;
     Rmax  = 50.0;
     // r     = 1.49; //PAT8 = 1.49; PAT42 = 1.1; PAT68 = 5.08; PAT69 = 2.24; PAT83 = 1.61;
     tau   = 0.50;
@@ -184,8 +197,8 @@ void HCV_Model::initialize(){
     k     = 0.80;
     // mu_t  = 0.89; //PAT68 = 0.88; //PAT8 = PAT42 = PAT69 = PAT83 = 0.89;
     // mu_c  = 2.55; //PAT8 = 2.55; PAT42 = 1.72; PAT68 = 3.38; PAT69 = 3.15; PAT83 = 2.39;
-    sigma = 1.30;
-    theta = 1.20; //ou 1.2;
+    // sigma = 1.30;
+    // theta = 1.20; //ou 1.2;
     /**
     * therapy parameters
     */
