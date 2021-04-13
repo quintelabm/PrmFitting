@@ -208,6 +208,18 @@ void HCV_Model::initialize(){
     kappa_t       = 1.00;
     kappa_c       = 1.00;
     
+    if (sigma + rho + mu_c - sigma*theta/(theta + rho + mu_t) >0 && alpha*r -
+     (sigma + rho + mu_c - sigma*theta/(theta + rho + mu_t))*mu_c>0){
+        mu_c = 2.55;
+        r = 1.49;
+        rho = 8.18;
+        mu_t = 0.89;
+        cout << "Entrou na condição!!!"<< endl;
+    }
+
+
+
+
     /**
     * Initial Conditions
     */

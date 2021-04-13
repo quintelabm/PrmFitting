@@ -1,5 +1,269 @@
 -------NOVA TENTATIVA-------
 
+Population size: 10
+Number of generations: 2
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 4.2795860493483024
+
+
+O melhor conjunto de parametros: [0.10957491 0.84210468 4.36830702 1.54565886 0.9254854  0.43160977]
+
+2 Patient
+
+
+Custo do melhor conjunto de parametros: 3.533805052172953
+
+
+O melhor conjunto de parametros: [0.10590062 0.98992521 3.44663305 1.09895543 0.93247645 0.39199781]
+
+3 Patient
+
+
+Custo do melhor conjunto de parametros: 5.564666680970797
+
+
+O melhor conjunto de parametros: [0.10096799 0.92125249 3.47578214 1.37099432 0.95834704 0.10244625]
+
+4 Patient
+
+
+Custo do melhor conjunto de parametros: 3.735619540424775
+
+
+O melhor conjunto de parametros: [0.12310451 0.94450497 4.33179332 1.19340089 0.98058998 0.12171305]
+
+5 Patient
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 5
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 5
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 3.6815530604580955
+
+
+O melhor conjunto de parametros: [0.1        0.49864389 4.4877404  1.00360377 0.99882313 0.76235111]
+
+2 Patient
+
+
+Custo do melhor conjunto de parametros: 3.1811446180838447
+
+
+O melhor conjunto de parametros: [0.1        0.2055818  4.47946294 1.0010376  0.98799917 0.45809031]
+
+3 Patient
+
+
+Custo do melhor conjunto de parametros: 5.374787618180351
+
+
+O melhor conjunto de parametros: [0.10019043 0.74271211 4.46847741 1.04145826 0.99891376 0.16951544]
+
+4 Patient
+
+
+Custo do melhor conjunto de parametros: 3.6908818097602323
+
+
+O melhor conjunto de parametros: [0.10061573 0.98778649 4.42345208 1.48516633 0.97738255 0.02850806]
+
+5 Patient
+
+
+Custo do melhor conjunto de parametros: 6.9482186359144995
+
+
+O melhor conjunto de parametros: [0.10016372 0.20375619 4.46489297 1.00126695 0.90034    0.01728985]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+5 Patient
+
+
+Custo do melhor conjunto de parametros: 6.941026355883343
+
+
+O melhor conjunto de parametros: [0.1        0.2        4.40404234 1.         0.9        0.03402135]
+
+4 Patient
+
+
+Custo do melhor conjunto de parametros: 3.6927803274314974
+
+
+O melhor conjunto de parametros: [0.10056086 0.97545663 4.40414527 1.52553056 0.97380962 0.14272885]
+
+3 Patient
+
+
+Custo do melhor conjunto de parametros: 5.37330312274509
+
+
+O melhor conjunto de parametros: [0.10020472 0.74326528 4.38388263 1.00831783 0.99869368 0.51833417]
+
+2 Patient
+
+
+Custo do melhor conjunto de parametros: 3.183485331339931
+
+
+O melhor conjunto de parametros: [0.10012218 0.20178989 4.3790981  1.00159976 0.98753041 0.59744406]
+
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 3.6835861573325297
+
+
+O melhor conjunto de parametros: [0.10006903 0.51822715 4.430372   1.00000753 0.99899398 0.55675479]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 3.6809198151298337
+
+
+O melhor conjunto de parametros: [0.10004166 0.50811772 4.49447041 1.00003283 0.99893062 0.67951042]
+
+2 Patient
+
+
+Custo do melhor conjunto de parametros: 3.183796416935857
+
+
+O melhor conjunto de parametros: [0.1001119  0.21009444 4.43345792 1.00308022 0.98713978 0.5587011 ]
+
+3 Patient
+
+
+Custo do melhor conjunto de parametros: 5.369948745708174
+
+
+O melhor conjunto de parametros: [0.10014448 0.77057264 4.49529976 1.00473854 0.99890399 0.77480142]
+
+4 Patient
+
+
+Custo do melhor conjunto de parametros: 3.6920800560254863
+
+
+O melhor conjunto de parametros: [0.10125956 0.9854698  4.45669411 1.52243757 0.97560948 0.02016849]
+
+5 Patient
+
+
+Custo do melhor conjunto de parametros: 6.517158207485905
+
+
+O melhor conjunto de parametros: [0.10033054 0.32769853 3.94587906 1.13940395 0.67693047 0.79879029]
+
+
+-------NOVA TENTATIVA-------
+
 Population size: 50
 Number of generations: 50
 1 Patient
@@ -46,4 +310,69 @@ Custo do melhor conjunto de parametros: 6.37694451540469
 
 O melhor conjunto de parametros: [ 0.1018363   0.30594951  6.49836589  3.01971705  0.10689828  0.91445905
   1.3047898   1.20365308  8.18074083 30.00262129]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 4.732354270352602
+
+
+O melhor conjunto de parametros: [ 0.10001077  0.64992221  2.68174803  4.0939342   0.10010685  0.92417331
+  1.29022762  1.20924308  8.18039968 30.00727859]
+
+2 Patient
 
