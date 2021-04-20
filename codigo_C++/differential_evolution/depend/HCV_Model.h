@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fstream>
+#include "GaussLegendreQuadrature.h"
 
 using namespace std;
 
@@ -143,7 +144,7 @@ void HCV_Model::initialize(){
 
     param.close();
 
-    // cout << "V0: " << V0 << " delta: " << delta << " mu_t: " << mu_t << " r: " << r << " mu_c: " << mu_c << " ep_alpha: " << epsilon_alpha << " epsilon_r: " << epsilon_r << endl;
+    cout << "V0: " << V0 << " delta: " << delta << " mu_t: " << mu_t << " r: " << r << " mu_c: " << mu_c << " ep_alpha: " << epsilon_alpha << " epsilon_r: " << epsilon_r << endl;
     /**
     * number of days simulated
     */
@@ -264,9 +265,10 @@ void HCV_Model::initialize(){
         //printf("a = %d Rt = %.4lf Rp = %.4lf Rn = %.4lf \n", a, Rt[0][a], Rp[0][a], Rn[0][a]);
     }
     
-    T        = 1.3*pow(10,5);
-    V        = V0;//1.07*pow(10,6)//7.15*pow(10,6);///5.64*pow(10,5); //PAT8 = 5.64*pow(10,5), PAT42 = 5.65, PAT68 = 7.5*pow(10,6), PAT69 = 6.14, PAT83 = 5.45
-    I[0][0]  = beta*T*V;
+    N = calcIntegral2(0.0, 20.0, Rp, Rt, delta, rho, deltaA); 
+    T = c / (beta * N);                                       
+    V = (s - (d * T)) / (beta * T);
+    I[0][0] = beta * T * V;
 
     double delta1;
     if (vardelta) delta1 = 0.01;
@@ -295,8 +297,15 @@ double  HCV_Model::calcIntegral(double vec1[][AGE], double vec2[][AGE],double ve
     for(a = 0; a < AGE; a++){
         sum += (vec1[0][a]+vec2[0][a])*vec3[0][a];
     }
-    sum = sum;
     return sum/(2.0*AGE);
+}
+
+double  HCV_Model::calcIntegral2(double a, double b, double vec1[][AGE], double vec2[][AGE], double delta, double rho, double deltaA){
+    Rosetta::GaussLegendreQuadrature<5> gl5;
+    //std::cout << std::setprecision(6);
+    std::setprecision(6);
+    //gl5.print_roots_and_weights(std::cout);
+    return gl5.integrate(a, b, vec1, vec2, Rosetta::RosettaExp, delta, rho, deltaA);
 }
 
 /******************************************************************************
