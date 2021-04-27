@@ -331,10 +331,13 @@ int HCV_Model::solve(){
 
         int value = ((int)iterPerDay*days)/points;
         float time_save = (float) t/(float)iterPerDay;
+        if(V <0){
+            V = -1*V;
+        }
         if(true) {
             // cout << "Saving files : iteration ..."<< time_save << "\n";
             
-            saida << time_save << "," << V << endl;
+            saida << time_save << "," << V << "," << T << "," << I << endl;
 
         }
         /**
