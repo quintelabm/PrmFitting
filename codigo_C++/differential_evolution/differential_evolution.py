@@ -15,11 +15,11 @@ import os
 
 cost_func = viralmodelfit                                  # Cost function
 # Bounds   delta,    mu_t,       r,    mu_c,  epsilon_alpha, epsilon_r,   sigma,      theta,     rho,         alpha
-bounds = [(0.1,2),(0.3,0.99),(1.8,6.5),(1,6),(0.1,0.999),(0.3,0.99),(1.29,1.31),(1.19,1.21),(8.179,8.181),(29.99,30.01)]  
-popsize = 8                                               # Population size, must be >= 4
+bounds = [(0.01,1),(0.3,0.99),(1.1,6.5),(1,6),(0.1,0.999),(0.3,0.99),(1.29,1.31),(1.19,1.21),(8.179,8.181),(29.99,30.01)]  
+popsize = 25                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
-maxiter = 5                                                # Max number of generations (maxiter)
+maxiter = 10                                                # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
 patients = [ ]
