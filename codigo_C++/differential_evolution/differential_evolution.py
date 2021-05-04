@@ -15,12 +15,12 @@ import os
 
 cost_func = viralmodelfit                                  # Cost function
 # Bounds   delta,    mu_t,       r,    mu_c,  epsilon_alpha, epsilon_r,   sigma,      theta,     rho,         alpha
-#bounds = [(0.01,1),(0.3,0.99),(1.1,6.5),(1,6),(0.1,0.999),(0.3,0.99),(1.29,1.31),(1.19,1.21),(8.179,8.181),(29.99,30.01)]  
-bounds = [(0.001,3),(0.1,0.99),(1.1,6.5),(0.1,6),(0.1,0.999),(0.3,0.99),(1.29,1.31),(1.19,1.21),(8.179,8.181),(29.99,30.01)]  
-popsize = 50                                               # Population size, must be >= 4
+# bounds = [(0.1,0.9),(0.8,0.9),(1,5.2),(1.7,3.5),(0.8,0.999),(0.1,0.5),(1.29,1.31),(1.19,1.21),(8.179,8.181),(29.99,30.01)]  
+bounds = [(0.1,0.9),(0.4,0.9),(1,5.8),(1.1,4.5),(0.3,0.999),(0.01,0.8),(1.29,1.31),(1.19,1.21),(8.179,8.181),(29.99,30.01)]  
+popsize = 10                                               # Population size, must be >= 4
 mutate = 0.5                                               # Mutation factor [0,2]
 recombination = 0.7                                        # Recombination rate [0,1]
-maxiter = 30                                                # Max number of generations (maxiter)
+maxiter = 10                                                # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
 patients = [ ]
@@ -69,7 +69,7 @@ if __name__ == "__main__":
         os.system("make")
         print(pat_cont, " Patient")
         saida.writelines(str(pat_cont) + " Patient\n\n")
-        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0], pat_cont), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination, constraints=(func_restricoes))
+        sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0], pat_cont), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)#, constraints=(func_restricoes))
         #sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
         print(sol_pat.x, "\n", sol_pat.fun)
         saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')

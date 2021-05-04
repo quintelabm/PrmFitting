@@ -199,3 +199,192 @@ Population size: 50
 Number of generations: 30
 1 Patient
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 30
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 30
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 1.2696995245497786
+
+
+O melhor conjunto de parametros: [ 0.53391031  0.84261948  2.71103554  1.83777473  0.96042044  0.11909616
+  1.30980208  1.19006255  8.17997538 30.0000503 ]
+
+2 Patient
+
+
+Custo do melhor conjunto de parametros: 2.4764883748769706
+
+
+O melhor conjunto de parametros: [ 0.766746    0.88524584  3.64627138  2.66872355  0.83276667  0.10053229
+  1.3079611   1.1907989   8.17931702 29.99605196]
+
+3 Patient
+
+
+Custo do melhor conjunto de parametros: 2.735786988531252
+
+
+O melhor conjunto de parametros: [ 0.10011004  0.80713817  5.1919639   1.70311794  0.98843789  0.10652963
+  1.30699788  1.20034647  8.17915011 29.99994954]
+
+4 Patient
+
+
+Custo do melhor conjunto de parametros: 2.272785447491789
+
+
+O melhor conjunto de parametros: [ 0.89946844  0.89900398  3.46184728  3.49125392  0.81377098  0.10266033
+  1.30857814  1.19272974  8.1804104  29.99770526]
+
+5 Patient
+
+
+Custo do melhor conjunto de parametros: 3.4756030527302726
+
+
+O melhor conjunto de parametros: [ 0.54227484  0.80721253  2.28505733  3.49377696  0.80003283  0.10108012
+  1.30059876  1.19090634  8.17949143 30.00193217]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 30
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 1.2691051274502652
+
+
+O melhor conjunto de parametros: [5.29983606e-01 6.06074287e-01 1.02571557e+00 3.70975033e+00
+ 9.63501293e-01 2.62880959e-02 1.30987635e+00 1.19024966e+00
+ 8.17950828e+00 2.99966986e+01]
+
+2 Patient
+
+
+Custo do melhor conjunto de parametros: 2.33902362525203
+
+
+O melhor conjunto de parametros: [7.66463894e-01 8.98750859e-01 2.42132799e+00 4.05426673e+00
+ 7.13290855e-01 1.07931401e-02 1.30366025e+00 1.20379978e+00
+ 8.17940341e+00 2.99997675e+01]
+
+3 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 30
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 30
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 1.2615486778671978
+
+
+O melhor conjunto de parametros: [ 0.78267819  0.4042287   1.71813886  2.67731827  0.9551285   0.1687606
+  1.2960216   1.20367166  8.17905617 30.0064153 ]
+
+2 Patient
+
+
+Custo do melhor conjunto de parametros: 2.3391037430367194
+
+
+O melhor conjunto de parametros: [7.28851183e-01 8.86756077e-01 2.40137938e+00 4.08275578e+00
+ 7.14204993e-01 1.37792299e-02 1.30764395e+00 1.20332102e+00
+ 8.17926736e+00 3.00028199e+01]
+
+3 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 40
+Number of generations: 30
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 10
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 10
+1 Patient
+
+
+Custo do melhor conjunto de parametros: 1.2733448904035338
+
+
+O melhor conjunto de parametros: [ 0.53683419  0.56663984  1.80281772  4.13372873  0.95738943  0.24868231
+  1.29673474  1.1968018   8.18040263 29.99679267]
+
+2 Patient
+
+
+Custo do melhor conjunto de parametros: 2.3538565956026916
+
+
+O melhor conjunto de parametros: [ 0.55365753  0.89126369  2.18884007  3.99673712  0.72134948  0.11585937
+  1.29490144  1.19963469  8.18015252 29.9915015 ]
+
+3 Patient
+
+
+Custo do melhor conjunto de parametros: 2.6710174566709792
+
+
+O melhor conjunto de parametros: [ 0.10604301  0.70727531  5.77549187  1.59316876  0.99271456  0.40465385
+  1.30381581  1.20667891  8.17943402 29.9975853 ]
+
+4 Patient
+
+
+Custo do melhor conjunto de parametros: 2.2519378872245746
+
+
+O melhor conjunto de parametros: [ 0.65221987  0.79807907  3.7475658   4.42971881  0.80129922  0.05167063
+  1.29936984  1.1979987   8.1802001  29.99664679]
+
+5 Patient
+
+
+Custo do melhor conjunto de parametros: 3.3515117538928614
+
+
+O melhor conjunto de parametros: [ 0.65707838  0.76458879  3.01774815  4.43697596  0.68736502  0.09245261
+  1.30135151  1.19376745  8.1796125  30.00569426]
+
