@@ -34,17 +34,13 @@ def viralmodelfit(poi, exp, V0, pat_cont):
         
         t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
         
-        plt.plot(tempoPt, V_log, '-g')
-        # fazer interpolacao usando os pontos experimentais
-        ius = InterpolatedUnivariateSpline(t_exp, exp)
-        
-        # aplicar a funcao interpolada nos pontos do metodo numerico do modelo
-        yi = ius(tempoPt)
-        
-        # calcular a distancia euclidiana entre os resultados experimentais interpolados
-        # e o resultado do modelo
+        V_pts = [V_log[0], V_log[int(0.083*100)-1], V_log[int(0.167*100)-1] , V_log[int(0.25*100)-1] \
+            , V_log[int(0.333*100)-1] , V_log[int(0.5*100)-1] , V_log[int(0.667*100)-1] , \
+                V_log[int(1*100)-1] , V_log[int(1.5*100)-1] , V_log[int(2*100)-1]]
 
-        dst = distance.euclidean(V_log, yi)
+        plt.plot(tempoPt, V_log, '-g')
+        
+        dst = distance.euclidean(V_pts, exp)
     except:
         dst = 10000
         pass

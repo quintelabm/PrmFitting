@@ -6,3 +6,11 @@ Population size: 50
 Number of generations: 30
 1 Patient
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 10
+1 Patient
+
