@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import differential_evolution, NonlinearConstraint
 import sys
 import os
-
+import time
 #--- MAIN ---------------------------------------------------------------------+
 
 
@@ -17,10 +17,10 @@ cost_func = viralmodelfit                                  # Cost function
 # Bounds   delta,    mu_t,       r,    mu_c,  epsilon_alpha, epsilon_r,   sigma,      theta,     rho,         alpha
 # bounds = [(0.1,0.9),(0.8,0.9),(1,5.2),(1.7,3.5),(0.8,0.999),(0.1,0.5),(1.29,1.31),(1.19,1.21),(8.179,8.181),(29.99,30.01)]  
 bounds = [(0.1,0.9),(0.4,0.9),(1,5.8),(1.1,4.5),(0.3,0.999),(0.01,0.8),(1.29,1.31),(1.19,1.21),(8.179,8.181),(29.99,30.01)]  
-popsize = 10                                               # Population size, must be >= 4
-mutate = 0.5                                               # Mutation factor [0,2]
-recombination = 0.7                                        # Recombination rate [0,1]
-maxiter = 10                                                # Max number of generations (maxiter)
+popsize = 50# 50                                               # Population size, must be >= 4
+mutate = 0.7                                               # Mutation factor [0,2]
+recombination = 0.5                                        # Recombination rate [0,1]
+maxiter = 200#50,100,200,400,600,800,1000                                                # Max number of generations (maxiter)
 
 #Vetor com todos os pacientes
 patients = [ ]
@@ -31,10 +31,10 @@ PAT68 = [7.15, 7.02, 6.19, 5.50, 4.96, 4.29, 4.11, 3.75, 3.68, 3.35]
 PAT69 = [6.14, 5.87, 4.73, 4.17, 3.55, 3.14, 2.87, 2.60, 2.55, 2.58]
 PAT83 = [5.45, 5.38, 4.73, 4.00, 3.39, 2.89, 2.68, 2.72, 2.97, 1.93]
 
-patients.append(PAT8)
-patients.append(PAT42)
-patients.append(PAT68)
-patients.append(PAT69)
+# patients.append(PAT8)
+# patients.append(PAT42)
+# patients.append(PAT68)
+# patients.append(PAT69)
 patients.append(PAT83)
 
 t_exp = [0, 0.083, 0.167, 0.25, 0.333, 0.5, 0.667, 1, 1.5, 2 ]
@@ -65,20 +65,25 @@ if __name__ == "__main__":
     best_solves = []
     pat_cont = 1
     for pat in patients:
+        
         os.system("make clean")
         os.system("make")
         print(pat_cont, " Patient")
         saida.writelines(str(pat_cont) + " Patient\n\n")
+        tic = time.perf_counter()
         sol_pat = differential_evolution(cost_func, bounds, args=(pat,10**pat[0], pat_cont), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)#, constraints=(func_restricoes))
+        toc = time.perf_counter()
         #sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
         print(sol_pat.x, "\n", sol_pat.fun)
+        saida.writelines(f"Tempo de execução: {toc - tic:0.4f} segundos")
         saida.writelines('\nCusto do melhor conjunto de parametros: '+ str(sol_pat.fun) +'\n\n')
         saida.writelines('\nO melhor conjunto de parametros: '+str(sol_pat.x) +'\n\n')
         plt.clf()
         #Plot experimental        
         plt.plot(t_exp, pat, 'ro')
         if pat_cont==1:
-            plt.title("PAT8")
+            #plt.title("PAT8")
+            plt.title("PAT83")
         elif pat_cont==2:
             plt.title("PAT42")
         elif pat_cont==3:

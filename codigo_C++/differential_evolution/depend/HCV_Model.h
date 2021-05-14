@@ -144,7 +144,7 @@ void HCV_Model::initialize(){
 
     param.close();
 
-    cout << "V0: " << V0 << " delta: " << delta << " mu_t: " << mu_t << " r: " << r << " mu_c: " << mu_c << " ep_alpha: " << epsilon_alpha << " epsilon_r: " << epsilon_r << endl;
+    // cout << "V0: " << V0 << " delta: " << delta << " mu_t: " << mu_t << " r: " << r << " mu_c: " << mu_c << " ep_alpha: " << epsilon_alpha << " epsilon_r: " << epsilon_r << endl;
     /**
     * number of days simulated
     */
@@ -215,9 +215,7 @@ void HCV_Model::initialize(){
         r = 1.49;
         rho = 8.18;
         mu_t = 0.89;
-        cout << "Entrou na condição!!!"<< endl;
     }else{
-        cout << "Não entrou na condição!!!"<< endl;
     }
 
 
