@@ -1,0 +1,42 @@
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+1 Patient
+
+Tempo de execução: 1787.2235 segundos
+Custo do melhor conjunto de parametros: 0.16737218833373493
+
+
+O melhor conjunto de parametros: [20.84894892  1.00927142  0.11600194  1.79131024  5.15577242  0.16452883
+  0.12431813]
+
+2 Patient
+
+Tempo de execução: 1185.7459 segundos
+Custo do melhor conjunto de parametros: 0.20839059363160908
+
+
+O melhor conjunto de parametros: [47.57755162  1.0257308   0.10071163  0.21706044 14.97064427  0.34187818
+  0.13576149]
+
+3 Patient
+
+Tempo de execução: 1024.6500 segundos
+Custo do melhor conjunto de parametros: 0.2104200075660914
+
+
+O melhor conjunto de parametros: [20.34466269  1.07897257  0.21233948  1.93747886  5.11275415  0.31714884
+  0.14721398]
+
+4 Patient
+
+Tempo de execução: 1638.7833 segundos
+Custo do melhor conjunto de parametros: 0.19047396178198034
+
+
+O melhor conjunto de parametros: [20.11746768  1.00282719  0.16575927  1.73924689  5.13658706  0.32487256
+  0.1087658 ]
+

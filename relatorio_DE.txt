@@ -30,3 +30,51 @@ Population size: 10
 Number of generations: 400
 1 Patient
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 200
+Number of generations: 50
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 1000
+Number of generations: 10
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 10
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 10
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 100
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 2
+1 Patient
+

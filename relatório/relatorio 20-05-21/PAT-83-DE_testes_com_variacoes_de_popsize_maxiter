@@ -1,0 +1,94 @@
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 1000
+5 Patient
+
+Tempo de execução: 72.3517 segundos
+Custo do melhor conjunto de parametros: 1.0410315183375294
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 20
+Number of generations: 1000
+5 Patient
+
+Tempo de execução: 194.0867 segundos
+Custo do melhor conjunto de parametros: 1.0408844728771447
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 20
+Number of generations: 400
+5 Patient
+
+Tempo de execução: 146.5667 segundos
+Custo do melhor conjunto de parametros: 1.0409115566692069
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 400
+5 Patient
+
+Tempo de execução: 398.2209 segundos
+Custo do melhor conjunto de parametros: 1.040888014623846
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 1000
+5 Patient
+
+Tempo de execução: 537.0386 segundos
+Custo do melhor conjunto de parametros: 1.0408622009443202
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 200
+5 Patient
+
+Tempo de execução: 334.1213 segundos
+Custo do melhor conjunto de parametros: 1.040941075010333
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 200
+Number of generations: 10
+5 Patient
+
+Tempo de execução: 642.7970 segundos
+Custo do melhor conjunto de parametros: 1.0410215909722942
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 1000
+Number of generations: 10
+5 Patient
+
+Tempo de execução: 9045.8686 segundos
+Custo do melhor conjunto de parametros: 1.0410167260357144
+
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 100
+Number of generations: 10
+1 Patient
+
+Tempo de execução: 298.8370 segundos
+Custo do melhor conjunto de parametros: 1.0411534163339595
+
+
