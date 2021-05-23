@@ -14,15 +14,16 @@ import time
 # --- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-# Bounds   alpha   r      delta   mu_c    rho   epsilon_r  epsilon_alpha
-bounds = [(20,60),(1,10),(0.1,2),(0.1,2),(5,15),(0.1,0.99),(0.1,0.99)]
-popsize = 100                                               # Population size, must be >= 4
+# Bounds   alpha     r      delta    mu_c    rho   epsilon_r  epsilon_alpha
+# bounds = [(20,60),(0.1,10),(0.01,2),(0.1,2),(5,15),(0.1,0.99),(0.1,0.99)]
+bounds = [(10,80),(0.1,10),(0.01,2),(0.1,2),(1,25),(0.1,0.99),(0.1,0.99)]
+popsize = 30                                               # Population size
 # Mutation factor [0,2]
 mutate = 0.7
 # Recombination rate [0,1]
 recombination = 0.5
 # Max number of generations (maxiter)
-maxiter = 100
+maxiter = 30
 
 # Vetor com todos os pacientes
 patients = []

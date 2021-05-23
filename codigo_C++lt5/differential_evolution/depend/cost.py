@@ -1,6 +1,5 @@
 import numpy as np 
 from scipy.spatial import distance
-from scipy.interpolate import InterpolatedUnivariateSpline
 import matplotlib.pyplot as plt
 import os
 
@@ -32,13 +31,11 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
         
         V_pts = []
         for t in t_exp[pat_cont]:
-            V_pts.append(V_log[int(t*100)])
+            V_pts.append(V_log[int(t*100+1)])
         plt.plot(tempoPt, V_log, '-g')
         
         dst = distance.euclidean(V_pts, exp[pat_cont])/len(V_pts)
     except:
         dst = 10000
         pass
-    
     return dst
-

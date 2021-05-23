@@ -326,7 +326,7 @@ int HCV_Model::solve(){
         if(true) {
             // cout << "Saving files : iteration ..."<< time_save << "\n";
             
-            saida << time_save << "," << V << "," << T << "," << I << endl;
+            saida << time_save << "," << V << endl;
 
         }
         /**
