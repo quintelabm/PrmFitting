@@ -118,7 +118,8 @@ void HCV_Model::initialize(){
     getline(param, aux_string, ',');
     r = atof(aux_string.c_str());
         
-    delta = 0;
+    getline(param, aux_string, ',');
+    delta = atof(aux_string.c_str());
 
     getline(param, aux_string, ',');
     mu_c = atof(aux_string.c_str());

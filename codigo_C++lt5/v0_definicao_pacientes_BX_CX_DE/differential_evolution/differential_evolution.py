@@ -14,9 +14,9 @@ import time
 # --- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-# Bounds   alpha*     r*      delta    mu_c*    rho*   epsilon_r  epsilon_alpha
+# Bounds   alpha*     r*      delta*    mu_c*    rho*   epsilon_r  epsilon_alpha
 # bounds = [(20,60),(0.1,10),(0.01,2),(0.1,2),(5,15),(0.1,0.99),(0.1,0.99)]
-bounds = [(20,60),(0.1,10),(0.1,2),(1,25)]
+bounds = [(20,60),(0.1,10),(0.01,2),(0.1,2),(1,15)]
 popsize = 40                                               # Population size
 # Mutation factor [0,2]
 mutate = 0.7

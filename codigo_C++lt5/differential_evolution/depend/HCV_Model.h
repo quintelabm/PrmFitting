@@ -111,7 +111,13 @@ void HCV_Model::initialize(){
 
     getline(param, aux_string, ',');
     double V0 = atof(aux_string.c_str());
+
+    getline(param, aux_string, ',');
+    epsilon_r = atof(aux_string.c_str());
     
+    getline(param, aux_string, ',');
+    epsilon_alpha = atof(aux_string.c_str());
+
     getline(param, aux_string, ',');
     alpha = atof(aux_string.c_str());
 
@@ -120,18 +126,12 @@ void HCV_Model::initialize(){
         
     getline(param, aux_string, ',');
     delta = atof(aux_string.c_str());
-
+    
     getline(param, aux_string, ',');
     mu_c = atof(aux_string.c_str());
 
     getline(param, aux_string, ',');
     rho = atof(aux_string.c_str());
-
-    getline(param, aux_string, ',');
-    epsilon_r = atof(aux_string.c_str());
-    
-    getline(param, aux_string, ',');
-    epsilon_alpha = atof(aux_string.c_str());
     
     param.close();
 
@@ -199,16 +199,16 @@ void HCV_Model::initialize(){
     kappa_t       = 1.00;
     kappa_c       = 1.00;
     
-    if ((sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t) <=0) || (alpha*r -
-     (sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t))*mu_c<=0)){
-        mu_c = 2.55;
-        r = 1.49;
-        rho = 8.18;
-        alpha = 30;
-        epsilon_alpha = 0.928;
-        epsilon_r =0.47;
-    }else{
-    }
+    // if ((sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t) <=0) || (alpha*r -
+    //  (sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t))*mu_c<=0)){
+    //     mu_c = 2.55;
+    //     r = 1.49;
+    //     rho = 8.18;
+    //     alpha = 30;
+    //     epsilon_alpha = 0.928;
+    //     epsilon_r =0.47;
+    // }else{
+    // }
     
     /**
     * Initial Conditions

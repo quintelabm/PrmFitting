@@ -5,7 +5,6 @@ import numpy as np
 from depend.cost import viralmodelfit
 import matplotlib.pyplot as plt
 from scipy.optimize import differential_evolution, NonlinearConstraint
-import sys
 import os
 import time
 # --- MAIN ---------------------------------------------------------------------+
@@ -13,17 +12,17 @@ import time
 
 # --- CONSTANTS ----------------------------------------------------------------+
 
-cost_func = viralmodelfit                                  # Cost function
+cost_func = viralmodelfit                                  #Cost function
 # Bounds   alpha     r      delta    mu_c    rho   epsilon_r  epsilon_alpha
 # bounds = [(20,60),(0.1,10),(0.01,2),(0.1,2),(5,15),(0.1,0.99),(0.1,0.99)]
-bounds = [(10,80),(0.1,10),(0.01,2),(0.1,2),(1,25),(0.1,0.99),(0.1,0.99)]
-popsize = 40                                               # Population size
+bounds = [(0.1,0.99),(0.1,0.99)] # delta, epsilon_r, epsilon_alpha
+popsize = 50                                               #Population size
 # Mutation factor [0,2]
 mutate = 0.7
 # Recombination rate [0,1]
 recombination = 0.5
 # Max number of generations (maxiter)
-maxiter = 40
+maxiter = 50
 
 # Vetor com todos os pacientes
 patients = []
@@ -79,7 +78,7 @@ if __name__ == "__main__":
         saida.writelines(str(pat_cont) + " Patient\n\n")
         tic = time.perf_counter()
         sol_pat = differential_evolution(cost_func, bounds, args=(
-            pat, 10**pat[0], pat_cont-1, t_exp), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination, tol=0.1)
+            pat, 10**pat[0], pat_cont-1, t_exp), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)#, tol=0.1)
         toc = time.perf_counter()
         # sol_pat.x => parametros--- sol_pat.fun => custo/ retorno da cost.py
         saida.writelines(f"Tempo de execução: {toc - tic:0.4f} segundos")
