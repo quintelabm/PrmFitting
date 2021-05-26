@@ -102,3 +102,19 @@ Population size: 100
 Number of generations: 50
 1 Patient
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 10
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 40
+Number of generations: 40
+1 Patient
+

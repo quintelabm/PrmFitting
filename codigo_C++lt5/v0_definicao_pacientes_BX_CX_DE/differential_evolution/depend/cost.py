@@ -8,14 +8,11 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
     
     alpha = poi[0]
     r     = poi[1]
-    delta = poi[2]
-    mu_c = poi[3]
-    rho   = poi[4]
-    epsilon_r = poi[5]
-    epsilon_alpha = poi[6]
-    
+    mu_c = poi[2]
+    rho   = poi[3]
+
     with open('parametros_DE.txt', 'w') as filep:
-        filep.write(str(V0)+","+str(alpha)+","+str(r)+","+str(delta)+","+str(mu_c)+","+str(rho)+","+str(epsilon_r)+","+str(epsilon_alpha))
+        filep.write(str(V0)+","+str(alpha)+","+str(r)+","+str(mu_c)+","+str(rho))
     
     os.system("make run")#Executa o modelo C++
     tempoPt = np.empty(0)
@@ -28,13 +25,10 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
     try:
         # Passa para a base log o resultado
         V_log = np.log10(V)
+
+        plt.plot(tempoPt, V_log, '*g')
         
-        V_pts = []
-        for t in t_exp[pat_cont]:
-            V_pts.append(V_log[int(t*100+1)])
-        plt.plot(tempoPt, V_log, '-g')
-        
-        dst = distance.euclidean(V_pts, exp)/len(V_pts)
+        dst = distance.euclidean(V_log, exp)/len(V_log)
     except:
         dst = 10000
         pass
