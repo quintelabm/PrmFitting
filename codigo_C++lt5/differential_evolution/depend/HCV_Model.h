@@ -117,6 +117,15 @@ void HCV_Model::initialize(){
     
     getline(param, aux_string, ',');
     epsilon_alpha = atof(aux_string.c_str());
+    
+    getline(param, aux_string, ',');
+    epsilon_s = atof(aux_string.c_str());
+
+    getline(param, aux_string, ',');
+    kappa_t = atof(aux_string.c_str());
+
+    getline(param, aux_string, ',');
+    kappa_c = atof(aux_string.c_str());
 
     getline(param, aux_string, ',');
     alpha = atof(aux_string.c_str());
@@ -133,6 +142,15 @@ void HCV_Model::initialize(){
     getline(param, aux_string, ',');
     rho = atof(aux_string.c_str());
     
+    getline(param, aux_string, ',');
+    theta = atof(aux_string.c_str());
+    
+    getline(param, aux_string, ',');
+    sigma = atof(aux_string.c_str());
+
+    getline(param, aux_string, ',');
+    c = atof(aux_string.c_str());
+
     param.close();
 
     /**
@@ -178,7 +196,7 @@ void HCV_Model::initialize(){
     s     = 130000;
     // delta = 0.58;
     beta  = 5*pow(10,-8);
-    c     = 22.30;
+    // c     = 22.30;
     // rho   = 8.180;
     // alpha = 30.0;
     Rmax  = 50.0;
@@ -186,29 +204,29 @@ void HCV_Model::initialize(){
     tau   = 0.50;
     n     = 1.00;
     k     = 0.80;
-    mu_t  = 0.89; 
+    // mu_t  = 0.89; 
     // mu_c  = 2.55; 
-    sigma = 1.30;
-    theta = 1.20; //ou 1.2;
+    // sigma = 1.30;
+    // theta = 1.20;
     /**
     * therapy parameters
     */
     // epsilon_alpha = 0.928;
     // epsilon_r     = 0.47; 
-    epsilon_s     = 0.998;
-    kappa_t       = 1.00;
-    kappa_c       = 1.00;
+    // epsilon_s     = 0.998;
+    // kappa_t       = 1.00;
+    // kappa_c       = 1.00;
     
-    // if ((sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t) <=0) || (alpha*r -
-    //  (sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t))*mu_c<=0)){
-    //     mu_c = 2.55;
-    //     r = 1.49;
-    //     rho = 8.18;
-    //     alpha = 30;
-    //     epsilon_alpha = 0.928;
-    //     epsilon_r =0.47;
-    // }else{
-    // }
+    if ((sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t) <=0) || (alpha*r -
+     (sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t))*mu_c<=0)){
+        sigma = 1.30;
+        theta = 1.20;
+        epsilon_alpha = 0.928;
+        epsilon_r =0.47;
+        cout << "caiu nas condiçoes de estabilidade!!!!" << endl;
+    }else{
+        cout << "Não entrou nas condiçoes de estabilidade!!!!" << endl;
+    }
     
     /**
     * Initial Conditions

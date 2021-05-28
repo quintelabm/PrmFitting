@@ -127,6 +127,15 @@ void HCV_Model::initialize(){
     getline(param, aux_string, ',');
     rho = atof(aux_string.c_str());
 
+    getline(param, aux_string, ',');
+    theta = atof(aux_string.c_str());
+
+    getline(param, aux_string, ',');
+    sigma = atof(aux_string.c_str());
+
+    getline(param, aux_string, ',');
+    c = atof(aux_string.c_str());
+
     epsilon_r = 0;
     
     epsilon_alpha = 0;
@@ -176,7 +185,7 @@ void HCV_Model::initialize(){
     s     = 130000;
     // delta = 0.58;
     beta  = 5*pow(10,-8);
-    c     = 22.30;
+    // c     = 22.30;
     // rho   = 8.180;
     // alpha = 30.0;
     Rmax  = 50.0;
@@ -186,8 +195,8 @@ void HCV_Model::initialize(){
     k     = 0.80;
     mu_t  = 0.89; 
     // mu_c  = 2.55; 
-    sigma = 1.30;
-    theta = 1.20; //ou 1.2;
+    // sigma = 1.30;
+    // theta = 1.20; //ou 1.2;
     /**
     * therapy parameters
     */

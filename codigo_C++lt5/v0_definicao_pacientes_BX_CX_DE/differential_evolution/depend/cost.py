@@ -11,9 +11,13 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
     delta = poi[2]
     mu_c   = poi[3]
     rho   = poi[4]
+    theta = poi[5] 
+    sigma = poi[6]
+    c = poi[7]
 
     with open('parametros_DE.txt', 'w') as filep:
-        filep.write(str(V0)+","+str(alpha)+","+str(r)+","+str(delta)+","+str(mu_c)+","+str(rho))
+        filep.write(str(V0)+","+str(alpha)+","+str(r)+","+str(delta)+","+str(mu_c)+","+str(rho)
+        +","+str(theta)+","+str(sigma)+","+str(c))
     
     os.system("make run")#Executa o modelo C++
     tempoPt = np.empty(0)

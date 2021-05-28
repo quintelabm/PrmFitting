@@ -14,9 +14,8 @@ import time
 # --- CONSTANTS ----------------------------------------------------------------+
 
 cost_func = viralmodelfit                                  # Cost function
-# Bounds   alpha*     r*      delta*    mu_c*    rho*   epsilon_r  epsilon_alpha
-# bounds = [(20,60),(0.1,10),(0.01,2),(0.1,2),(5,15),(0.1,0.99),(0.1,0.99)]
-bounds = [(20,60),(0.1,10),(0.01,2),(0.1,2),(1,15)]
+# Bounds   alpha*    r*     delta*    mu_c*  rho* , theta, sigma    c
+bounds = [(20,60),(0.1,10),(0.01,2),(0.1,2),(1,15), (1,2), (1,2), (10,25)]
 popsize = 40                                               # Population size
 # Mutation factor [0,2]
 mutate = 0.7
@@ -27,16 +26,16 @@ maxiter = 40
 
 # Vetor com todos os pacientes
 patients = []
-PATB07 = [4.2227]
-PATB09 = [6.2734]
-PATB08 = [5.6546]
-PATB16 = [6.3541]
-PATB17 = [6.4885]
-PATB06 = [6.3780]
-PATC05 = [6.394490]
-PATC06 = [6.839431]
-PATC09 = [6.424965]
-PATC10 = [5.583842]
+PATB07 = [4.1510]
+PATB09 = [6.3541]
+PATB08 = [5.7831]
+PATB16 = [6.2943]
+PATB17 = [6.1927]
+PATB06 = [6.2584]
+PATC05 = [6.208568]
+PATC06 = [6.808956]
+PATC09 = [6.296968]
+PATC10 = [5.547272]
 
 patients.append(PATB07)
 patients.append(PATB09)
