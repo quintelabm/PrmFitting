@@ -14,6 +14,7 @@ import time
 
 cost_func = viralmodelfit                                  #Cost function
 bounds = [(0.1,0.99),(0.1,0.99),(0.1,0.99),(1,2),(1,2)] 
+array_param = "epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c"
 #     epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c 
 popsize = 50                                               #Population size
 # Mutation factor [0,2]
@@ -67,6 +68,8 @@ if __name__ == "__main__":
     saida.writelines("\n\n-------NOVA TENTATIVA-------\n\n")
     saida.writelines('Population size: ' + str(popsize) +
                      '\nNumber of generations: ' + str(maxiter) + '\n')
+    saida.writelines(array_param + '\n')
+
     saida.close()
     pat_cont = 1
     for pat in patients:
