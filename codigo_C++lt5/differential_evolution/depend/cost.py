@@ -5,7 +5,6 @@ import os
 
 #recebe como parametro os parametros estocasticos, individuos, e os valores experimentais
 def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
-    
     epsilon_r = poi[0]
     epsilon_alpha = poi[1]
     epsilon_s = poi[2]
@@ -44,22 +43,27 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
     os.system("make run")#Executa o modelo C++
     tempoPt = np.empty(0)
     V = np.empty(0)
+    V_log = np.empty(0)
     with open("saida.txt", 'r') as f:
         lista = [line.split(',')  for line in f]
         for linha in lista:
             tempoPt = np.append(tempoPt, float(linha[0]))
             V = np.append(V, float(linha[1]))
     try:
-        # Passa para a base log o resultado
-        V_log = np.log10(V)
-        
-        V_pts = []
-        for t in t_exp[pat_cont]:
-            V_pts.append(V_log[int(t*100+1)])
-        plt.plot(tempoPt, V_log, '-g')
-        
-        dst = distance.euclidean(V_pts, exp)/len(V_pts)
+      # Passa para a base log o resultado
+      V_log = np.log10(V)
     except:
-        dst = 10000
-        pass
+      dst = 10000
+      print(dst)
+      return dst
+    V_pts = []
+    for t in t_exp[pat_cont]:
+      V_pts.append(V_log[int(t*100+1)])
+    plt.plot(tempoPt, V_log, '-g')
+    
+    plt.plot(t_exp, exp)
+    
+    dst = distance.euclidean(V_pts, exp)/len(V_pts)
+  
+    print(dst)
     return dst

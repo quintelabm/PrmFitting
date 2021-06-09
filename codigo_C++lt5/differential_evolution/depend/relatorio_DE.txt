@@ -178,3 +178,289 @@ Custo do melhor conjunto de parametros: 0.6761566513175593
 
 O melhor conjunto de parametros: [0.16384303 0.62968276 0.93021171 1.76255778 1.00043483]
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
