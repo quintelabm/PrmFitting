@@ -52,18 +52,15 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
     try:
       # Passa para a base log o resultado
       V_log = np.log10(V)
+      V_pts = []
+      for t in t_exp[pat_cont]:
+        V_pts.append(V_log[int(t*100+1)])
+      plt.plot(tempoPt, V_log, '-g')
+      
+      plt.plot(t_exp[pat_cont], exp, 'or')
+      
+      dst = distance.euclidean(V_pts, exp)/len(V_pts)
     except:
       dst = 10000
-      print(dst)
       return dst
-    V_pts = []
-    for t in t_exp[pat_cont]:
-      V_pts.append(V_log[int(t*100+1)])
-    plt.plot(tempoPt, V_log, '-g')
-    
-    plt.plot(t_exp[pat_cont], exp)
-    
-    dst = distance.euclidean(V_pts, exp)/len(V_pts)
-  
-    print(dst)
     return dst
