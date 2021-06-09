@@ -2,7 +2,7 @@ import numpy as np
 from scipy.spatial import distance
 import matplotlib.pyplot as plt
 import os
-
+np.warnings.filterwarnings('ignore', category=np.VisibleDeprecationWarning)
 #recebe como parametro os parametros estocasticos, individuos, e os valores experimentais
 def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
     epsilon_r = poi[0]
@@ -61,7 +61,7 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
       V_pts.append(V_log[int(t*100+1)])
     plt.plot(tempoPt, V_log, '-g')
     
-    plt.plot(t_exp, exp)
+    plt.plot(t_exp[pat_cont], exp)
     
     dst = distance.euclidean(V_pts, exp)/len(V_pts)
   

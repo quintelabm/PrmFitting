@@ -464,3 +464,19 @@ Number of generations: 50
 epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
 1 Patient
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 50
+Number of generations: 50
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
