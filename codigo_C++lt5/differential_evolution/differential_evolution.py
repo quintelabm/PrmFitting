@@ -16,13 +16,13 @@ cost_func = viralmodelfit                                  #Cost function
 bounds = [(0.1,0.99),(0.1,0.99),(0.1,0.99),(1,2),(1,2)] 
 array_param = "epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c"
 #     epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c 
-popsize = 50                                               #Population size
+popsize = 30                                               #Population size
 # Mutation factor [0,2]
 mutate = 0.7
 # Recombination rate [0,1]
 recombination = 0.5
 # Max number of generations (maxiter)
-maxiter = 50
+maxiter = 0
 
 # Vetor com todos os pacientes
 patients = []
@@ -114,6 +114,7 @@ if __name__ == "__main__":
 
         plt.xlabel("dias")
         plt.ylabel("Carga viral $log_{10}$")
+        plt.legend()
         # Plot da solucao com os melhores parametros
         cost_func(sol_pat.x, pat, (10**pat[0]), pat_cont-1, t_exp)
         print('\nCusto do melhor conjunto de parametros: ' +

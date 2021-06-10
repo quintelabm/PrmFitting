@@ -2,6 +2,8 @@ import numpy as np
 from scipy.spatial import distance
 import matplotlib.pyplot as plt
 import os
+from scipy.interpolate import InterpolatedUnivariateSpline
+
 np.warnings.filterwarnings('ignore', category=np.VisibleDeprecationWarning)
 #recebe como parametro os parametros estocasticos, individuos, e os valores experimentais
 def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
@@ -39,7 +41,8 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
         ","+str(kappa_t)+","+str(kappa_c)+","+str(param_pat_fixados[0])+","+str(param_pat_fixados[1])+
         ","+str(param_pat_fixados[2])+","+str(param_pat_fixados[3])+","+str(param_pat_fixados[4])+
         ","+str(param_pat_fixados[5])+","+str(param_pat_fixados[6])+","+str(param_pat_fixados[7]))
-    
+    os.system("make clean")
+    os.system("make")
     os.system("make run")#Executa o modelo C++
     tempoPt = np.empty(0)
     V = np.empty(0)
@@ -55,10 +58,16 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
       V_pts = []
       for t in t_exp[pat_cont]:
         V_pts.append(V_log[int(t*100+1)])
-      plt.plot(tempoPt, V_log, '-g')
+      ius = InterpolatedUnivariateSpline(t_exp[pat_cont], exp)
+    
+      yi = ius(tempoPt)
       
-      plt.plot(t_exp[pat_cont], exp, 'or')
-      
+      # dst = distance.euclidean(V_log, yi) Fica muito ruim
+      plt.plot(tempoPt, V_log, '-g', label='Modelo')
+      # plt.plot(t_exp[pat_cont], V_pts, '^g') Prova de que esta pegando os pontos certos
+      plt.plot(t_exp[pat_cont], exp, 'or', label='dados experimentais')
+      plt.plot(tempoPt, yi, '--r', label='polinomio')
+      # plt.show()
       dst = distance.euclidean(V_pts, exp)/len(V_pts)
     except:
       dst = 10000

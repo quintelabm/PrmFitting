@@ -204,7 +204,7 @@ void HCV_Model::initialize(){
     tau   = 0.50;
     n     = 1.00;
     k     = 0.80;
-    // mu_t  = 0.89; 
+    mu_t  = 0.89; 
     // mu_c  = 2.55; 
     // sigma = 1.30;
     // theta = 1.20;
