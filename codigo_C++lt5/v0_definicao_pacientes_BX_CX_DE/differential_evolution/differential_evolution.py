@@ -17,13 +17,13 @@ cost_func = viralmodelfit                                  # Cost function
 # Bounds   alpha*    r*     delta*    mu_c*  rho* , theta, sigma    c
 bounds = [(20,60),(0.1,10),(0.01,2),(0.1,2),(1,15), (1,2), (1,2), (10,25)]
 array_param = "alpha, r, delta, mu_c, rho, theta, sigma, c"
-popsize = 40                                               # Population size
+popsize = 10                                               # Population size
 # Mutation factor [0,2]
 mutate = 0.7
 # Recombination rate [0,1]
 recombination = 0.5
 # Max number of generations (maxiter)
-maxiter = 40
+maxiter = 10
 
 # Vetor com todos os pacientes
 patients = []

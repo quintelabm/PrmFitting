@@ -10,37 +10,20 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
     epsilon_r = poi[0]
     epsilon_alpha = poi[1]
     epsilon_s = poi[2]
-    kappa_t = poi[3]
-    kappa_c = poi[4]
+    alpha = poi[3]
+    r = poi[4]
+    delta = poi[5]
+    mu_c = poi[6]
+    rho = poi[7]
+    theta = poi[8]
+    sigma = poi[9]
+    c = poi[10]
 
-    param_fixados = [[50.79045657,  0.28635711,  1.44320029,  1.62737769,  5.54053499,  1.35017632,
-  1.08556533, 19.75186589],
-    [47.43399187,  1.31253404,  1.34881359,  1.56992606 , 7.17867972 , 1.45425331,
-  1.18953957 ,17.68123129],
-    [21.89653548 , 0.49846047 , 0.62618439 , 1.40645206, 10.26735378 , 1.69266101,
-  1.01005749, 10.28375646],
-    [23.77001288,  2.86177985,  1.72165976,  0.83277745 , 3.06722576 , 1.59824232,
-  1.68726557 ,16.12291485],
-    [57.2214857,   1.07688969 , 1.76686689 , 1.67198125 ,13.26593168 , 1.36026391,
-  1.35933788, 15.67626232],
-    [39.75636044,  1.26967926 , 1.74260023 , 0.68097692, 13.90182105  ,1.33475382,
-  1.41948718 ,16.92846897],
-    [24.73436476,  1.90594692,  1.24535908 , 0.95938638 , 5.46734905  ,1.31107016,
-  1.55127437 ,22.57429968],
-    [24.06566535,  2.25882618 , 1.18414759,  0.90286285 , 7.69214418,  1.30902344,
-  1.79985456 ,11.97889563],
-    [31.31166921 , 3.24107381 , 1.72588821,  0.61336909 , 1.06576933 , 1.31907584,
-  1.09225015 ,13.90359195],
-    [29.2164192 ,  0.43273399  ,1.48494351  ,1.28492415, 13.71920283 , 1.99506034,
-  1.54772895, 14.45624281]]
-
-    param_pat_fixados = param_fixados[pat_cont]
-    
     with open('parametros_DE.txt', 'w') as filep:
         filep.write(str(V0)+","+str(epsilon_r)+","+str(epsilon_alpha)+","+str(epsilon_s)+
-        ","+str(kappa_t)+","+str(kappa_c)+","+str(param_pat_fixados[0])+","+str(param_pat_fixados[1])+
-        ","+str(param_pat_fixados[2])+","+str(param_pat_fixados[3])+","+str(param_pat_fixados[4])+
-        ","+str(param_pat_fixados[5])+","+str(param_pat_fixados[6])+","+str(param_pat_fixados[7]))
+        ","+str(alpha)+","+str(r)+","+str(delta)+
+        ","+str(mu_c)+","+str(rho)+","+str(theta)+
+        ","+str(sigma)+","+str(c))
     os.system("make clean")
     os.system("make")
     os.system("make run")#Executa o modelo C++
@@ -58,18 +41,16 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
       V_pts = []
       for t in t_exp[pat_cont]:
         V_pts.append(V_log[int(t*100+1)])
-      ius = InterpolatedUnivariateSpline(t_exp[pat_cont], exp)
-    
-      yi = ius(tempoPt)
+      #ius = InterpolatedUnivariateSpline(t_exp[pat_cont], exp)
+      #yi = ius(tempoPt)
+      #plt.plot(tempoPt, yi, '--r', label='polinomio')
       
       # dst = distance.euclidean(V_log, yi) Fica muito ruim
       plt.plot(tempoPt, V_log, '-g', label='Modelo')
       # plt.plot(t_exp[pat_cont], V_pts, '^g') Prova de que esta pegando os pontos certos
       plt.plot(t_exp[pat_cont], exp, 'or', label='dados experimentais')
-      plt.plot(tempoPt, yi, '--r', label='polinomio')
       # plt.show()
       dst = distance.euclidean(V_pts, exp)/len(V_pts)
     except:
-      dst = 10000
-      return dst
+      dst = 1000
     return dst

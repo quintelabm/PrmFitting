@@ -188,3 +188,39 @@ Number of generations: 0
 epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
 1 Patient
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 30
+Number of generations: 0
+epsilon_r, epsilon_alpha, epsilon_s,  k_t,  k_c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 10
+Number of generations: 10
+alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 30
+Number of generations: 0
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 30
+Number of generations: 30
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+

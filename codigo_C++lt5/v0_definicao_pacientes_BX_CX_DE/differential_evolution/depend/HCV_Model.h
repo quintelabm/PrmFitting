@@ -145,7 +145,7 @@ void HCV_Model::initialize(){
     /**
     * number of days simulated
     */
-    days      = 1;
+    days      = 1;// nao importa. só vai gerar as ICs. Tem que mudar linha 401: do... while()
     /**
     * number of points saved
     */
@@ -261,7 +261,7 @@ void HCV_Model::initialize(){
         //printf("a = %d Rt = %.4lf Rp = %.4lf Rn = %.4lf \n", a, Rt[0][a], Rp[0][a], Rn[0][a]);
     }
     
-    N = calcIntegral2(0.0, 20.0, Rp, Rt, delta, rho, deltaA); 
+    N = calcIntegral2(0.0, AGE, Rp, Rt, delta, rho, deltaA); 
     T = c / (beta * N);                                       
     V = (s - (d * T)) / (beta * T);
     I[0][0] = beta * T * V;

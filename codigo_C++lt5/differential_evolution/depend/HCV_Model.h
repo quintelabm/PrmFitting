@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const int    TIME  = 50; //tempo de simulacao
+// const int    TIME  = 50; //tempo de simulacao
 const int    AGE   = 500; // idade da infecao (dias)
 const int    buffer   = 2;
 
@@ -122,12 +122,6 @@ void HCV_Model::initialize(){
     epsilon_s = atof(aux_string.c_str());
 
     getline(param, aux_string, ',');
-    kappa_t = atof(aux_string.c_str());
-
-    getline(param, aux_string, ',');
-    kappa_c = atof(aux_string.c_str());
-
-    getline(param, aux_string, ',');
     alpha = atof(aux_string.c_str());
 
     getline(param, aux_string, ',');
@@ -214,8 +208,8 @@ void HCV_Model::initialize(){
     // epsilon_alpha = 0.928;
     // epsilon_r     = 0.47; 
     // epsilon_s     = 0.998;
-    // kappa_t       = 1.00;
-    // kappa_c       = 1.00;
+    kappa_t       = 1.00;
+    kappa_c       = 1.00;
     
     if ((sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t) <=0) || (alpha*r -
      (sigma + rho + mu_c - (sigma*theta)/(theta + rho + mu_t))*mu_c<=0)){
@@ -223,9 +217,9 @@ void HCV_Model::initialize(){
         theta = 1.20;
         epsilon_alpha = 0.928;
         epsilon_r =0.47;
-        cout << "caiu nas condiçoes de estabilidade!!!!" << endl;
+        // cout << "caiu nas condiçoes de estabilidade!!!!" << endl;
     }else{
-        cout << "Não entrou nas condiçoes de estabilidade!!!!" << endl;
+        // cout << "Não entrou nas condiçoes de estabilidade!!!!" << endl;
     }
     
     /**
@@ -272,9 +266,9 @@ void HCV_Model::initialize(){
         //printf("a = %d Rt = %.4lf Rp = %.4lf Rn = %.4lf \n", a, Rt[0][a], Rp[0][a], Rn[0][a]);
     }
     
-    N = calcIntegral2(0.0, 20.0, Rp, Rt, delta, rho, deltaA); 
+    N = calcIntegral2(0.0, AGE, Rp, Rt, delta, rho, deltaA); 
     T = c / (beta * N);                                       
-    V = (s - (d * T)) / (beta * T);
+    V = V0; //fixar baseado na outra DE
     I[0][0] = beta * T * V;
 
     double delta1;
