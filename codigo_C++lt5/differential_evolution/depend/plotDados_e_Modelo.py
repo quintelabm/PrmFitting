@@ -54,8 +54,20 @@ patients.append(PATC10)
 ####SELECIONE AQUI O PACIENTE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 pat_select = 0#1#2#...
 
-plt.plot(t_exp[pat_select], patients[pat_select], 'or', label="dados experimentais")
-plt.plot(tempo, viral_load, '-b', label="resultado do modelo em C++")
+pat_name = []
+pat_name.append("PATB07")
+pat_name.append("PATB09")
+pat_name.append("PATB08")
+pat_name.append("PATB16")
+pat_name.append("PATB17")
+pat_name.append("PATB06")
+pat_name.append("PATC05")
+pat_name.append("PATC06")
+pat_name.append("PATC09")
+pat_name.append("PATC10")
+plt.plot(t_exp[pat_select], patients[pat_select], 'or', label="experimental data")
+plt.plot(tempo, viral_load, '-b', label="results model C++")
+plt.title(pat_name[pat_select])
 plt.ylabel("Viral load $log_{10}$")
 plt.xlabel("Days")
 plt.legend()
