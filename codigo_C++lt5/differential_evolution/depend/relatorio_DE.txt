@@ -286,3 +286,198 @@ Custo do melhor conjunto de parametros: 0.06139053523005171
 O melhor conjunto de parametros: [ 0.91412008  0.92584465  0.95821606 25.1334769   2.12234684  0.22813056
   0.26382177 10.85085191  1.23614772  1.89389546 11.83417401]
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 5
+Number of generations: 2
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+Tempo de execução: 93.3360 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.70368305  0.29680634  0.78313084 39.34350614  6.09526501  0.13716375
+  1.25415186  4.5418413   1.80057281  1.9677446  22.81983936]
+
+2 Patient
+
+Tempo de execução: 92.5678 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.58068265  0.54483913  0.75457418 24.57911898  6.36314321  0.12401939
+  0.39115517  7.78481643  1.72998417  1.21103716 22.26078406]
+
+3 Patient
+
+Tempo de execução: 91.5299 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.21997587  0.86778388  0.38807534 33.52084497  7.15893792  1.32285678
+  0.5208101   4.41138827  1.99051668  1.07753506 14.04279724]
+
+4 Patient
+
+Tempo de execução: 92.4022 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.64663617  0.52766693  0.37224233 22.03873108  1.14307941  1.69092256
+  0.74000806 10.06061904  1.44235355  1.57412878 20.67728106]
+
+5 Patient
+
+Tempo de execução: 92.2967 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.92025455  0.22067158  0.54277882 33.66195042  5.12133194  0.28145613
+  0.73446852  2.17161052  1.29178266  1.31071897 23.86499533]
+
+6 Patient
+
+Tempo de execução: 91.8539 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.72280838  0.85216621  0.57729507 41.14904365  9.78240259  1.9965847
+  0.4976133   5.28616519  1.02089324  1.29730523 10.55477953]
+
+7 Patient
+
+Tempo de execução: 91.7286 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.40913404  0.16742358  0.98188304 20.42389251  8.35209198  1.10860571
+  0.38118873  2.30359784  1.37215582  1.19197919 16.99338976]
+
+8 Patient
+
+Tempo de execução: 92.0475 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.11665519  0.86723058  0.59519281 57.33738816  3.0958824   1.7831216
+  0.58941024 14.02238014  1.51088479  1.63403684 23.05127266]
+
+9 Patient
+
+Tempo de execução: 92.7697 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.81725439  0.46875625  0.32481138 58.37650743  5.25149719  0.17875657
+  0.22520132  8.2268444   1.79735495  1.37781432 16.54014953]
+
+10 Patient
+
+Tempo de execução: 158.6914 segundos
+Custo do melhor conjunto de parametros: 0.07560337371092363
+
+
+O melhor conjunto de parametros: [ 0.24617007  0.81304663  0.67535156 26.3254588   6.09715868  0.48055811
+  1.75354595  7.12303095  1.09777306  1.15006249 14.63720837]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 5
+Number of generations: 2
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+Tempo de execução: 271.3541 segundos
+Custo do melhor conjunto de parametros: 0.06848278136645805
+
+
+O melhor conjunto de parametros: [ 0.21328854  0.77012995  0.27267007 55.93588412  0.75371893  0.82840068
+  0.47720638 11.96986673  1.43891746  1.12162695 16.04054513]
+
+2 Patient
+
+Tempo de execução: 172.3739 segundos
+Custo do melhor conjunto de parametros: 0.15567776271626296
+
+
+O melhor conjunto de parametros: [ 0.22340644  0.18190207  0.76824116 23.42441681  0.64294041  0.86136233
+  0.3565389  13.99337493  1.58584377  1.54388887 14.13681923]
+
+3 Patient
+
+Tempo de execução: 166.0427 segundos
+Custo do melhor conjunto de parametros: 0.0853522638681946
+
+
+O melhor conjunto de parametros: [ 0.1800679   0.61901485  0.29539301 32.68686742  5.78283591  0.43376222
+  0.25393627 12.59239726  1.41151589  1.85593653 18.20007624]
+
+4 Patient
+
+Tempo de execução: 164.9246 segundos
+Custo do melhor conjunto de parametros: 0.06948454130306927
+
+
+O melhor conjunto de parametros: [ 0.81411627  0.52094529  0.79666516 26.09491014  7.26632536  0.21223749
+  1.49377496 11.81179362  1.87508287  1.72105441 15.19706303]
+
+5 Patient
+
+Tempo de execução: 208.8498 segundos
+Custo do melhor conjunto de parametros: 0.09877437214570055
+
+
+O melhor conjunto de parametros: [2.49930915e-01 5.95752760e-01 9.46488127e-01 3.54099706e+01
+ 1.60690612e+00 3.00600183e-02 1.51693918e+00 1.12653585e+00
+ 1.37966354e+00 1.96754656e+00 1.20507683e+01]
+
+6 Patient
+
+Tempo de execução: 171.2842 segundos
+Custo do melhor conjunto de parametros: 0.07484699732443502
+
+
+O melhor conjunto de parametros: [ 0.81219724  0.78713918  0.94361962 30.52845537  1.97775193  1.17563092
+  0.42268389  8.22151864  1.32349636  1.86201733 13.25092758]
+
+7 Patient
+
+Tempo de execução: 163.0853 segundos
+Custo do melhor conjunto de parametros: 0.08473215291092243
+
+
+O melhor conjunto de parametros: [ 0.71961609  0.69413495  0.82022979 40.51249286  5.03688438  1.08665312
+  1.15330347 12.45433032  1.73974371  1.14149735 10.86318265]
+
+8 Patient
+
+Tempo de execução: 167.0396 segundos
+Custo do melhor conjunto de parametros: 0.08081881185419197
+
+
+O melhor conjunto de parametros: [ 0.24669307  0.79029604  0.48897819 28.71872332  8.04604786  0.21331073
+  1.39017326 13.08275091  1.1717881   1.59687049 12.06604488]
+
+9 Patient
+
+Tempo de execução: 163.2341 segundos
+Custo do melhor conjunto de parametros: 0.08009651956883986
+
+
+O melhor conjunto de parametros: [ 0.62622802  0.37904731  0.11605481 40.62910798  2.27148771  1.15052251
+  1.41689012  9.08621448  1.73414694  1.65522478 10.01294622]
+
+10 Patient
+
+Tempo de execução: 229.6258 segundos
+Custo do melhor conjunto de parametros: 0.06969873758515607
+
+
+O melhor conjunto de parametros: [ 0.26535525  0.84319021  0.84040501 22.38120125  3.73550613  0.23265822
+  1.73195149  6.90842399  1.70930127  1.33250705 11.60222642]
+
