@@ -47,9 +47,9 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
       
       # dst = distance.euclidean(V_log, yi) Fica muito ruim
       plt.plot(tempoPt, V_log, '-g', label='Modelo')
-      # plt.plot(t_exp[pat_cont], V_pts, '^g') Prova de que esta pegando os pontos certos
+      plt.plot(t_exp[pat_cont], V_pts, '^g')# Prova de que esta pegando os pontos certos
       plt.plot(t_exp[pat_cont], exp, 'or', label='dados experimentais')
-      # plt.show()
+      plt.show()
       dst = distance.euclidean(V_pts, exp)/len(V_pts)
     except:
       dst = 1000

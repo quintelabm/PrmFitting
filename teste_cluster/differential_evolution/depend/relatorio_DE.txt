@@ -497,3 +497,35 @@ Custo do melhor conjunto de parametros: 0.04874440438823964
 O melhor conjunto de parametros: [ 0.11195621  0.83223552  0.20835353 37.99280026  1.00997408  0.32654547
   0.15854512 14.32745201  1.94130815  1.99091771 12.81053005]
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 5
+Number of generations: 2
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+2 Patient
+
+Tempo de execução: 98.5105 segundos
+Custo do melhor conjunto de parametros: 1000.0
+
+
+O melhor conjunto de parametros: [ 0.46099015  0.90306973  0.2416289  49.3804662   2.67453288  0.21242275
+  0.75262918 10.78936036  1.23477325  1.58300306 24.47625986]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 5
+Number of generations: 2
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+2 Patient
+
+Tempo de execução: 429.4859 segundos
+Custo do melhor conjunto de parametros: 0.11458594365040616
+
+
+O melhor conjunto de parametros: [ 0.1873109   0.38749771  0.46654267 31.95011327  0.42494102  0.80153783
+  0.81106208  6.82583957  1.17112151  1.59968312 12.62840383]
+

@@ -15,13 +15,13 @@ import time
 cost_func = viralmodelfit                                  #Cost function
 bounds = [(0.1,0.99),(0.1,0.99),(0.1,0.99),(20,60),(0.1,10),(0.01,2),(0.1,2),(1,15), (1,2), (1,2), (10,25)] 
 array_param = "epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c" 
-popsize = 50                                               #Population size
+popsize = 5                                               #Population size
 # Mutation factor [0,2]
 mutate = 0.7
 # Recombination rate [0,1]
 recombination = 0.5
 # Max number of generations (maxiter)
-maxiter = 100
+maxiter = 2
 
 t_exp = [
         np.array([0.0, 0.04, 0.09, 0.17, 0.34, 0.50, 1.00, 1.50, 2.98, 4.90, 6.94, 10.96, 14.95, 20.96, 28.03]) #PATB09
