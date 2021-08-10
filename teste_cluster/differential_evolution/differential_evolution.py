@@ -15,29 +15,46 @@ import time
 cost_func = viralmodelfit                                  #Cost function
 bounds = [(0.1,0.99),(0.1,0.99),(0.1,0.99),(20,60),(0.1,10),(0.01,2),(0.1,2),(1,15), (1,2), (1,2), (10,25)] 
 array_param = "epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c" 
-popsize = 5                                               #Population size
+popsize = 3                                               #Population size
 # Mutation factor [0,2]
 mutate = 0.7
 # Recombination rate [0,1]
 recombination = 0.5
 # Max number of generations (maxiter)
-maxiter = 2
+maxiter = 1
 
-t_exp = [np.array([0.0, 0.04, 0.08, 0.17, 0.34, 0.50, 1.00, 1.50, 2.96, 3.94, 7.94, 9.95, 14.94, 24.03, 30.94]) #PATC09
+t_exp = [
+        np.array([0, 0.04, 0.08, 0.17, 0.33, 0.50, 0.92, 1.50, 2.95, 4.89, 6.88, 8.85, 13.85, 20.86, 27.96]) #PATB06
+        ,np.array([0,0.04,0.08,0.17,0.33,0.50,1.00,1.50,3.00,6.01,7.01]) #PATB15
+        ,np.array([0,0.04,0.09,0.17,0.33,0.50,1.00,1.50,3.00,4.03,6.99,9.99]) #PATB11
+        ,np.array([0,0.04,0.08,0.17,0.33,0.50,1.00,1.50,3.00,3.95,6.98,9.98]) #PATB10
+        ,np.array([0,0.04,0.08,0.17,0.33,0.51,1.00,1.50,2.87,3.83,8.84]) #PATC04
+        ,np.array([0,0.04,0.08,0.17,0.33,0.50,1.00,1.50,2.94,5.93,7.93,9.94,13.97,20.96]) #PATC16
+        ,np.array([0,0.04,0.08,0.17,0.33,0.50,1.00,1.50]) #PATC15
+        ,np.array([0,0.04,0.09,0.17,0.34,0.50,1.00,1.50,2.91,5.96,8.96]) #PATC17
+        ,np.array([0,0.04,0.08,0.17,0.34,0.50,1.00,1.50,2.97,5.99,7.97]) #PATC14
         ]
 patients = []
-PATB07 = [4.1510, 4.2227, 4.0733, 3.0599, 2.2122, 1.7924, 1.6435, 1.7160, 1.6435, 1.2304, 1.0792, 1.0000, 1.0000, 1.0000, 1.0000]
-PATB09 = [6.3541, 6.2734, 6.0103, 5.9685, 5.6755, 5.5739, 5.4454, 4.9222, 5.1703, 4.8385, 4.1949, 3.0931, 2.1790, 1.5682, 1.5051]
-PATB08 = [5.7831, 5.6546, 5.6486, 4.6203, 3.6876, 3.1526, 2.6355, 2.5302, 2.6294, 2.2788, 2.0719, 1.9031, 1.7924, 1.6335]
-PATB16 = [6.2943, 6.3541, 6.3212, 5.5915, 4.1949, 3.8517, 3.6651, 3.4814, 3.2529, 3.0120, 3.0302, 2.7528, 2.3838, 2.1818, 1.9243]
-PATB17 = [6.1927, 6.4885, 6.5486, 5.6096, 4.4266, 3.8878, 3.2076, 3.1626, 2.9128, 2.8432, 2.7474, 2.7016, 2.3541, 2.0453, 1.4914]
 PATB06 = [6.2584, 6.3780, 6.4109, 5.6277, 4.4948, 3.9268, 3.1973, 2.8537, 2.5340, 2.4378, 2.3404, 2.3345, 2.2355, 2.0492, 2.1173]
-PATC05 = [6.208568, 6.394490, 6.254302, 5.833741, 4.727484, 3.889414, 3.261501, 3.182415, 2.990339, 2.609594, 2.527630, 2.743510, 2.694605, 2.227887, 1.863323]
-PATC06 = [6.808956, 6.839431, 6.735814, 6.452393, 5.340039, 4.581198, 3.481012, 3.164055, 2.780317, 2.484300, 2.509203, 2.369216, 1.949390, 1.623249, 1.556303]
-PATC09 = [6.296968, 6.424965, 6.303063, 6.028728, 4.642148, 4.349588, 3.484015, 3.243286, 2.816904, 2.576341, 2.089905, 2.025306, 1.698970, 1.278754, 1.342423]
-PATC10 = [5.547272, 5.583842, 5.455846, 4.754914, 3.447468, 2.749736, 2.311754, 2.158362, 1.944483, 1.707570, 1.322219, 1.322219, 1.000000, 1.000000]
+PATB15 = [5.3108, 5.2514, 5.2002, 4.0835, 3.2017, 2.9759, 2.1038, 2.1959, 1.3222, 1.0000, 1.1139]
+PATB11 = [6.0881,6.1478,6.0223,5.2421,3.8581,3.4216,2.8808,2.7168,2.2718,2.0170,1.6721,1.3222]
+PATB10 = [6.3840,6.4587,6.4587,6.1718,5.4932,4.9461,3.5412,3.1535,2.4669,2.3945,1.9294,1.6990]
+PATC04 = [6.7323,6.4158,6.5225,5.6844,4.4105,3.8132,3.1732,2.7987,2.5611,2.3962,1.9031]
+PATC16 = [6.1903,6.0958,6.0654,5.4680,4.5812,4.2582,3.7706,3.5206,3.0637,2.6212,2.4728,2.1790,1.7782,1.1461]
+PATC15 = [3.2524, 2.5145, 2.4116, 2.4014, 1.9243, 1.8633, 1.5052, 1.5441]
+PATC17 = [6.0135,5.9922,5.9374,5.3949,3.7766,3.1000,2.6335,2.6304,2.0934,1.4771,1.1761]
+PATC14 = [5.9922,5.8673,5.8764,5.6997,5.0688,4.5903,4.0052,3.3286,2.6702,1.8865,1.5185]
 
-patients.append(PATC09)
+patients.append(PATB06)
+patients.append(PATB15)
+patients.append(PATB11)
+patients.append(PATB10)
+patients.append(PATC04)
+patients.append(PATC16)
+patients.append(PATC15)
+patients.append(PATC17)
+patients.append(PATC14)
+
 # --- RUN ----------------------------------------------------------------------+
 
 if __name__ == "__main__":
@@ -55,8 +72,8 @@ if __name__ == "__main__":
         saida = open(cwd+"/relatorio_DE.txt", "a")
         os.system("make clean")
         os.system("make")
-        print("9 Patient")
-        saida.writelines("9 Patient\n\n")
+        print(pat_cont, " Patient")
+        saida.writelines(str(pat_cont) + " Patient\n\n")
         tic = time.perf_counter()
         sol_pat = differential_evolution(cost_func, bounds, args=(
             pat, 10**pat[0], pat_cont-1, t_exp), maxiter=maxiter, popsize=popsize, mutation=mutate, recombination=recombination)#, tol=0.1)
@@ -70,7 +87,24 @@ if __name__ == "__main__":
         plt.clf()
         # Plot experimental
         plt.plot(t_exp[pat_cont-1], pat, 'ro')
-        plt.title("PATC09")
+        if pat_cont == 1:
+            plt.title("PATB06")
+        elif pat_cont == 2:
+            plt.title("PATB15")
+        elif pat_cont == 3:
+            plt.title("PATB11")
+        elif pat_cont == 4:
+            plt.title("PATB10")
+        elif pat_cont == 5:
+            plt.title("PATC04")
+        elif pat_cont == 6:
+            plt.title("PATC16")
+        elif pat_cont == 7:
+            plt.title("PATC15")
+        elif pat_cont == 8:
+            plt.title("PATC17")
+        elif pat_cont == 9:
+            plt.title("PATC14")
 
         plt.xlabel("dias")
         plt.ylabel("Carga viral $log_{10}$")
@@ -80,7 +114,7 @@ if __name__ == "__main__":
         print('\nCusto do melhor conjunto de parametros: ' +
               str(sol_pat.fun) + '\n\n')
         print('\nO melhor conjunto de parametros: '+str(sol_pat.x) + '\n\n')
-        plt.savefig("../figs/pat_9NGem_" +
+        plt.savefig("../figs/pat_"+str(pat_cont)+"NGem_" +
                     str(maxiter)+"NPop_"+str(popsize)+".png")
 
         pat_cont += 1
