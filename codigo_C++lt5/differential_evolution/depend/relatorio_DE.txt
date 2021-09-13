@@ -175,3 +175,80 @@ Custo do melhor conjunto de parametros: 0.12176387686402093
 O melhor conjunto de parametros: [ 0.64315135  0.72286443  0.79502141 30.03021343  4.22799334  1.85218844
   1.5545349  14.10583354  1.30571844  1.60958322 10.88521979]
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 30
+Number of generations: 30
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+Tempo de execução: 15759.9200 segundos
+Custo do melhor conjunto de parametros: 0.036771145597700845
+
+
+O melhor conjunto de parametros: [ 0.31725551  0.75344094  0.26656153 33.50877381  3.58064537  0.05639894
+  1.64159481  7.92005485  1.1755841   1.43566936 12.82629865]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 30
+Number of generations: 30
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+Tempo de execução: 15871.3063 segundos
+Custo do melhor conjunto de parametros: 0.03722865971013627
+
+
+O melhor conjunto de parametros: [ 0.75872635  0.70061898  0.54744178 30.82210068  7.70604301  0.07392793
+  1.4049505  13.48064292  1.18071849  1.0885278  13.28720728]
+
+2 Patient
+
+Tempo de execução: 16795.9178 segundos
+Custo do melhor conjunto de parametros: 0.04554531080474569
+
+
+O melhor conjunto de parametros: [ 0.28222842  0.66834736  0.6486013  34.85189093  0.28758789  0.50692094
+  0.24116829 11.97826871  1.96749891  1.5104306  16.14767842]
+
+3 Patient
+
+Tempo de execução: 17074.1487 segundos
+Custo do melhor conjunto de parametros: 0.04651476427464017
+
+
+O melhor conjunto de parametros: [ 0.91215885  0.49693686  0.93953067 29.40459237  7.68942809  0.14048552
+  1.84633391 13.92980265  1.92418133  1.17509613 11.13734977]
+
+4 Patient
+
+Tempo de execução: 18045.6406 segundos
+Custo do melhor conjunto de parametros: 0.05818787666613312
+
+
+O melhor conjunto de parametros: [ 0.19615326  0.91975414  0.76369041 57.71312021  2.33937683  0.0671441
+  0.68692254 11.96811295  1.21253232  1.25191448 11.14210376]
+
+5 Patient
+
+Tempo de execução: 17718.3443 segundos
+Custo do melhor conjunto de parametros: 0.05364954022760599
+
+
+O melhor conjunto de parametros: [ 0.40795188  0.85662938  0.38576463 31.08294829  4.83680354  0.38578465
+  0.55534497 11.04482823  1.19384239  1.57343438 12.30202224]
+
+6 Patient
+
+Tempo de execução: 17242.0681 segundos
+Custo do melhor conjunto de parametros: 0.08604097961234176
+
+
+O melhor conjunto de parametros: [ 0.95100641  0.899635    0.78708642 54.53634641  1.18793994  1.81828446
+  0.15920929  5.96079373  1.39010928  1.57614569 10.20119126]
+

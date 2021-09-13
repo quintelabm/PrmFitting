@@ -12,3 +12,21 @@ epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
 Population size: 5
 Number of generations: 2
 epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 30
+Number of generations: 30
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 30
+Number of generations: 30
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
