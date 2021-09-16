@@ -150,7 +150,7 @@ void HCV_Model::initialize(){
     /**
     * number of days simulated
     */
-    days      = 70;
+    days      = 73;
     /**
     * number of points saved
     */
