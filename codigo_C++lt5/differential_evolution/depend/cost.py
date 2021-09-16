@@ -24,8 +24,8 @@ def viralmodelfit(poi, exp, V0, pat_cont, t_exp):
         ","+str(alpha)+","+str(r)+","+str(delta)+
         ","+str(mu_c)+","+str(rho)+","+str(theta)+
         ","+str(sigma)+","+str(c))
-    os.system("make clean")
-    os.system("make")
+    #os.system("make clean")
+    #os.system("make")
     os.system("make run")#Executa o modelo C++
     tempoPt = np.empty(0)
     V = np.empty(0)

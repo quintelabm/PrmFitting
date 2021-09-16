@@ -109,3 +109,114 @@ Custo do melhor conjunto de parametros: 0.05870949023164456
 O melhor conjunto de parametros: [ 0.87018451  0.41190699  0.65433585 41.45090152  1.81928674  1.94819732
   1.65976644  2.66107099  1.23166848  1.66147886 10.13736079]
 
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 1
+Number of generations: 1
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+Tempo de execução: 105.5203 segundos
+Custo do melhor conjunto de parametros: 0.11709593668410481
+
+
+O melhor conjunto de parametros: [ 0.42758772  0.64893521  0.73650188 30.89475184  3.01162668  0.84183837
+  1.51283147  5.75549953  1.39680689  1.11166947 13.9230089 ]
+
+2 Patient
+
+Tempo de execução: 50.8034 segundos
+Custo do melhor conjunto de parametros: 0.17684154826399154
+
+
+O melhor conjunto de parametros: [ 0.65087527  0.74995257  0.50219004 50.22997823  1.91176661  1.83785889
+  0.38836439  8.99181853  1.31058949  1.83388588 15.4813598 ]
+
+3 Patient
+
+Tempo de execução: 410.5772 segundos
+Custo do melhor conjunto de parametros: 0.10041792329221479
+
+
+O melhor conjunto de parametros: [ 0.9256461   0.5742348   0.62107037 57.50251893  3.02518519  1.62895218
+  0.68522913 13.33397583  1.13389366  1.40546915 13.38486459]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 30
+Number of generations: 30
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 1
+Number of generations: 1
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+1 Patient
+
+Tempo de execução: 18.2119 segundos
+Custo do melhor conjunto de parametros: 0.14826663829173162
+
+
+O melhor conjunto de parametros: [ 0.79799178  0.35679949  0.9294078  24.30165611  2.50242098  1.07713882
+  1.14587078 13.50808116  1.76952793  1.51231995 22.91349082]
+
+2 Patient
+
+Tempo de execução: 101.3586 segundos
+Custo do melhor conjunto de parametros: 0.14329780775360557
+
+
+O melhor conjunto de parametros: [ 0.66945253  0.45252741  0.65640505 45.05199936  1.09108031  0.89230817
+  1.13217394 13.12468345  1.26876934  1.00978219 16.48510815]
+
+3 Patient
+
+Tempo de execução: 19.6485 segundos
+Custo do melhor conjunto de parametros: 0.14528764524222365
+
+
+O melhor conjunto de parametros: [ 0.16370966  0.8400603   0.50415034 31.80488256  1.58372733  1.93037924
+  0.62263756  1.24720581  1.45742     1.76187325 16.24148009]
+
+
+
+-------NOVA TENTATIVA-------
+
+Population size: 30
+Number of generations: 30
+epsilon_r, epsilon_alpha, epsilon_s, alpha, r, delta, mu_c, rho, theta, sigma, c
+PATB16 Patient
+
+Tempo de execução: 5267.1378 segundos
+Custo do melhor conjunto de parametros: 0.05526679908740287
+
+
+O melhor conjunto de parametros: [ 0.74571259  0.60914091  0.37809828 24.17278776  3.89468801  0.09233662
+  1.32063672  4.31529123  1.37549584  1.25138428 11.99931134]
+
+PATB10 Patient
+
+Tempo de execução: 5689.7396 segundos
+Custo do melhor conjunto de parametros: 0.08323290100298059
+
+
+O melhor conjunto de parametros: [ 0.7116671   0.83490328  0.21387254 48.76564459  1.45182806  1.62133066
+  0.51986784  4.11277247  1.52380935  1.49601569 10.50378004]
+
+PATC14 Patient
+
+Tempo de execução: 5569.1432 segundos
+Custo do melhor conjunto de parametros: 0.05453333458071169
+
+
+O melhor conjunto de parametros: [ 0.28421834  0.71237902  0.13467246 41.58497553  0.74577491  1.56264662
+  0.83885209  4.70517267  1.20440994  1.43949327 12.08051635]
+
